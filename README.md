@@ -31,8 +31,8 @@ Algorithm<---Computer(Player)<----      Game Board<-----
 The game Board does one thing. It returns the state of the board.
 
 the player does one thing. It makes a change to the state of the board.
-    the computer player calls an algorythm to change the board
-    the human player calls raw_input() to change the board
+- the computer player calls an algorythm to change the board
+- the human player calls raw_input() to change the board
 
 The referee does one thing. It modulates the turns of the game.
 
