@@ -14,3 +14,9 @@ def test_game_board_initial_state():
     test = getattr(board, 'current_board')
     expected = [[0,0,0],[0,0,0],[0,0,0]]
     assert test == expected
+
+def test_game_board_can_be_changed():
+    board = Game_Board()
+    expected = [[0,0,1],[0,0,0],[0,0,0]]
+    board.current_board = expected
+    assert board.current_board == expected 
