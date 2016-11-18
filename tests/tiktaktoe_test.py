@@ -1,5 +1,5 @@
 import nose.tools
-from source import * 
+from source.game_board import * 
 
 
 
