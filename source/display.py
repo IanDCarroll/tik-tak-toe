@@ -12,21 +12,39 @@ class Display():
         print text
 
     def render_board(self, board):
-        board = self.stringify_board(board)
-        line1 = ' ' + board[0] + ' | ' + board[1] + ' | ' + board[2] + ' \n'
-        line2 = ' ' + board[3] + ' | ' + board[4] + ' | ' + board[5] + ' \n'
-        line3 = ' ' + board[6] + ' | ' + board[7] + ' | ' + board[8] + ' \n'
-        wall = "---+---+---\n"
-        rendered_board = '\n' + line1 + wall + line2 + wall + line3
+        rendered_board = self.construct_board(self.stringify_board(board))
         return rendered_board
-
+        
     def stringify_board(self, board):
         for i in range(0, len(board)):
             if board[i] == 0:
-                board[i] = " "
+                board[i] = "   "
             elif board[i] == 1:
-                board[i] = "X"
+                board[i] = " X "
             elif board[i] == 10:
-                board[i] = "O"
+                board[i] = " O "
         return board
 
+    def construct_board(self, board):
+        from math import sqrt
+        board_size = int(sqrt(len(board)))
+        print "board_size: %", board_size
+
+        corner = '+'
+        shelves = []
+        for i in range(0, board_size):
+            shelves.append('---')
+        rack = '\n' + corner.join(shelves) + '\n'
+
+        wall = '|'
+        rows = []
+        for i in range(0, board_size):
+            rows.append([])
+            for j in range(0, board_size):
+                rows[i].append(board.pop(0))
+            working_row = rows[i]
+            rows[i] = wall.join(working_row)
+        grid = '\n' + rack.join(rows) + '\n'
+        return grid
+
+        
