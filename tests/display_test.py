@@ -24,9 +24,6 @@ def test_display_game_over_human_wins():
 def test_display_current_board():
     pass
 
-def test_display_computers_last_move():
-    pass
-
 def test_display_ask_for_human_input():
     display = Display()
     test = display.next_move
