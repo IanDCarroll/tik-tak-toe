@@ -3,7 +3,7 @@ from source.display import *
 
 def test_display_start_of_game():
     display = Display()
-    test = display.show(display.start)
+    test = display.start
     assert test == "Welcome"
 
 def test_display_game_over_draw():
