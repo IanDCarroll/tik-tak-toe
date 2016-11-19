@@ -12,5 +12,11 @@ class Display():
         print text
 
     def render_board(self, board):
-        print str(board)
+        for i in range(0, len(board)):
+            if board[i] == 0:
+                board[i] = " "
+            elif board[i] == 1:
+                board[i] = "X"
+            elif board[i] == 10:
+                board[i] = "O"
         return str(board)
