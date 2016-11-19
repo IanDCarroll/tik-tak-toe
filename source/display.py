@@ -24,5 +24,4 @@ class Display():
         line3 = ' ' + board[6] + ' | ' + board[7] + ' | ' + board[8] + ' \n'
         wall = "---+---+---\n"
         rendered_board = '\n' + line1 + wall + line2 + wall + line3
-        print rendered_board
         return rendered_board
