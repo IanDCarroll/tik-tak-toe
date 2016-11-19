@@ -21,7 +21,8 @@ def test_that_computer_player_can_make_a_move():
 
 def test_that_human_can_only_make_legal_moves():
     bernice = Human()
-    test_true = bernice.check_if_legit(7)
-    test_false = bernice.check_if_legit(4)
+    mock_board = [1,10,1,0,10,0,1,0,10]
+    test_true = bernice.check_if_legit(7, mock_board)
+    test_false = bernice.check_if_legit(4, mock_board)
     assert test_true == True
     assert test_false == False

@@ -16,6 +16,12 @@ class Human(Player):
         board[square] = 10
         return board
 
+    def check_if_legit(self, number, board):
+        if number in self.get_legal_moves(board):
+            return True
+        else:
+            return False
+
 class Computer(Player):
     def move(self, board):
         options = self.get_legal_moves(board)
