@@ -28,7 +28,9 @@ def test_display_computers_last_move():
     pass
 
 def test_display_ask_for_human_input():
-    pass
+    display = Display()
+    test = display.next_move
+    assert test == "What is your next move?"
 
 def test_display_human_made_illegal_move():
     pass
