@@ -19,8 +19,10 @@ class Display():
                 board[i] = "X"
             elif board[i] == 10:
                 board[i] = "O"
-        line1 = board[0] + ' ' + board[1] + ' ' + board[2]
-        line2 = board[3] + ' ' + board[4] + ' ' + board[5]
-        line3 = board[6] + ' ' + board[7] + ' ' + board[8]
-        rendered_board = line1 + '\n' + line2 + '\n' + line3
+        line1 = ' ' + board[0] + ' | ' + board[1] + ' | ' + board[2] + ' \n'
+        line2 = ' ' + board[3] + ' | ' + board[4] + ' | ' + board[5] + ' \n'
+        line3 = ' ' + board[6] + ' | ' + board[7] + ' | ' + board[8] + ' \n'
+        wall = "---+---+---\n"
+        rendered_board = '\n' + line1 + wall + line2 + wall + line3
+        print rendered_board
         return rendered_board
