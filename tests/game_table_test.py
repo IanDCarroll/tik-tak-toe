@@ -3,7 +3,7 @@ from source.game_table import *
 
 
 
-def test_board_returns_a_2Dlist():
+def test_that_board_returns_a_2D_list():
     table_top = TableTop()
     test = all(isinstance(row, list) for row in table_top.board)
     assert test ==  True
