@@ -13,6 +13,8 @@ class Player(object):
 class Human(Player):
     def move(self, board):
         square = raw_input("Which square do you choose? ")
+        if check_if_legit(square, board) == False:
+            self.move()
         board[square] = 10
         return board
 
