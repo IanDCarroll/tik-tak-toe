@@ -33,4 +33,6 @@ def test_display_ask_for_human_input():
     assert test == "What is your next move?"
 
 def test_display_human_made_illegal_move():
-    pass
+    display = Display()
+    test = display.bad_move
+    assert test == "That is not a legal move."
