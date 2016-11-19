@@ -12,4 +12,5 @@ class Display():
         print text
 
     def render_board(self, board):
-        return board
+        print str(board)
+        return str(board)
