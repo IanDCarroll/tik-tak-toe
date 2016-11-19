@@ -12,11 +12,8 @@ class Human(Player):
 class Computer(Player):
     def move(self, board):
         for i in range(0, len(board)):
-            if 0 in board[i]:
-                for j in range(0, len(board[i])):
-                    if board[i][j] == 0:
-                       board[i][j] = 1
-                       break
+            if board[i] == 0:
+                board[i] = 1
                 break
         return board
                    
