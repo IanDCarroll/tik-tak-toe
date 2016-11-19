@@ -18,9 +18,7 @@ class Human(Player):
 
 class Computer(Player):
     def move(self, board):
-        for i in range(0, len(board)):
-            if board[i] == 0:
-                board[i] = 1
-                break
+        options = self.get_legal_moves(board)
+        board[options[0]] = 1
         return board
                    
