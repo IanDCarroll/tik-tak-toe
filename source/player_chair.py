@@ -7,5 +7,5 @@ class Human(Player):
     def move(self, board):
         row = raw_input("Which row do you choose? ")
         col = raw_input("Which column do you choose? ")
-        board[row][col] = 1
+        board[row][col] = 10
         return board
