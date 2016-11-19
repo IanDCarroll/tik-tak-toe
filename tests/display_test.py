@@ -12,7 +12,9 @@ def test_display_game_over_draw():
     assert test == "Draw"
 
 def test_display_game_over_computer_wins():
-    pass
+    display = Display()
+    test = display.computer
+    assert test == "Computer Wins"
 
 def test_display_game_over_human_wins():
     pass
