@@ -22,7 +22,11 @@ def test_display_game_over_human_wins():
     assert test == "You Win"
 
 def test_display_current_board():
-    pass
+    display = Display()
+    mock_board = [1,10,1,0,10,0,1,0,10]
+    test = display.render_board(mock_board)
+    expected = [1,10,1,0,10,0,1,0,10]
+    assert test == expected
 
 def test_display_ask_for_human_input():
     display = Display()
