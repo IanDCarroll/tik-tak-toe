@@ -7,7 +7,9 @@ def test_display_start_of_game():
     assert test == "Welcome"
 
 def test_display_game_over_draw():
-    pass
+    display = Display()
+    test = display.draw
+    assert test == "Draw"
 
 def test_display_game_over_computer_wins():
     pass
