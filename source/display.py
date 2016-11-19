@@ -27,8 +27,22 @@ class Display():
         return board
 
     def construct_board(self, board):
+        rack = self.construct_rack(board)
+        rows = self.construct_rows(board)
+        constructed_board = '\n' + rack.join(rows) + '\n'
+        return constructed_board
+
+    def construct_rack(self, board):
         board_size = self.get_board_size(board)
-        rack = self.construct_rack(board_size)
+        corner = '+'
+        shelves = []
+        for i in range(0, board_size):
+            shelves.append('---')
+        rack = '\n' + corner.join(shelves) + '\n'
+        return rack
+
+    def construct_rows(self, board):
+        board_size = self.get_board_size(board)
         wall = '|'
         rows = []
         for i in range(0, board_size):
@@ -37,18 +51,8 @@ class Display():
                 rows[i].append(board.pop(0))
             working_row = rows[i]
             rows[i] = wall.join(working_row)
-        constructed_board = '\n' + rack.join(rows) + '\n'
-        return constructed_board
+        return rows
 
     def get_board_size(self, board):
         from math import sqrt
-        return int(sqrt(len(board)))      
-
-    def construct_rack(self, board_size):
-        corner = '+'
-        shelves = []
-        for i in range(0, board_size):
-            shelves.append('---')
-        rack = '\n' + corner.join(shelves) + '\n'
-        return rack
-
+        return int(sqrt(len(board))) 
