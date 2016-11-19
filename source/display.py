@@ -10,3 +10,6 @@ class Display():
 
     def show(self, text):
         print text
+
+    def render_board(self, board):
+        return board
