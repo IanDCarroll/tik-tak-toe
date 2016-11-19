@@ -28,7 +28,7 @@ def test_display_current_board():
     expected = """
  X | O | X 
 ---+---+---
-   | O |  
+   | O |   
 ---+---+---
  X |   | O 
 """
