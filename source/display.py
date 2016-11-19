@@ -4,4 +4,4 @@ class Display():
         self.start = "Welcome"
 
     def show(self, text):
-        return text
+        print text
