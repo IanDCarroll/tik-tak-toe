@@ -19,4 +19,8 @@ class Display():
                 board[i] = "X"
             elif board[i] == 10:
                 board[i] = "O"
-        return str(board)
+        line1 = board[0] + ' ' + board[1] + ' ' + board[2]
+        line2 = board[3] + ' ' + board[4] + ' ' + board[5]
+        line3 = board[6] + ' ' + board[7] + ' ' + board[8]
+        rendered_board = line1 + '\n' + line2 + '\n' + line3
+        return rendered_board
