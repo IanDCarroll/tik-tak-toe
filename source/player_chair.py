@@ -13,16 +13,14 @@ class Player(object):
 class Human(Player):
     def move(self, board):
         square = raw_input("Which square do you choose? ")
-        if check_if_legit(square, board) == False:
-            self.move()
+        check_if_legit(square, board)
         board[square] = 10
         return board
 
     def check_if_legit(self, number, board):
-        if number in self.get_legal_moves(board):
-            return True
-        else:
-            return False
+        if number not in self.get_legal_moves(board):
+            self.move(board)
+            
 
 class Computer(Player):
     def move(self, board):
