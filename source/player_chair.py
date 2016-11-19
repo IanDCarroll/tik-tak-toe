@@ -1,6 +1,6 @@
 class Player(object):
     def move(self, board):
-        board[1][1] = 1
+        board[1][1] = "spam"
         return board
 
 class Human(Player):
@@ -19,6 +19,5 @@ class Computer(Player):
                        board[i][j] = 1
                        break
                 break
-        print board
         return board
                    
