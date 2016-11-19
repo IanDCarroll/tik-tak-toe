@@ -17,7 +17,9 @@ def test_display_game_over_computer_wins():
     assert test == "Computer Wins"
 
 def test_display_game_over_human_wins():
-    pass
+    display = Display()
+    test = display.human
+    assert test == "Human Wins"
 
 def test_display_current_board():
     pass
