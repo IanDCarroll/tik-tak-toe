@@ -1,3 +1,5 @@
+from math import sqrt
+
 class Display():
     
     def __init__(self):
@@ -60,5 +62,5 @@ class Display():
         return a_row
 
     def get_board_size(self, board):
-        from math import sqrt
+        #from math import sqrt
         return int(sqrt(len(board))) 
