@@ -54,10 +54,10 @@ class Display():
         return rows
 
     def build_proto_row(self, board, start_of_row):
-        board_size = self.get_board_size(board)
-        row_length = start_of_row + board_size
+        row_length = self.get_board_size(board)
+        end_of_row = start_of_row + row_length
         a_row = []
-        for i in range(start_of_row, row_length):
+        for i in range(start_of_row, end_of_row):
             a_row.append(board[i])
         return a_row
 
