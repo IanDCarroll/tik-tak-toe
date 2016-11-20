@@ -14,6 +14,7 @@ class Display():
     def render_board(self, raw_board):
         stringified_board = self.stringify_board(raw_board)
         rendered_board = self.construct_board(stringified_board)
+        print rendered_board
         return rendered_board
         
     def stringify_board(self, board):
@@ -45,13 +46,18 @@ class Display():
         board_size = self.get_board_size(board)
         wall = '|'
         rows = []
-        for i in range(0, board_size):
-            rows.append([])
-            for j in range(0, board_size):
-                rows[i].append(board.pop(0))
-            working_row = rows[i]
-            rows[i] = wall.join(working_row)
+        for i in range(0, len(board), board_size):
+            rows.append(wall.join(self.construct_a_row(board, i)))
+            #working_row = rows[i]
+            #rows[i] = wall.join(working_row)
         return rows
+
+    def construct_a_row(self, board, rows_counter):
+        board_size = self.get_board_size(board)
+        a_row = []
+        for i in range(rows_counter, rows_counter + board_size):
+            a_row.append(board[i])
+        return a_row
 
     def get_board_size(self, board):
         from math import sqrt
