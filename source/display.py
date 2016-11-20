@@ -16,7 +16,6 @@ class Display():
     def render_board(self, raw_board):
         stringified_board = self.stringify_board(raw_board)
         rendered_board = self.construct_board(stringified_board)
-        print rendered_board
         return rendered_board
         
     def stringify_board(self, board):
