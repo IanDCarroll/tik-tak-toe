@@ -28,9 +28,9 @@ def test_display_current_board():
     expected = """
  X | O | X 
 ---+---+---
- 4 | O | 6 
+   | O |   
 ---+---+---
- X | 8 | O 
+ X |   | O 
 """
     assert test == expected
 
