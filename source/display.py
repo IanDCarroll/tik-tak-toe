@@ -50,10 +50,11 @@ class Display():
             rows.append(wall.join(self.build_proto_row(board, i)))
         return rows
 
-    def build_proto_row(self, board, rows_counter):
+    def build_proto_row(self, board, start):
         board_size = self.get_board_size(board)
+        end = start + board_size
         a_row = []
-        for i in range(rows_counter, rows_counter + board_size):
+        for i in range(start, end):
             a_row.append(board[i])
         return a_row
 
