@@ -47,7 +47,8 @@ class Display():
         wall = '|'
         rows = []
         for i in range(0, len(board), board_size):
-            rows.append(wall.join(self.build_proto_row(board, i)))
+            completed_row = wall.join(self.build_proto_row(board, i))
+            rows.append(completed_row)
         return rows
 
     def build_proto_row(self, board, start):
