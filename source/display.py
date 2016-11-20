@@ -45,22 +45,21 @@ class Display():
         return rack
 
     def assemble_rows(self, board):
-        board_size = self.get_board_size(board)
+        row_length = self.get_board_size(board)
         wall = '|'
         rows = []
-        for i in range(0, len(board), board_size):
+        for i in range(0, len(board), row_length):
             completed_row = wall.join(self.build_proto_row(board, i))
             rows.append(completed_row)
         return rows
 
-    def build_proto_row(self, board, start):
+    def build_proto_row(self, board, start_of_row):
         board_size = self.get_board_size(board)
-        end = start + board_size
+        row_length = start_of_row + board_size
         a_row = []
-        for i in range(start, end):
+        for i in range(start_of_row, row_length):
             a_row.append(board[i])
         return a_row
 
     def get_board_size(self, board):
-        #from math import sqrt
         return int(sqrt(len(board))) 
