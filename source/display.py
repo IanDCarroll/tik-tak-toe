@@ -28,12 +28,12 @@ class Display():
         return board
 
     def construct_board(self, board):
-        rack = self.construct_rack(board)
-        rows = self.construct_rows(board)
+        rack = self.assemble_rack(board)
+        rows = self.assemble_rows(board)
         constructed_board = '\n' + rack.join(rows) + '\n'
         return constructed_board
 
-    def construct_rack(self, board):
+    def assemble_rack(self, board):
         board_size = self.get_board_size(board)
         corner = '+'
         shelves = []
@@ -42,17 +42,15 @@ class Display():
         rack = '\n' + corner.join(shelves) + '\n'
         return rack
 
-    def construct_rows(self, board):
+    def assemble_rows(self, board):
         board_size = self.get_board_size(board)
         wall = '|'
         rows = []
         for i in range(0, len(board), board_size):
-            rows.append(wall.join(self.construct_a_row(board, i)))
-            #working_row = rows[i]
-            #rows[i] = wall.join(working_row)
+            rows.append(wall.join(self.build_proto_row(board, i)))
         return rows
 
-    def construct_a_row(self, board, rows_counter):
+    def build_proto_row(self, board, rows_counter):
         board_size = self.get_board_size(board)
         a_row = []
         for i in range(rows_counter, rows_counter + board_size):
