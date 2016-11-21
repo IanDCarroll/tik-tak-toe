@@ -1,0 +1,2 @@
+class Referee(object):
+    pass
