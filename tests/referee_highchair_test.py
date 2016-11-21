@@ -21,7 +21,7 @@ def test_check_for_winner_returns_false():
     assert false_ref.check_for_winner() == False 
 
 def test_check_for_winner_does_edges():
-    edge_board = [1,1,10,10,10,1,1,10,1]
+    edge_board = [1,10,1,1,10,0,1,0,10]
     edge_ref = Referee(edge_board, 'P1', 'P2')
     assert edge_ref.check_for_winner() == True
 
