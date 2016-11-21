@@ -48,7 +48,10 @@ class Referee(object):
             return False
 
     def check_for_draw(self):
-        pass
+        if 0 in self.board:
+            return False
+        else:
+            return True
 
     def check_for_computer_winner(self):
         pass
