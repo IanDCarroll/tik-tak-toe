@@ -1,5 +1,5 @@
 import nose.tools
-from source.referee_highchair import *
+from source.referee_chair import *
 
 def test_referee_is_an_object():
     referee = Referee('fake_board','fake_P1', 'fake_p2')
