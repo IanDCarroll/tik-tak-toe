@@ -8,7 +8,7 @@ class Referee(object):
         self.board = board
         self.player1 = player1
         self.player2 = player2
-        self.players_turn = self.player1
+        self.whos_turn = self.player1
 
     def start_game(self):
         display.show(display.start)
@@ -16,16 +16,16 @@ class Referee(object):
         self.facilitate_turns()
 
     def facilitate_turns(self):
-        self.players_turn.move(self.board)
+        self.whos_turn.move(self.board)
         display.show(display.render_board(self.board))
         the_game_is_over = check_for_winner(self.board)
         if the_game_is_over != False:
            game_over(the_game_is_over)
         else:
-           if self.players_turn == self.player1:
-              self.players_turn = self.player2
-           elif self.players_turn == self.player2:
-              self.players_turn = self.player1
+           if self.whos_turn == self.player1:
+              self.whos_turn = self.player2
+           elif self.whos_turn == self.player2:
+              self.whos_turn = self.player1
            facilitate_turns()
         
     def game_over(self, winner):
@@ -37,13 +37,11 @@ class Referee(object):
         elif winner == "human":
             display.show(display.human)
 
-    def check_for_winner(self):
+    def check_for_game_over(self):
         if check_for_draw() == True:
             return "draw"
-        elif check_for_computer_winner() == True:
-            return "computer"
-        elif check_for_human_winner() == True:
-            return "human"
+        elif check_for_winner() == True:
+            return self.players_turn.id
         else:
             return False
 
@@ -53,8 +51,5 @@ class Referee(object):
         else:
             return True
 
-    def check_for_computer_winner(self):
-        pass
-
-    def check_for_human_winner(self):
+    def check_for_winner(self):
         pass
