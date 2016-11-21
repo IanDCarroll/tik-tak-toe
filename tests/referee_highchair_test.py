@@ -9,6 +9,6 @@ def test_check_for_draw_can_do_so():
     referee = Referee()
     false_board = [1,10,1,0,10,0,1,0,10]
     true_board = [1,1,10,10,10,1,1,10,1]
-    assert referee.check_for_draw(false_board) == False 
-    assert referee.check_for_draw(true_board) == True
+    assert referee.check_for_draw() == False 
+    assert referee.check_for_draw() == True
 
