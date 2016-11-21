@@ -37,7 +37,7 @@ class Referee(object):
         elif winner == "human":
             display.show(display.human)
 
-    def check_for_winner():
+    def check_for_winner(self):
         if check_for_draw() == True:
             return "draw"
         elif check_for_computer_winner() == True:
@@ -47,11 +47,11 @@ class Referee(object):
         else:
             return False
 
-    def check_for_draw():
+    def check_for_draw(self):
         pass
 
-    def check_for_computer_winner():
+    def check_for_computer_winner(self):
         pass
 
-    def check_for_human_winner():
+    def check_for_human_winner(self):
         pass
