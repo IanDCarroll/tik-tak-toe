@@ -17,7 +17,7 @@ class Human(Player):
         board[square] = 10
         return board
 
-    def check_if_legit(self, number, board):
+    def check_conscience(self, number, board):
         if number not in self.get_legal_moves(board):
             self.move(board)
             
