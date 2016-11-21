@@ -52,4 +52,13 @@ class Referee(object):
             return True
 
     def check_for_winner(self):
-        pass
+        board = self.board
+        scan_list = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]]
+        did_they_win = False
+        for i in range(0, len(scan_list)):
+            win_factor = 0
+            for j in scan_list[i]:
+                win_factor += board[j]
+            if win_factor == 3 or win_factor == 30:
+                did_they_win = True
+        return did_they_win
