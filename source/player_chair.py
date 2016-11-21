@@ -11,6 +11,9 @@ class Player(object):
         return legal_moves
 
 class Human(Player):
+
+    id = 'human'
+
     def move(self, board):
         square = raw_input("Which square do you choose? ")
         check_if_legit(square, board)
@@ -23,6 +26,9 @@ class Human(Player):
             
 
 class Computer(Player):
+
+    id = 'computer'
+
     def move(self, board):
         options = self.get_legal_moves(board)
         board[options[0]] = 1
