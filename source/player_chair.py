@@ -1,7 +1,4 @@
 class Player(object):
-    def move(self, board):
-        board[4] = "spam"
-        return board
 
     def get_legal_moves(self, board):
         legal_moves = []
