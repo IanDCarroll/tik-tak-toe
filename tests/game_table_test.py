@@ -19,4 +19,5 @@ def test_that_board_can_be_changed():
 
 def test_that_table_top_knows_the_size_of_its_board():
     tabletop = TableTop()
-    assert tabletop.get_board_size() == 3
+    mock_board = [1,10,1,0,10,0,1,0,10]
+    assert tabletop.get_board_size(mock_board) == 3
