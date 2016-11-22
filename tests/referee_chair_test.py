@@ -39,3 +39,13 @@ def test_check_for_winner_does_diagonals():
     diagonal_board = [1,10,1,10,1,0,1,0,10]
     diagonal_ref = Referee(diagonal_board, 'P1', 'P2')
     assert diagonal_ref.check_for_winner() == True
+
+def test_get_board_size_3():
+    mock_3x3 = [0,0,0, 0,0,0, 0,0,0]
+    referee = Referee(mock_3x3, 'p1', 'p2')
+    assert referee.get_board_size(mock_3x3) == 3
+
+def test_get_board_size_4():
+    mock_4x4 = [0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0]
+    referee = Referee(mock_4x4, 'p1', 'p2')
+    assert referee.get_board_size(mock_4x4) == 4
