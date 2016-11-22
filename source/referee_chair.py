@@ -13,13 +13,13 @@ class Referee(Facilitator):
         self.whos_turn = self.player1
 
     def start_game(self):
-        announcer.show(announcer.start)
-        announcer.show(announcer.render_board(self.table_top.board))
+        self.nnouncer.show(self.announcer.start)
+        self.announcer.show(self.announcer.render_board(self.table_top.board))
         self.facilitate_turns()
 
     def facilitate_turns(self):
         self.whos_turn.move(self.board)
-        announcer.show(announcer.render_board(self.table_top.board))
+        self.announcer.show(self.announcer.render_board(self.table_top.board))
         the_game_is_over = check_for_game_over()
         if the_game_is_over != False:
             game_over(the_game_is_over)
@@ -34,13 +34,13 @@ class Referee(Facilitator):
             self.whos_turn = self.player1
         
     def game_over(self, winner):
-        announcer.show(announcer.render_board(self.table_top.board))
+        self.announcer.show(self.announcer.render_board(self.table_top.board))
         if winner == "tie":
-            announcer.show(announcer.draw)
+            self.announcer.show(self.announcer.draw)
         elif winner == "computer":
-            announcer.show(announcer.computer)
+            self.announcer.show(self.announcer.computer)
         elif winner == "human":
-            announcer.show(announcer.human)
+            self.announcer.show(self.announcer.human)
 
     def check_for_game_over(self):
         if check_for_tie() == True:
