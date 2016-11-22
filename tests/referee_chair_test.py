@@ -8,12 +8,12 @@ def test_referee_is_an_object():
 def test_check_for_draw_returns_true():
     true_board = [1,1,10, 10,10,1, 1,10,1]
     true_ref = Referee(true_board, 'P1', 'P2')
-    assert true_ref.check_for_draw() == True
+    assert true_ref.check_for_tie() == True
 
 def test_check_for_draw_returns_false():
     false_board = [1,10,1, 0,10,0, 1,0,10]
     false_ref = Referee(false_board, 'P1', 'P2')
-    assert false_ref.check_for_draw() == False 
+    assert false_ref.check_for_tie() == False 
 
 def test_check_for_winner_returns_false():
     false_board = [1,10,1, 0,10,0, 1,0,10]
@@ -49,3 +49,5 @@ def test_get_board_size_4():
     mock_4x4 = [0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0]
     referee = Referee(mock_4x4, 'p1', 'p2')
     assert referee.get_board_size(mock_4x4) == 4
+
+

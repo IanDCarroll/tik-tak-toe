@@ -19,19 +19,22 @@ class Referee(Facilitator):
     def facilitate_turns(self):
         self.whos_turn.move(self.board)
         display.show(display.render_board(self.board))
-        the_game_is_over = check_for_winner(self.board)
+        the_game_is_over = check_for_game_over(self.board)
         if the_game_is_over != False:
-           game_over(the_game_is_over)
+            game_over(the_game_is_over)
         else:
-           if self.whos_turn == self.player1:
-              self.whos_turn = self.player2
-           elif self.whos_turn == self.player2:
-              self.whos_turn = self.player1
-           facilitate_turns()
+            prep_next_turn()
+
+    def prep_next_turn(self):
+        if self.whos_turn == self.player1:
+            self.whos_turn = self.player2
+        elif self.whos_turn == self.player2:
+            self.whos_turn = self.player1
+        facilitate_turns()
         
     def game_over(self, winner):
         display.show(display.render_board(self.board))
-        if winner == "draw":
+        if winner == "tie":
             display.show(display.draw)
         elif winner == "computer":
             display.show(display.computer)
@@ -46,7 +49,7 @@ class Referee(Facilitator):
         else:
             return False
 
-    def check_for_draw(self):
+    def check_for_tie(self):
         if 0 in self.board:
             return False
         else:
