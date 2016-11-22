@@ -1,5 +1,6 @@
 import nose.tools
 from source.referee_chair import *
+from source.player_chair import *
 from source.game_table import * 
 
 def test_referee_is_an_object():
@@ -60,4 +61,13 @@ def test_get_board_size_4():
     referee = Referee(mock_4x4, 'p1', 'p2')
     assert referee.get_board_size(mock_4x4.board) == 4
 
-
+def test_prep_next_turn_toggles_players():
+    table_top = TableTop()
+    bender = Computer()
+    fry = Human()
+    test_ref = Referee(table_top, bender, fry)
+    assert test_ref.whos_turn == bender
+    test_ref.prep_next_turn()
+    assert test_ref.whos_turn == fry
+    test_ref.prep_next_turn()
+    assert test_ref.whos_turn == bender
