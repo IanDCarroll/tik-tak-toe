@@ -1,11 +1,12 @@
 from facilitator_credentials import Facilitator
-import game_table
-import player_chair
-import announcer_chair
+from game_table import TableTop
+from player_chair import *
+from announcer_chair import Announcer
 
 class Referee(Facilitator):
 
     def __init__(self, table_top, player1, player2):
+        self.announcer = Announcer()
         self.table_top = table_top
         self.player1 = player1
         self.player2 = player2
