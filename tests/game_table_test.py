@@ -16,3 +16,7 @@ def test_that_board_can_be_changed():
     expected = [0,0,1,0,0,0,0,0,0]
     table_top.board = expected
     assert table_top.board == expected 
+
+def test_that_table_top_knows_the_size_of_its_board():
+    tabletop = TableTop()
+    assert tabletop.get_board_size() == 3
