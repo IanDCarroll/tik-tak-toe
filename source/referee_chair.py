@@ -43,8 +43,8 @@ class Referee(Facilitator):
             announcer.show(announcer.human)
 
     def check_for_game_over(self):
-        if check_for_draw() == True:
-            return "draw"
+        if check_for_tie() == True:
+            return "tie"
         elif check_for_winner() == True:
             return self.players_turn.id
         else:
