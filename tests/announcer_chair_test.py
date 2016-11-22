@@ -23,7 +23,7 @@ def test_display_game_over_human_wins():
 
 def test_display_current_board():
     display = Announcer()
-    mock_board = [1,10,1,0,10,0,1,0,10]
+    mock_board = [1,10,1, 0,10,0, 1,0,10]
     test = display.render_board(mock_board)
     expected = """
  X | O | X 
