@@ -4,7 +4,7 @@ class Announcer(Facilitator):
     
     def __init__(self):
         self.start = "Welcome"
-        self.draw = "Draw"
+        self.tie = "Draw"
         self.computer = "Computer Wins"
         self.human = "You Win"
         self.next_move = "What is your next move?"

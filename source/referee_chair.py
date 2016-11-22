@@ -36,7 +36,7 @@ class Referee(Facilitator):
     def game_over(self, winner):
         self.announcer.show(self.announcer.render_board(self.table_top.board))
         if winner == "tie":
-            self.announcer.show(self.announcer.draw)
+            self.announcer.show(self.announcer.tie)
         elif winner == "computer":
             self.announcer.show(self.announcer.computer)
         elif winner == "human":
