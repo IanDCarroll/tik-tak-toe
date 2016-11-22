@@ -6,9 +6,9 @@ def test_display_start_of_game():
     test = announcer.start
     assert test == "Welcome"
 
-def test_display_game_over_draw():
+def test_display_game_over_tie():
     announcer = Announcer()
-    test = announcer.draw
+    test = announcer.tie
     assert test == "Draw"
 
 def test_display_game_over_computer_wins():
