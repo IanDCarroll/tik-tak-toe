@@ -1,9 +1,9 @@
-from math import sqrt
+from facilitator_credentials import Facilitator
 import game_table
 import player_chair
-import display
+import announcer_chair
 
-class Referee(object):
+class Referee(Facilitator):
 
     def __init__(self, board, player1, player2):
         self.board = board
@@ -64,6 +64,3 @@ class Referee(object):
             if win_factor == 3 or win_factor == 30:
                 did_they_win = True
         return did_they_win
-
-    def get_board_size(self, board):
-        return int(sqrt(len(board))) 

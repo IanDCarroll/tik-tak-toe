@@ -1,6 +1,6 @@
-from math import sqrt
+from facilitator_credentials import Facilitator
 
-class Display():
+class Announcer(Facilitator):
     
     def __init__(self):
         self.start = "Welcome"
@@ -59,6 +59,3 @@ class Display():
         for i in range(start_of_row, end_of_row):
             proto_row.append(board[i])
         return proto_row
-
-    def get_board_size(self, board):
-        return int(sqrt(len(board))) 
