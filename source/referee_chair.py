@@ -20,7 +20,7 @@ class Referee(Facilitator):
     def facilitate_turns(self):
         self.whos_turn.move(self.board)
         announcer.show(announcer.render_board(self.table_top.board))
-        the_game_is_over = check_for_game_over(self.table_top.board)
+        the_game_is_over = check_for_game_over()
         if the_game_is_over != False:
             game_over(the_game_is_over)
         else:
