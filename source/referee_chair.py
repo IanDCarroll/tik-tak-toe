@@ -72,3 +72,6 @@ class Referee(Facilitator):
             if win_factor == 3 or win_factor == 30:
                 did_they_win = True
         return did_they_win
+
+    def get_scan_list(self):
+        pass
