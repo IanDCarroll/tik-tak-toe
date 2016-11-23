@@ -50,7 +50,7 @@ class Referee(Facilitator):
         if tie == True:
             return "tie"
         elif winner == True:
-            return self.players_turn.id
+            return self.whos_turn.id
         else:
             return False
 
