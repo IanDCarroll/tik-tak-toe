@@ -26,6 +26,7 @@ class Computer(Player):
 
     id = 'computer'
 
+    # will play a perfect game for board size 2x2 or smaller!
     def move(self, board):
         options = self.get_legal_moves(board)
         board[options[0]] = 1
