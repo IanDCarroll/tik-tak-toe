@@ -20,11 +20,11 @@ class Referee(Facilitator):
         self.facilitate_turns()
         
     def facilitate_turns(self):
-        self.whos_turn.move(self.board)
+        self.whos_turn.move(self.table_top.board)
         self.show_board()
-        the_game_is_over = check_for_game_over()
+        the_game_is_over = self.check_for_game_over()
         if the_game_is_over != False:
-            game_over(the_game_is_over)
+            self.game_over(the_game_is_over)
         else:
             self.prep_next_turn()
             self.facilitate_turns()
@@ -45,9 +45,9 @@ class Referee(Facilitator):
             self.announcer.show(self.announcer.human)
 
     def check_for_game_over(self):
-        if check_for_tie() == True:
+        if self.check_for_tie() == True:
             return "tie"
-        elif check_for_winner() == True:
+        elif self.check_for_winner() == True:
             return self.players_turn.id
         else:
             return False
@@ -79,7 +79,6 @@ class Referee(Facilitator):
         win_list.extend(self.get_winning_rows(board_size))
         win_list.extend(self.get_winning_cols(board_size))
         win_list.extend(self.get_winning_diags(board_size))
-        print win_list
         return win_list
 
     def get_winning_rows(self, board_size):

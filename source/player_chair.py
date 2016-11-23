@@ -3,7 +3,7 @@ class Player(object):
     def get_legal_moves(self, board):
         legal_moves = []
         for i in range(0, len(board)):
-            if board[i] == 0:
+            if board[i] != 1 and board[i] != 10:
                 legal_moves.append(i)
         return legal_moves
 
