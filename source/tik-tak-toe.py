@@ -11,8 +11,8 @@ def computer_goes_first():
 
 def human_goes_first():
     tabletop = TableTop()
-    player1 = Computer()
-    player2 = Human()
+    player1 = Human()
+    player2 = Computer()
     ref = Referee(tabletop, player1, player2)
     ref.start_game()
 
