@@ -1,5 +1,3 @@
-from math import sqrt
-
 class TableTop(object):
     
     def __init__(self):
