@@ -45,18 +45,21 @@ class Referee(Facilitator):
             self.announcer.show(self.announcer.human)
 
     def check_for_game_over(self):
-        if self.check_for_tie() == True:
+        tie = self.check_for_tie()
+        winner = self.check_for_winner()
+        if tie == True:
             return "tie"
-        elif self.check_for_winner() == True:
+        elif winner == True:
             return self.players_turn.id
         else:
             return False
 
     def check_for_tie(self):
-        if 0 in self.table_top.board:
-            return False
-        else:
-            return True
+        is_it_a_tie = True
+        for number in self.table_top.board:
+            if number == 0:
+                return False
+        return is_it_a_tie
 
     def check_for_winner(self):
         board = self.table_top.board
