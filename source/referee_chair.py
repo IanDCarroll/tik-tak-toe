@@ -1,6 +1,4 @@
 from facilitator_credentials import Facilitator
-from game_table import TableTop
-from player_chair import *
 from announcer_chair import Announcer
 
 class Referee(Facilitator):
