@@ -86,22 +86,22 @@ class Referee(Facilitator):
 
     def get_winning_rows(self, board_size):
         winning_rows = self.get_empty_list(board_size)
-        start = 0
+        start_coord = 0
         for i in range(0, board_size):
-            stop = start + board_size
-            for j in range(start, stop):
+            stop_coord = start_coord + board_size
+            for j in range(start_coord, stop_coord):
                  winning_rows[i].append(j)
-            start += board_size
+            start_coord += board_size
         return winning_rows
 
     def get_winning_cols(self, board_size):
-        all_squares = board_size * board_size
         winning_cols = self.get_empty_list(board_size)
-        col = 0
+        start_coord = 0
+        stop_coord = board_size * board_size
         for i in range(0, board_size):
-            for j in range(col, all_squares, board_size):
+            for j in range(start_coord, stop_coord, board_size):
                  winning_cols[i].append(j)
-            col += 1
+            start_coord += 1
         return winning_cols
  
     def get_empty_list(self, board_size):
