@@ -74,8 +74,9 @@ def test_prep_next_turn_toggles_players():
 def test_get_win_list_returns_the_3x3_wins():
     top_3x3 = TableTop()
     ref_3x3 = Referee(top_3x3, 'P1', 'P2')
-    expected = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],
-                [1,4,7],[2,5,8],[0,4,8],[2,4,6]]
+    expected = [[0,1,2], [3,4,5], [6,7,8],
+                [0,3,6], [1,4,7], [2,5,8],
+                [0,4,8], [2,4,6]]
     assert ref_3x3.get_win_list() == expected
 
 def test_get_win_list_returns_the_4x4_wins():
