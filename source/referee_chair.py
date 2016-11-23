@@ -62,13 +62,15 @@ class Referee(Facilitator):
 
     def check_for_winner(self):
         board = self.table_top.board
+        p1_win = self.get_board_size(board)
+        p2_win = p1_win * 10
         win_list = self.get_win_list()
         did_they_win = False
         for i in range(0, len(win_list)):
             win_factor = 0
             for j in win_list[i]:
                 win_factor += board[j]
-            if win_factor == 3 or win_factor == 30:
+            if win_factor == p1_win or win_factor == p2_win:
                 did_they_win = True
         return did_they_win
 
