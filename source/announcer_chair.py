@@ -22,12 +22,12 @@ class Announcer(Facilitator):
         stringey_board = []
         for i in board:
             stringey_board.append(i)
-        for i in range(0, len(stringey_board)):
-            if stringey_board[i] == 0:
-                stringey_board[i] = "   "
-            elif stringey_board[i] == 1:
+        for i in range(0, len(board)):
+            if board[i] == 0:
+                stringey_board[i] = " " + str(i)  + " "
+            elif board[i] == 1:
                 stringey_board[i] = " X "
-            elif stringey_board[i] == 10:
+            elif board[i] == 10:
                 stringey_board[i] = " O "
         return stringey_board
 
