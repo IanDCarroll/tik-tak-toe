@@ -19,14 +19,17 @@ class Announcer(Facilitator):
         return rendered_board
         
     def stringify_board(self, board):
-        for i in range(0, len(board)):
-            if board[i] == 0:
-                board[i] = "   "
-            elif board[i] == 1:
-                board[i] = " X "
-            elif board[i] == 10:
-                board[i] = " O "
-        return board
+        stringey_board = []
+        for i in board:
+            stringey_board.append(i)
+        for i in range(0, len(stringey_board)):
+            if stringey_board[i] == 0:
+                stringey_board[i] = "   "
+            elif stringey_board[i] == 1:
+                stringey_board[i] = " X "
+            elif stringey_board[i] == 10:
+                stringey_board[i] = " O "
+        return stringey_board
 
     def construct_board(self, board):
         rack = self.assemble_rack(board)
