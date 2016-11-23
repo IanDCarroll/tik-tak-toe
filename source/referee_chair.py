@@ -62,8 +62,7 @@ class Referee(Facilitator):
 
     def check_for_winner(self):
         board = self.table_top.board
-        scan_list = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],
-                     [1,4,7],[2,5,8],[0,4,8],[2,4,6]]
+        win_list = self.get_win_list()
         did_they_win = False
         for i in range(0, len(scan_list)):
             win_factor = 0
