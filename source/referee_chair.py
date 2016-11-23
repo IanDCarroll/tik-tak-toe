@@ -73,5 +73,5 @@ class Referee(Facilitator):
                 did_they_win = True
         return did_they_win
 
-    def get_scan_list(self):
+    def get_win_list(self):
         pass
