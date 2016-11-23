@@ -13,12 +13,12 @@ class Human(Player):
 
     def move(self, board):
         square = raw_input("Which square do you choose? ")
-        self.check_if_legit(square, board)
+        self.check_conscience(choice, board)
         board[square] = 10
         return board
 
-    def check_conscience(self, number, board):
-        if number not in self.get_legal_moves(board):
+    def check_conscience(self, choice, board):
+        if choice not in self.get_legal_moves(board):
             self.move(board)
             
 
