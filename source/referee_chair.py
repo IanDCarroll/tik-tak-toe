@@ -74,4 +74,48 @@ class Referee(Facilitator):
         return did_they_win
 
     def get_win_list(self):
-        pass
+        board = self.table_top.board
+        board_size = self.get_board_size(board)
+        win_list = []
+        win_list.extend(self.get_winning_rows(board, board_size))
+        win_list.extend(self.get_winning_cols(board, board_size))
+        win_list.extend(self.get_winning_diags(board, board_size))
+        print win_list
+        return win_list
+
+    def get_winning_rows(self, board, board_size):
+        winning_rows = self.get_empty_list(board_size)
+        start = 0
+        for i in range(0, board_size):
+            stop = start + board_size
+            for j in range(start, stop):
+                 winning_rows[i].append(j)
+            start += board_size
+        return winning_rows
+
+    def get_winning_cols(self, board, board_size):
+        winning_cols = self.get_empty_list(board_size)
+        col = 0
+        for i in range(0, board_size):
+            for j in range(col, len(board), board_size):
+                 winning_cols[i].append(j)
+            col += 1
+        return winning_cols
+ 
+    def get_empty_list(self, board_size):
+        empty_list = []
+        for i in range(0, board_size):
+            empty_list.append([])
+        return empty_list
+
+    def get_winning_diags(self, board, board_size):
+        winning_diags = [[],[]]
+        diag = 0
+        for i in range(0, board_size):
+            winning_diags[0].append(diag)
+            diag += board_size + 1
+        diag = board_size - 1
+        for j in range(0, board_size):
+            winning_diags[1].append(diag)
+            diag += board_size - 1
+        return winning_diags        
