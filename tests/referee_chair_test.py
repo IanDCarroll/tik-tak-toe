@@ -51,7 +51,6 @@ def test_check_for_winner_does_diagonals():
 
 def test_get_board_size_3():
     mock_3x3 = TableTop()
-    mock_3x3.board = [0,0,0, 0,0,0, 0,0,0]
     referee = Referee(mock_3x3, 'p1', 'p2')
     assert referee.get_board_size(mock_3x3.board) == 3
 
