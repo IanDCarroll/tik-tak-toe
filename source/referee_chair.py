@@ -110,13 +110,23 @@ class Referee(Facilitator):
         return empty_list
 
     def get_winning_diags(self, board, board_size):
-        winning_diags = [[],[]]
-        diag = 0
+        winning_diags = []
+        winning_diags.append(self.get_NW_SE_diag(board_size))
+        winning_diags.append(self.get_SW_NE_diag(board_size))
+        return winning_diags
+
+    def get_NW_SE_diag(self, board_size):
+        diag = []
+        coord = 0
         for i in range(0, board_size):
-            winning_diags[0].append(diag)
-            diag += board_size + 1
-        diag = board_size - 1
-        for j in range(0, board_size):
-            winning_diags[1].append(diag)
-            diag += board_size - 1
-        return winning_diags        
+            diag.append(coord)
+            coord += board_size + 1
+        return diag
+
+    def get_SW_NE_diag(self, board_size):
+        diag = []
+        coord = board_size -1
+        for i in range(0, board_size):
+            diag.append(coord)
+            coord += board_size - 1
+        return diag
