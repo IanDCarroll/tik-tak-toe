@@ -67,7 +67,7 @@ The algorithm could be unbeatable if it is able to:
   - by distracting you with an emergency elsewhere on the board.
   - by occupying the one spot you need to make a fork.
  5. Otherwise, take the center square.
- 6. If the center is taken, and the opponent has taken a corner, take the opposite corner from you.
+ 6. If the center is taken, and you took a corner, take the opposite corner from you.
  7. If the center square is taken, take a corner square.
  8. If the center and all the corner squares are taken, take whatever remains. (sides are undesirable)
 
