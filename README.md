@@ -2,6 +2,7 @@
 An unbeatable game of noughts and crosses (AKA tic-tac-toe)
 
 ### Name origin story:
+
 it was originally called tik-tak-toe, which was supposed to be a little like <a href="https://www.youtube.com/watch?v=Kl7f2ytS7Vw">rikki-tikki-tavi</a>, a favorite cartoon when I was small, based on a short story by Rudyard Kipling. However it just looked like I didn't know how to spell.
 
 So the new name is xox. Named after one of the first computer games, OXO by Sandy Douglas at Cabridge University in 1952. I felt it was appropriate because this is my first attempt at something of this scale. I could have instead called it "Bertie the Bot" after "Bertie the Brain", the first Noughts and Crosses computer game in Canada (1950), with a bit of Harry Potter thrown in. But xox is easier to spell.
@@ -28,7 +29,9 @@ This is a simple command line noughts and crosses game.
  3. $`nosetests`
 
 ### The Process:
-want to see how I am spelling your noughts-andcrosses-playing doom?
+
+want to see how I am spelling your noughts-and-crosses-playing doom?
+
 Watch my progress on the <a href="https://github.com/IanDCarroll/GoScrumYourself">GoScrumYourself</a> repo!
 
 ### Notes on making the code clean:
@@ -64,7 +67,7 @@ The algorithm could be unbeatable if it is able to:
   - by distracting you with an emergency elsewhere on the board.
   - by occupying the one spot you need to make a fork.
  5. Otherwise, take the center square.
- 6. If the center is taken, and the opponent has taken a corner, take the opposite corner from you.
+ 6. If the center is taken, and you took a corner, take the opposite corner from you.
  7. If the center square is taken, take a corner square.
  8. If the center and all the corner squares are taken, take whatever remains. (sides are undesirable)
 
@@ -76,4 +79,4 @@ __On the third hand,__ There may be a CS way to go about this. I am only vaguely
 
 ## Suggestions?
 
-Have ideas about how I can better defeat you with this program? Is there a bug you'd like to report? A duplication you see? A feature to request? Or is the readme unclear? (I'm afraid I cannot accept any PRs beside my own because reasons.) But otherwise, all comments and help are welcome! <a href="https://github.com/IanDCarroll/tik-tak-toe/issues/new">Open up an issue!</a>
+Have ideas about how I can better defeat you with this program? Is there a bug you'd like to report? A duplication you see? A feature to request? Or is the readme unclear? (I'm afraid I cannot accept any PRs beside my own because reasons.) But otherwise, all comments and help are welcome! <a href="https://github.com/IanDCarroll/tik-tak-toe/issues/new">Open up an issue!</a> :smile:
