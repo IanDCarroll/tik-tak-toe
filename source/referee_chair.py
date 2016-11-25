@@ -16,12 +16,11 @@ class Referee(Facilitator):
 
     def start_game(self):
         self.announcer.show(self.announcer.start)
-        self.show_board()
         self.facilitate_turns()
         
     def facilitate_turns(self):
-        self.whos_turn.move(self.table_top.board)
         self.show_board()
+        self.whos_turn.move(self.table_top.board)
         the_game_is_over = self.check_for_game_over()
         if the_game_is_over != False:
             self.game_over(the_game_is_over)
