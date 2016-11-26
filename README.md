@@ -14,16 +14,16 @@ This is a simple command line noughts and crosses game.
 
 ### How to play:
 
- 1. Clone this repository (Or just copy the contents of the `source` folder into an empty one of your own)
- 2. On the command line, cd into the directory the source files are in.
- 3. $`python xox.py`
+ 1. `$ git clone git@github.com:IanDCarroll/xox.git`
+ 2. `$ cd xox/source/`
+ 3. `$ python xox.py`
 
 ### How to test:
 
- 1. Clone this repository
- 2. On the command line, cd into the `xox` directory
- 3. $`nosetests`
+ 1. `$ git clone git@github.com:IanDCarroll/xox.git`
+ 2. `$ cd xox/`
+ 3. `$ nosetests-2.7`
 
 ## Suggestions?
 
-Have ideas about how I can better defeat you with this program? Is there a bug you'd like to report? A duplication you see? A feature to request? Or is the readme unclear? (I'm afraid I cannot accept any PRs beside my own because reasons.) But otherwise, all comments and help are welcome! <a href="https://github.com/IanDCarroll/tik-tak-toe/issues/new">Open up an issue!</a> :smile:
+Have ideas about how I can better defeat you with this program? Is there a bug you'd like to report? A duplication you see? A feature to request? Or is the readme unclear? (I'm afraid I cannot accept any PRs beside my own because this is a test from 8th Light.) But otherwise, all comments and help are welcome! <a href="https://github.com/IanDCarroll/tik-tak-toe/issues/new">Open up an issue!</a> :smile:
