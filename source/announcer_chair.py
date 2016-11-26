@@ -9,6 +9,8 @@ class Announcer(Facilitator):
         self.human = "You Win"
         self.next_move = "What is your next move?"
         self.bad_move = "That is not a legal move."
+        self.nought = " O "
+        self.cross = " X "
 
     def show(self, text):
         print text
@@ -22,11 +24,11 @@ class Announcer(Facilitator):
         fresh_board = []
         for i in range(0, len(board)):
             if board[i] == 0:
-                fresh_board.append(" " + str(i)  + " ")
+                fresh_board.append(" " + str(i+1)  + " ")
             elif board[i] == 1:
-                fresh_board.append(" X ")
+                fresh_board.append(self.cross)
             elif board[i] == 10:
-                fresh_board.append(" O ")
+                fresh_board.append(self.nought)
         return fresh_board
 
     def construct_board(self, board):
