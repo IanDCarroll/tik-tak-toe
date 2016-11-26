@@ -1,7 +1,8 @@
 # XOX
 An unbeatable game of noughts and crosses (AKA tic-tac-toe)
-Check out <a href="https://github.com/IanDCarroll/xox/wiki">the xox wiki</a> for in depth articles.
-Check out <a href="https://github.com/IanDCarroll/GoScrumYourself">my progress on xox</a>. Daily Updates!
+
+Check out <a href="https://github.com/IanDCarroll/xox/wiki">the xox wiki</a> for in depth articles.  
+Check out <a href="https://github.com/IanDCarroll/GoScrumYourself">my progress on xox</a>. Daily Updates!  
 
 ### Things it does:
 
