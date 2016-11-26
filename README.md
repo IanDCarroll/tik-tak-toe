@@ -18,9 +18,9 @@ This is a simple command line noughts and crosses game.
 
 ### How to play:
 
- 1. Clone this repository (Or just copy the contents of the `source` folder into an empty one of your own)
- 2. On the command line, cd into the directory the source files are in.
- 3. $`python xox.py`
+ 1. `$ git clone https://github.com/IanDCarroll/xox.git`
+ 2. `$ cd xox/`
+ 3. `$ python source/xox.py`
 
 ### How to test:
 
