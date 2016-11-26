@@ -1,5 +1,6 @@
 from facilitator_credentials import Facilitator
 from announcer_chair import Announcer
+from time import sleep
 
 class Referee(Facilitator):
 
@@ -21,6 +22,7 @@ class Referee(Facilitator):
     def facilitate_turns(self):
         self.show_board()
         self.whos_turn.move(self.table_top.board)
+        sleep(1.75)
         the_game_is_over = self.check_for_game_over()
         if the_game_is_over != False:
             self.game_over(the_game_is_over)
