@@ -13,14 +13,16 @@ class Human(Player):
 
     def move(self, board):
         choice = int(raw_input("Which square do you choose? "))-1
-        self.check_conscience(choice, board)
-        board[choice] = 10
+        if self.check_conscience(choice, board):
+            self.move(board)
+        else: 
+            board[choice] = 10
         return board
 
     def check_conscience(self, choice, board):
         if choice not in self.get_legal_moves(board):
-            print "Please enter a number not already taken."
-            self.move(board)
+            print "Please choose a number not already taken."
+            return True
             
 
 class Computer(Player):
