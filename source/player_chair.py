@@ -12,7 +12,7 @@ class Human(Player):
     id = 'human'
 
     def move(self, board):
-        choice = int(raw_input("Which square do you choose? "))
+        choice = int(raw_input("Which square do you choose? "))-1
         self.check_conscience(choice, board)
         board[choice] = 10
         return board
