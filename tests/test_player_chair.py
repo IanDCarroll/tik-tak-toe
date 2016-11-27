@@ -1,7 +1,7 @@
 import unittest
 from source.player_chair import *
 
-class TableTopTestCase(unittest.TestCase):
+class PlayerTestCase(unittest.TestCase):
 
     def test_that_player_can_only_make_legal_moves(self):
         philip = Player()
