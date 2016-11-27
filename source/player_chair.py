@@ -32,7 +32,6 @@ class Computer(Player):
     # will play a perfect game for board size 2x2 or smaller!
     def move(self, board):
         options = self.get_legal_moves(board)
-        print "Computer chooses square", options[0]+1
         board[options[0]] = 1
         return board
                    
