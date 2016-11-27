@@ -5,31 +5,36 @@ from source.game_table import *
 
 class RefereeTestCase(unittest.TestCase):
 
+    def setUp(self):
+        self.tied_board = [1,1,10, 10,10,1, 1,10,1]
+        self.false_board = [1,10,1, 0,10,0, 1,0,10]
+        self.edge_board = [1,10,1, 1,10,0, 1,0,10]
+
     def test_referee_is_an_object(self):
         referee = Referee('fake_board','fake_P1', 'fake_p2')
         self.assertEqual(isinstance(referee, object), True)
 
     def test_check_for_draw_returns_true(self):
         true_top = TableTop()
-        true_top.board = [1,1,10, 10,10,1, 1,10,1]
+        true_top.board = self.tied_board
         true_ref = Referee(true_top, 'P1', 'P2')
         self.assertEqual(true_ref.check_for_tie(), True)
 
     def test_check_for_draw_returns_false(self):
         false_top = TableTop()
-        false_top.board = [1,10,1, 0,10,0, 1,0,10]
+        false_top.board = self.false_board
         false_ref = Referee(false_top, 'P1', 'P2')
         self.assertEqual(false_ref.check_for_tie(), False)
 
     def test_check_for_winner_returns_false(self):
         false_top = TableTop()
-        false_top.board = [1,10,1, 0,10,0, 1,0,10]
+        false_top.board = self.false_board
         false_ref = Referee(false_top, 'P1', 'P2')
         self.assertEqual(false_ref.check_for_winner(), False)
 
     def test_check_for_winner_does_edges(self):
         edge_top = TableTop()
-        edge_top.board = [1,10,1, 1,10,0, 1,0,10]
+        edge_top.board = self.edge_board
         edge_ref = Referee(edge_top, 'P1', 'P2')
         self.assertEqual(edge_ref.check_for_winner(), True)
 
