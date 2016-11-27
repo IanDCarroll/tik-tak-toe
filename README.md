@@ -23,7 +23,7 @@ This is a simple command line noughts and crosses game.
 
  1. `$ git clone git@github.com:IanDCarroll/xox.git`
  2. `$ cd xox/`
- 3. `$ nosetests-2.7`
+ 3. `$ python -m unittest discover`
 
 ## Suggestions?
 
