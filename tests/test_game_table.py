@@ -3,6 +3,10 @@ from source.game_table import *
 
 class TableTopTestCase(unittest.TestCase):
 
+    def setUp(self):
+        self.empty_board = [0,0,0, 0,0,0, 0,0,0]
+        self.changed_board = [0,0,1, 0,0,0, 0,0,0] 
+
     def test_that_board_returns_a_list(self):
         table_top = TableTop()
         test = isinstance(table_top.board, list)
@@ -10,12 +14,12 @@ class TableTopTestCase(unittest.TestCase):
 
     def test_the_boards_initial_state(self):
         table_top = TableTop()
-        expected = [0,0,0, 0,0,0, 0,0,0]
+        expected = self.empty_board
         self.assertEqual(table_top.board, expected)
 
     def test_that_board_can_be_changed(self):
         table_top = TableTop()
-        expected = [0,0,1, 0,0,0, 0,0,0]
+        expected = self.changed_board
         table_top.board = expected
         self.assertEqual(table_top.board, expected)
 
