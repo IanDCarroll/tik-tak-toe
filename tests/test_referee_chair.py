@@ -7,9 +7,9 @@ class RefereeTestCase(unittest.TestCase):
 
     def setUp(self):
         self.table_top = TableTop()
-        self.bender = Computer()
-        self.fry = Human()
-        self.ref = Referee(self.table_top, self.bender, self.fry)
+        self.player1 = Computer()
+        self.player2 = Human()
+        self.ref = Referee(self.table_top, self.player1, self.player2)
         self.tied_board = [1,1,10, 10,10,1, 1,10,1]
         self.false_board = [1,10,1, 0,10,0, 1,0,10]
         self.edge_board = [1,10,1, 1,10,0, 1,0,10]
@@ -63,11 +63,11 @@ class RefereeTestCase(unittest.TestCase):
         self.assertEqual(self.ref.get_board_size(self.table_top.board), 4)
 
     def test_prep_next_turn_toggles_players(self):
-        self.assertEqual(self.ref.whos_turn, self.bender)
+        self.assertEqual(self.ref.whos_turn, self.player1)
         self.ref.prep_next_turn()
-        self.assertEqual(self.ref.whos_turn, self.fry)
+        self.assertEqual(self.ref.whos_turn, self.player2)
         self.ref.prep_next_turn()
-        self.assertEqual(self.ref.whos_turn, self.bender)
+        self.assertEqual(self.ref.whos_turn, self.player1)
 
     def test_get_win_list_returns_the_3x3_wins(self):
         self.assertEqual(self.ref.get_win_list(), self.win_list_3x3)
