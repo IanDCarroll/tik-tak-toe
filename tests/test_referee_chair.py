@@ -7,6 +7,9 @@ class RefereeTestCase(unittest.TestCase):
 
     def setUp(self):
         self.table_top = TableTop()
+        self.bender = Computer()
+        self.fry = Human()
+        self.ref = Referee(self.table_top, self.bender, self.fry)
         self.tied_board = [1,1,10, 10,10,1, 1,10,1]
         self.false_board = [1,10,1, 0,10,0, 1,0,10]
         self.edge_board = [1,10,1, 1,10,0, 1,0,10]
@@ -22,73 +25,58 @@ class RefereeTestCase(unittest.TestCase):
                              [0,5,10,15],[3,6,9,12]]
 
     def test_referee_is_an_object(self):
-        referee = Referee('fake_board','fake_P1', 'fake_p2')
-        self.assertEqual(isinstance(referee, object), True)
+        self.assertEqual(isinstance(self.ref, object), True)
 
     def test_check_for_draw_returns_true(self):
         self.table_top.board = self.tied_board
-        ref = Referee(self.table_top, 'P1', 'P2')
-        self.assertEqual(ref.check_for_tie(), True)
+        self.assertEqual(self.ref.check_for_tie(), True)
 
     def test_check_for_draw_returns_false(self):
         self.table_top.board = self.false_board
-        ref = Referee(self.table_top, 'P1', 'P2')
-        self.assertEqual(ref.check_for_tie(), False)
+        self.assertEqual(self.ref.check_for_tie(), False)
 
     def test_check_for_winner_returns_false(self):
         self.table_top.board = self.false_board
-        ref = Referee(self.table_top, 'P1', 'P2')
-        self.assertEqual(ref.check_for_winner(), False)
+        self.assertEqual(self.ref.check_for_winner(), False)
 
     def test_check_for_winner_does_edges(self):
         self.table_top.board = self.edge_board
-        ref = Referee(self.table_top, 'P1', 'P2')
-        self.assertEqual(ref.check_for_winner(), True)
+        self.assertEqual(self.ref.check_for_winner(), True)
 
     def test_check_for_winner_does_columns(self):
         self.table_top.board = self.column_board
-        ref = Referee(self.table_top, 'P1', 'P2')
-        self.assertEqual(ref.check_for_winner(), True)
+        self.assertEqual(self.ref.check_for_winner(), True)
 
     def test_check_for_winner_does_rows(self):
         self.table_top.board = self.row_board
-        ref = Referee(self.table_top, 'P1', 'P2')
-        self.assertEqual(ref.check_for_winner(), True)
+        self.assertEqual(self.ref.check_for_winner(), True)
 
     def test_check_for_winner_does_diagonals(self):
         self.table_top.board = self.diagonal_board
-        ref = Referee(self.table_top, 'P1', 'P2')
-        self.assertEqual(ref.check_for_winner(), True)
+        self.assertEqual(self.ref.check_for_winner(), True)
 
     def test_get_board_size_3(self):
-        ref = Referee(self.table_top, 'p1', 'p2')
-        self.assertEqual(ref.get_board_size(self.table_top.board), 3)
+        self.assertEqual(self.ref.get_board_size(self.table_top.board), 3)
 
     def test_get_board_size_4(self):
         self.table_top.board = self.mock_4x4_board
-        ref = Referee(self.table_top, 'p1', 'p2')
-        self.assertEqual(ref.get_board_size(self.table_top.board), 4)
+        self.assertEqual(self.ref.get_board_size(self.table_top.board), 4)
 
     def test_prep_next_turn_toggles_players(self):
-        bender = Computer()
-        fry = Human()
-        ref = Referee(self.table_top, bender, fry)
-        self.assertEqual(ref.whos_turn, bender)
-        ref.prep_next_turn()
-        self.assertEqual(ref.whos_turn, fry)
-        ref.prep_next_turn()
-        self.assertEqual(ref.whos_turn, bender)
+        self.assertEqual(self.ref.whos_turn, self.bender)
+        self.ref.prep_next_turn()
+        self.assertEqual(self.ref.whos_turn, self.fry)
+        self.ref.prep_next_turn()
+        self.assertEqual(self.ref.whos_turn, self.bender)
 
     def test_get_win_list_returns_the_3x3_wins(self):
-        ref = Referee(self.table_top, 'P1', 'P2')
         expected = self.win_list_3x3
-        self.assertEqual(ref.get_win_list(), expected)
+        self.assertEqual(self.ref.get_win_list(), expected)
 
     def test_get_win_list_returns_the_4x4_wins(self):
         self.table_top.board = self.mock_4x4_board
         expected = self.win_list_4x4
-        ref = Referee(self.table_top, 'P1', 'P2')
-        self.assertEqual(ref.get_win_list(), expected)
+        self.assertEqual(self.ref.get_win_list(), expected)
 
 if __name__ == '__main__':
      unittest.main()
