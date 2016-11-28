@@ -9,17 +9,14 @@ class TableTopTestCase(unittest.TestCase):
         self.changed_board = [0,0,1, 0,0,0, 0,0,0] 
 
     def test_that_board_returns_a_list(self):
-        test = isinstance(self.table_top.board, list)
-        self.assertEqual(test, True)
+        self.assertEqual(isinstance(self.table_top.board, list), True)
 
     def test_the_boards_initial_state(self):
-        expected = self.empty_board
-        self.assertEqual(self.table_top.board, expected)
+        self.assertEqual(self.table_top.board, self.empty_board)
 
     def test_that_board_can_be_changed(self):
-        expected = self.changed_board
         self.table_top.board = self.changed_board
-        self.assertEqual(self.table_top.board, expected)
+        self.assertEqual(self.table_top.board, self.changed_board)
 
 if __name__ == '__main__':
     unittest.main()
