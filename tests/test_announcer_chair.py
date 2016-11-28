@@ -42,6 +42,5 @@ class AnnouncerTestCase(unittest.TestCase):
         test = self.announcer.render_board(self.mock_board)
         self.assertEqual(test, self.rendered_board)
 
-
 if __name__ == '__main__':
     unittest.main()
