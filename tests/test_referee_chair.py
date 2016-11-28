@@ -70,13 +70,11 @@ class RefereeTestCase(unittest.TestCase):
         self.assertEqual(self.ref.whos_turn, self.bender)
 
     def test_get_win_list_returns_the_3x3_wins(self):
-        expected = self.win_list_3x3
-        self.assertEqual(self.ref.get_win_list(), expected)
+        self.assertEqual(self.ref.get_win_list(), self.win_list_3x3)
 
     def test_get_win_list_returns_the_4x4_wins(self):
         self.table_top.board = self.mock_4x4_board
-        expected = self.win_list_4x4
-        self.assertEqual(self.ref.get_win_list(), expected)
+        self.assertEqual(self.ref.get_win_list(), self.win_list_4x4)
 
 if __name__ == '__main__':
      unittest.main()
