@@ -66,7 +66,7 @@ class Referee(Facilitator):
         winner = self.check_for_winner()
         if winner == True:
             return self.whos_turn.id
-        elif self.moves_taken == 9:
+        elif self.moves_taken == len(self.table_top.board):
             return "tie"
         else:
             return False
