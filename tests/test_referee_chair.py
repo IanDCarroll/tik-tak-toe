@@ -30,6 +30,10 @@ class RefereeTestCase(unittest.TestCase):
     def test_referee_is_an_object(self):
         self.assertEqual(isinstance(self.ref, object), True)
 
+    def test_check_for_game_over_returns_tie(self):
+        self.ref.moves_taken = 9
+        self.assertEqual(self.ref.check_for_game_over(), 'tie')
+
     def test_check_for_winner_returns_false(self):
         self.table_top.board = self.false_board
         self.assertEqual(self.ref.check_for_winner(), False)
