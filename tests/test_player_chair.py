@@ -22,6 +22,10 @@ class PlayerTestCase(unittest.TestCase):
         test = self.human.check_conscience(7, self.mock_board)
         self.assertEqual(test, None)
 
+    def test_that_check_consience_flags_bad_moves(self):
+        test = self.human.check_conscience(4, self.mock_board)
+        self.assertEqual(test, True)
+
     def test_human_id_says_human(self):
         self.assertEqual(self.human.id, 'human')
 
