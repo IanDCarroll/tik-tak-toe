@@ -22,5 +22,11 @@ class PlayerTestCase(unittest.TestCase):
         test = self.human.check_conscience(7, self.mock_board)
         self.assertEqual(test, None)
 
+    def test_human_id_says_human(self):
+        self.assertEqual(self.human.id, 'human')
+
+    def test_computer_id_says_computer(self):
+        self.assertEqual(self.computer.id, 'computer')
+
 if __name__ == '__main__':
     unittest.main()
