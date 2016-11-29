@@ -11,13 +11,13 @@ class Referee(Facilitator):
         self.player2 = player2
         self.whos_turn = self.player1
 
-    def show_board(self):
-        board = self.announcer.render_board(self.table_top.board)
-        self.announcer.show(board)
-
     def start_game(self):
         self.announcer.show(self.announcer.start)
         self.facilitate_turns()
+
+    def show_board(self):
+        board = self.announcer.render_board(self.table_top.board)
+        self.announcer.show(board)
         
     def facilitate_turns(self):
         self.show_board()
