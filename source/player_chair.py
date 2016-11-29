@@ -12,11 +12,11 @@ class Human(Player):
     id = 'human'
 
     def move(self, board):
-        choice = self.choose()
-        if self.check_conscience(self.choice, board):
+        choice = self.choose() - 1
+        if self.check_conscience(choice, board):
             self.move(board)
         else: 
-            board[choice + 1] = 10
+            board[choice] = 10
         return board
 
     def choose(self):

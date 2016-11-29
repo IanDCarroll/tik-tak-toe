@@ -2,7 +2,8 @@ import unittest
 from source.player_chair import *
 
 class Dummy(Human):
-      choice = 4
+      def choose(self):
+          return 4
 
 class PlayerTestCase(unittest.TestCase):
 
@@ -11,7 +12,8 @@ class PlayerTestCase(unittest.TestCase):
         self.computer = Computer()
         self.human = Dummy()
         self.mock_board = [1,10,1, 0,10,0, 1,0,10]
-        self.after_turn = [1,10,1, 1,10,0, 1,0,10] 
+        self.computer_turn = [1,10,1, 1,10,0, 1,0,10]
+        self.human_turn = [1,10,1, 10,10,0, 1,0,10]
 
     def test_that_player_can_only_make_legal_moves(self):
         test = self.player.get_legal_moves(self.mock_board)
@@ -19,7 +21,11 @@ class PlayerTestCase(unittest.TestCase):
 
     def test_that_computer_player_can_make_a_move(self):
         test = self.computer.move(self.mock_board)
-        self.assertEqual(test, self.after_turn)
+        self.assertEqual(test, self.computer_turn)
+
+    def test_that_human_can_make_a_move(self):
+        test = self.human.move(self.mock_board)
+        self.assertEqual(test, self.human_turn)
 
     def test_that_human_can_only_make_legal_moves(self):
         test = self.human.check_conscience(7, self.mock_board)
