@@ -13,7 +13,6 @@ class RefereeTestCase(unittest.TestCase):
         self.player1 = Computer()
         self.player2 = Human()
         self.ref = Referee(self.table_top, self.player1, self.player2)
-        self.tied_board = [1,1,10, 10,10,1, 1,10,1]
         self.false_board = [1,10,1, 0,10,0, 1,0,10]
         self.edge_board = [1,10,1, 1,10,0, 1,0,10]
         self.column_board = [1,10,1, 0,10,0, 1,10,0]

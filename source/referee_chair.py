@@ -65,7 +65,7 @@ class Referee(Facilitator):
     def check_for_game_over(self):
         winner = self.check_for_winner()
         if winner == True:
-            return self.whos_turn.id
+            return self.whos_turn.name
         elif self.moves_taken == len(self.table_top.board):
             return "tie"
         else:

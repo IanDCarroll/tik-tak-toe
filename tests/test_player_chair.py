@@ -36,10 +36,10 @@ class PlayerTestCase(unittest.TestCase):
         self.assertEqual(test, True)
 
     def test_human_id_says_human(self):
-        self.assertEqual(self.human.id, 'human')
+        self.assertEqual(self.human.name, 'human')
 
     def test_computer_id_says_computer(self):
-        self.assertEqual(self.computer.id, 'computer')
+        self.assertEqual(self.computer.name, 'computer')
 
 if __name__ == '__main__':
     unittest.main()

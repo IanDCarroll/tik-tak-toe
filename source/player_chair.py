@@ -9,7 +9,7 @@ class Player(object):
 
 class Human(Player):
 
-    id = 'human'
+    name = 'human'
 
     def move(self, board):
         choice = self.choose() - 1
@@ -29,7 +29,7 @@ class Human(Player):
 
 class Computer(Player):
 
-    id = 'computer'
+    name = 'computer'
 
     # will play a perfect game for board size 2x2 or smaller!
     def move(self, board):
