@@ -1,12 +1,15 @@
 import unittest
 from source.player_chair import *
 
+class Dummy(Human):
+      choice = 4
+
 class PlayerTestCase(unittest.TestCase):
 
     def setUp(self):
         self.player = Player()
         self.computer = Computer()
-        self.human = Human()
+        self.human = Dummy()
         self.mock_board = [1,10,1, 0,10,0, 1,0,10]
         self.after_turn = [1,10,1, 1,10,0, 1,0,10] 
 
