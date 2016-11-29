@@ -1,5 +1,8 @@
 class Player(object):
 
+    def __init__(self, marker_code):
+        self.marker_code = marker_code
+
     def get_legal_moves(self, board):
         legal_moves = []
         for i in range(0, len(board)):
@@ -9,9 +12,7 @@ class Player(object):
 
 class Human(Player):
 
-    def __init__(self, marker_code):
-        self.marker_code = marker_code
-        self.name = 'human'
+    name = 'human'
 
     def move(self, board):
         choice = self.choose() - 1
@@ -31,9 +32,7 @@ class Human(Player):
 
 class Computer(Player):
 
-    def __init__(self, marker_code):
-        self.marker_code = marker_code
-        self.name = 'computer'
+    name = 'computer'
 
     # will play a perfect game for board size 2x2 or smaller!
     def move(self, board):

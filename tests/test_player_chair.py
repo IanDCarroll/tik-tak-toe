@@ -8,7 +8,7 @@ class Dummy(Human):
 class PlayerTestCase(unittest.TestCase):
 
     def setUp(self):
-        self.player = Player()
+        self.player = Player(1)
         self.computer = Computer(1)
         self.human = Dummy(10)
         self.mock_board = [1,10,1, 0,10,0, 1,0,10]
