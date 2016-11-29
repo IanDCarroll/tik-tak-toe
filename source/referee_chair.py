@@ -1,14 +1,18 @@
 from facilitator_credentials import Facilitator
 from announcer_chair import Announcer
+from player_chair import *
 from time import sleep
 
 class Referee(Facilitator):
 
-    def __init__(self, table_top, player1, player2):
-        self.announcer = Announcer()
+    def __init__(self, table_top):
         self.table_top = table_top
-        self.player1 = player1
-        self.player2 = player2
+        self.announcer = Announcer()
+
+        self.noughts = 10
+        self.crosses = 1
+        self.player1 = Human(self.crosses)
+        self.player2 = Computer(self.noughts)
         self.whos_turn = self.player1
         self.moves_taken = 0
 
@@ -22,7 +26,9 @@ class Referee(Facilitator):
         if select == '1':
             self.facilitate_turns()
         elif select == '2':
-            self.prep_next_turn()
+            self.player1 = Computer(self.crosses)
+            self.player2 = Human(self.noughts)
+            self.whos_turn = self.player1
             self.facilitate_turns()
         else:
             self.announcer.show(self.announcer.bad_move)
@@ -32,7 +38,7 @@ class Referee(Facilitator):
         self.show_board()
         self.whos_turn.move(self.table_top.board)
         self.moves_taken += 1
-        sleep(1.25)
+        sleep(0.5)
         the_game_is_over = self.check_for_game_over()
         if the_game_is_over != False:
             self.game_over(the_game_is_over)

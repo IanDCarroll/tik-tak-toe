@@ -4,9 +4,7 @@ from game_table import TableTop
 
 def play_xox():
     tabletop = TableTop()
-    player1 = Human()
-    player2 = Computer()
-    ref = Referee(tabletop, player1, player2)
+    ref = Referee(tabletop)
     ref.start_game()
 
 if __name__ == "__main__":

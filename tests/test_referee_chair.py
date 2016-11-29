@@ -10,8 +10,8 @@ class RefereeTestCase(unittest.TestCase):
         self.facilitator = Facilitator()
         self.announcer = Announcer()
         self.table_top = TableTop()
-        self.player1 = Computer()
-        self.player2 = Human()
+        self.player1 = Computer(1)
+        self.player2 = Human(10)
         self.ref = Referee(self.table_top, self.player1, self.player2)
         self.false_board = [1,10,1, 0,10,0, 1,0,10]
         self.edge_board = [1,10,1, 1,10,0, 1,0,10]

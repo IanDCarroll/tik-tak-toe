@@ -9,8 +9,8 @@ class PlayerTestCase(unittest.TestCase):
 
     def setUp(self):
         self.player = Player()
-        self.computer = Computer()
-        self.human = Dummy()
+        self.computer = Computer(1)
+        self.human = Dummy(10)
         self.mock_board = [1,10,1, 0,10,0, 1,0,10]
         self.computer_turn = [1,10,1, 1,10,0, 1,0,10]
         self.human_turn = [1,10,1, 10,10,0, 1,0,10]
