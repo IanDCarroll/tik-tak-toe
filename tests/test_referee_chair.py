@@ -30,14 +30,6 @@ class RefereeTestCase(unittest.TestCase):
     def test_referee_is_an_object(self):
         self.assertEqual(isinstance(self.ref, object), True)
 
-    def test_check_for_draw_returns_true(self):
-        self.table_top.board = self.tied_board
-        self.assertEqual(self.ref.check_for_tie(), True)
-
-    def test_check_for_draw_returns_false(self):
-        self.table_top.board = self.false_board
-        self.assertEqual(self.ref.check_for_tie(), False)
-
     def test_check_for_winner_returns_false(self):
         self.table_top.board = self.false_board
         self.assertEqual(self.ref.check_for_winner(), False)
