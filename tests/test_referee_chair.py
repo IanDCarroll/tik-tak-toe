@@ -1,6 +1,5 @@
 import unittest
 from source.referee_chair import *
-from source.player_chair import *
 from source.game_table import *
 from source.facilitator_credentials import * 
 
@@ -10,9 +9,7 @@ class RefereeTestCase(unittest.TestCase):
         self.facilitator = Facilitator()
         self.announcer = Announcer()
         self.table_top = TableTop()
-        self.player1 = Computer(1)
-        self.player2 = Human(10)
-        self.ref = Referee(self.table_top, self.player1, self.player2)
+        self.ref = Referee(self.table_top)
         self.false_board = [1,10,1, 0,10,0, 1,0,10]
         self.edge_board = [1,10,1, 1,10,0, 1,0,10]
         self.column_board = [1,10,1, 0,10,0, 1,10,0]
@@ -69,11 +66,11 @@ class RefereeTestCase(unittest.TestCase):
         self.assertEqual(hasattr(self.announcer, 'get_board_size'), True)
 
     def test_prep_next_turn_toggles_players(self):
-        self.assertEqual(self.ref.whos_turn, self.player1)
+        self.assertEqual(self.ref.whos_turn, self.ref.player1)
         self.ref.prep_next_turn()
-        self.assertEqual(self.ref.whos_turn, self.player2)
+        self.assertEqual(self.ref.whos_turn, self.ref.player2)
         self.ref.prep_next_turn()
-        self.assertEqual(self.ref.whos_turn, self.player1)
+        self.assertEqual(self.ref.whos_turn, self.ref.player1)
 
     def test_get_win_list_returns_the_3x3_wins(self):
         self.assertEqual(self.ref.get_win_list(), self.win_list_3x3)
