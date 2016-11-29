@@ -13,7 +13,19 @@ class Referee(Facilitator):
 
     def start_game(self):
         self.announcer.show(self.announcer.start)
-        self.facilitate_turns()
+        self.select_mode()
+
+    def select_mode(self):
+        self.announcer.show(self.announcer.select)
+        select = self.ask_human()
+        if select == '1':
+            self.facilitate_turns()
+        elif select == '2':
+            self.prep_next_turn()
+            self.facilitate_turns()
+        else:
+            self.announcer.show(self.announcer.bad_move)
+            self.game_menu()
 
     def facilitate_turns(self):
         self.show_board()
@@ -40,6 +52,9 @@ class Referee(Facilitator):
             self.announcer.show(self.announcer.computer)
         elif winner == "human":
             self.announcer.show(self.announcer.human)
+
+    def ask_human(self):
+        return raw_input('> ')
 
     def show_board(self):
         board = self.announcer.render_board(self.table_top.board)
