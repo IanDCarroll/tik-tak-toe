@@ -12,12 +12,15 @@ class Human(Player):
     id = 'human'
 
     def move(self, board):
-        choice = int(raw_input("Which square do you choose? "))-1
-        if self.check_conscience(choice, board):
+        choice = self.choose()
+        if self.check_conscience(self.choice, board):
             self.move(board)
         else: 
-            board[choice] = 10
+            board[choice + 1] = 10
         return board
+
+    def choose(self):
+        return int(raw_input("Which square do you choose? "))
 
     def check_conscience(self, choice, board):
         if choice not in self.get_legal_moves(board):
