@@ -26,7 +26,7 @@ class Referee(Facilitator):
             self.facilitate_turns()
         else:
             self.announcer.show(self.announcer.bad_move)
-            self.game_menu()
+            self.select_mode()
 
     def facilitate_turns(self):
         self.show_board()
