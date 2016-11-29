@@ -21,7 +21,6 @@ class Human(Player):
 
     def check_conscience(self, choice, board):
         if choice not in self.get_legal_moves(board):
-            print "Please choose a number not already taken."
             return True
             
 
