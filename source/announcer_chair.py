@@ -10,8 +10,10 @@ class Announcer(Observer):
         self.human = "You Win!"
         self.question = "Which square do you choose?"
         self.bad_move = "Sorry, that's not a legal move. Try again."
-        self.nought = " O "
-        self.cross = " X "
+        self.nought = " O \033[0m"
+        self.cross = " X \033[0m"
+        self.num1 = " "
+        self.num2 = " \033[0m"
 
     def show(self, text):
         print text
@@ -25,7 +27,7 @@ class Announcer(Observer):
         fresh_board = []
         for i in range(0, len(board)):
             if board[i] == 0:
-                fresh_board.append(" " + str(i+1)  + " ")
+                fresh_board.append(self.num1 + str(i+1)  + self.num2)
             elif board[i] == 1:
                 fresh_board.append(self.cross)
             elif board[i] == 10:
