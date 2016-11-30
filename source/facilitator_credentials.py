@@ -42,11 +42,21 @@ class Facilitator(object):
         return analyzed_diags
 
     def scan_NW_SE(self, board):
-        value = None
+        value = 0
+        board_size = self.get_board_size(board)
+        target_index = 0
+        for i in range(0, board_size):
+            value += board[target_index]
+            target_index += board_size + 1
         return value
 
     def scan_NE_SW(self, board):
-        value = None
+        value = 0
+        board_size = self.get_board_size(board)
+        target_index = board_size - 1
+        for i in range(0, board_size):
+            value += board[target_index]
+            target_index += board_size - 1
         return value
 
     def get_board_size(self, board):
