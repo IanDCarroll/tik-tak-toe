@@ -13,7 +13,7 @@ class AnnouncerTestCase(unittest.TestCase):
         self.question = "Which square do you choose?"
         self.bad_move = "Sorry, that's not a legal move. Try again."
         self.nought = " O \033[0m"
-        self.cross = " X \033[0m"
+        self.cross = "\033[91m X \033[0m"
         self.mock_board = [1,10,1, 0,10,0, 1,0,10]
         self.rendered_board = '''
 \033[91m X \033[0m| O \033[0m|\033[91m X \033[0m

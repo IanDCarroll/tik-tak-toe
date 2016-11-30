@@ -11,7 +11,7 @@ class Announcer(Observer):
         self.question = "Which square do you choose?"
         self.bad_move = "Sorry, that's not a legal move. Try again."
         self.nought = " O \033[0m"
-        self.cross = " X \033[0m"
+        self.cross = "\033[91m X \033[0m"
         self.num1 = "\033[30m "
         self.num2 = " \033[0m"
 
