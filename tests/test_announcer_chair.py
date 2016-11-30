@@ -50,6 +50,9 @@ class AnnouncerTestCase(unittest.TestCase):
     def test_display_cross(self):
         self.assertEqual(self.announcer.cross, self.cross)
 
+    def test_announcer_has_get_board_size(self):
+        self.assertEqual(hasattr(self.announcer, 'get_board_size'), True)
+
     def test_display_current_board(self):
         test = self.announcer.render_board(self.mock_board)
         self.assertEqual(test, self.rendered_board)

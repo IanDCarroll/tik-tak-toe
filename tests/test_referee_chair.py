@@ -59,25 +59,12 @@ class RefereeTestCase(unittest.TestCase):
         test = self.facilitator.get_board_size(self.table_top.board)
         self.assertEqual(test, 4)
 
-    def test_referee_has_get_board_size(self):
-        self.assertEqual(hasattr(self.ref, 'get_board_size'), True)
-
-    def test_announcer_has_get_board_size(self):
-        self.assertEqual(hasattr(self.announcer, 'get_board_size'), True)
-
     def test_prep_next_turn_toggles_players(self):
         self.assertEqual(self.ref.whos_turn, self.ref.player1)
         self.ref.prep_next_turn()
         self.assertEqual(self.ref.whos_turn, self.ref.player2)
         self.ref.prep_next_turn()
         self.assertEqual(self.ref.whos_turn, self.ref.player1)
-
-    def test_get_win_list_returns_the_3x3_wins(self):
-        self.assertEqual(self.ref.get_win_list(), self.win_list_3x3)
-
-    def test_get_win_list_returns_the_4x4_wins(self):
-        self.table_top.board = self.mock_4x4_board
-        self.assertEqual(self.ref.get_win_list(), self.win_list_4x4)
 
 if __name__ == '__main__':
      unittest.main()
