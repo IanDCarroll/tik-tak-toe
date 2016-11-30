@@ -38,9 +38,9 @@ class Human(Player):
             return True
             
     def redo_move(self, board):
-            self.announcer.show(self.announcer.bad_move)
-            self.move(board)
-            return 1
+        self.announcer.show(self.announcer.bad_move)
+        self.move(board)
+        return 1
 
 class Computer(Player):
 
