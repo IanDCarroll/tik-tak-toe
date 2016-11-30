@@ -2,8 +2,8 @@ import unittest
 from source.player_chair import *
 
 class Dummy(Human):
-      def choose(self):
-          return 4
+      def choose(self, board):
+          return 3
 
 class PlayerTestCase(unittest.TestCase):
 
