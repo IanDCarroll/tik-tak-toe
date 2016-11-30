@@ -10,6 +10,8 @@ class FacilitatorTestCase(unittest.TestCase):
         self.expected_rows = [11,11,12]
         self.expected_cols = [3,20,11]
         self.expected_diags = [12,21]
+        self.expected_NW_SE_value = 12
+        self.expected_NE_SW_value = 21
 
     def test_scan_board_returns_analyzed_list(self):
         test_yields = self.facilitator.scan_board(self.mock_board)
@@ -23,9 +25,17 @@ class FacilitatorTestCase(unittest.TestCase):
         test_yields = self.facilitator.scan_cols(self.mock_board)
         self.assertEqual(test_yields, self.expected_cols)
 
-    def test_scan_diags_retunrs_analyzed_list(self):
+    def test_scan_diags_returns_analyzed_list(self):
         test_yields = self.facilitator.scan_diags(self.mock_board)
-        self.assertEqual(test_yielsa, self.expected_diags)
+        self.assertEqual(test_yields, self.expected_diags)
+
+    def test_scan_NW_SE_diag_returns_analyzed_value(self):
+        test_yields = self.facilitator.scan_NW_SE(self.mock_board)
+        self.assertEqual(test_yields, self.expected_NW_SE_value)
+
+    def test_scan_NE_SW_diag_returns_analyzed_value(self):
+        test_yields = self.facilitator.sacn_NE_SW(self.mock_board)
+        self.assertEqual(test_yields, self.expected_NE_SW_value)
 
 if __name__ == '__main__':
     unittest.main()
