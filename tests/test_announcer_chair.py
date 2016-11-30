@@ -12,15 +12,15 @@ class AnnouncerTestCase(unittest.TestCase):
         self.human = "You Win!"
         self.question = "Which square do you choose?"
         self.bad_move = "Sorry, that's not a legal move. Try again."
-        self.nought = " O \033[0m"
+        self.nought = "\033[96m O \033[0m"
         self.cross = "\033[91m X \033[0m"
         self.mock_board = [1,10,1, 0,10,0, 1,0,10]
         self.rendered_board = '''
-\033[91m X \033[0m| O \033[0m|\033[91m X \033[0m
+\033[91m X \033[0m|\033[96m O \033[0m|\033[91m X \033[0m
 ---+---+---
-\033[30m 4 \033[0m| O \033[0m|\033[30m 6 \033[0m
+\033[30m 4 \033[0m|\033[96m O \033[0m|\033[30m 6 \033[0m
 ---+---+---
-\033[91m X \033[0m|\033[30m 8 \033[0m| O \033[0m
+\033[91m X \033[0m|\033[30m 8 \033[0m|\033[96m O \033[0m
 '''
 
     def test_display_start_of_game(self):
