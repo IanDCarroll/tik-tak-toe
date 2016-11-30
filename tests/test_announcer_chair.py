@@ -16,11 +16,11 @@ class AnnouncerTestCase(unittest.TestCase):
         self.cross = " X "
         self.mock_board = [1,10,1, 0,10,0, 1,0,10]
         self.rendered_board = """
- X | O | X 
+ X \033[0m| O \033[0m| X \033[0m
 ---+---+---
- 4 | O | 6 
+ 4 \033[0m| O \033[0m| 6 \033[0m
 ---+---+---
- X | 8 | O 
+ X \033[0m| 8 \033[0m| O \033[0m
 """
 
     def test_display_start_of_game(self):
