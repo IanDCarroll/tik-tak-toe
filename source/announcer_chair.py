@@ -9,7 +9,6 @@ class Announcer(Facilitator):
         self.computer = "Computer Wins"
         self.human = "You Win"
         self.question = "Which square do you choose?"
-        self.next_move = "What is your next move?"
         self.bad_move = "That is not a legal move."
         self.nought = " O "
         self.cross = " X "
