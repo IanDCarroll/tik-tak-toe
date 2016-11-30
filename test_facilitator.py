@@ -34,7 +34,7 @@ class FacilitatorTestCase(unittest.TestCase):
         self.assertEqual(test_yields, self.expected_NW_SE_value)
 
     def test_scan_NE_SW_diag_returns_analyzed_value(self):
-        test_yields = self.facilitator.sacn_NE_SW(self.mock_board)
+        test_yields = self.facilitator.scan_NE_SW(self.mock_board)
         self.assertEqual(test_yields, self.expected_NE_SW_value)
 
 if __name__ == '__main__':

@@ -6,6 +6,7 @@ class Facilitator(object):
         analyzed_list = []
         analyzed_list.extend(self.scan_rows(board))
         analyzed_list.extend(self.scan_cols(board))
+        analyzed_list.extend(self.scan_diags(board))
         return analyzed_list
 
     def scan_rows(self, board):
@@ -33,6 +34,20 @@ class Facilitator(object):
             start_index += 1
             analyzed_cols.append(analyzed_col)
         return analyzed_cols
+
+    def scan_diags(self, board):
+        analyzed_diags = []
+        analyzed_diags.append(self.scan_NW_SE(board))
+        analyzed_diags.append(self.scan_NE_SW(board))
+        return analyzed_diags
+
+    def scan_NW_SE(self, board):
+        value = None
+        return value
+
+    def scan_NE_SW(self, board):
+        value = None
+        return value
 
     def get_board_size(self, board):
         return int(sqrt(len(board))) 
