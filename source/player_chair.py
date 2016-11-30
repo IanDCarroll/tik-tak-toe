@@ -27,11 +27,17 @@ class Human(Player):
     name = 'human'
 
     def choose(self, board):
-        choice = int(raw_input("Which square do you choose? ")) -1
+        choice = self.get_good_input(board)
         if self.check_conscience(choice, board):
             return self.redo_move(board)
         else:
             return choice
+
+    def get_good_input(self, board):
+        try:
+           return int(raw_input("which square do you choose? ")) -1
+        except(ValueError):
+           return self.redo_move(board)
 
     def check_conscience(self, choice, board):
         if choice not in self.get_legal_moves(board):
