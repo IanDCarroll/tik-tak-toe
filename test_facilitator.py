@@ -11,3 +11,6 @@ class FacilitatorTestCase(Unittest.TestCase):
     def test_scan_board_returns_analyzed_list(self):
         test_yields = self.facilitator.scan_board(self.mock_board)
         self.assertEqual(test_yields, self.expected_analysis)
+
+if __name__ == '__main__':
+    unittest.main()
