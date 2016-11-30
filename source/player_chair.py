@@ -35,7 +35,8 @@ class Human(Player):
 
     def get_good_input(self, board):
         try:
-           return int(raw_input("which square do you choose? ")) -1
+           self.announcer.show(self.announcer.question)
+           return int(raw_input("> ")) -1
         except(ValueError):
            return self.redo_move(board)
 
