@@ -18,9 +18,9 @@ class AnnouncerTestCase(unittest.TestCase):
         self.rendered_board = '''
  X \033[0m| O \033[0m| X \033[0m
 ---+---+---
- 4 \033[0m| O \033[0m| 6 \033[0m
+\033[30m 4 \033[0m| O \033[0m|\033[30m 6 \033[0m
 ---+---+---
- X \033[0m| 8 \033[0m| O \033[0m
+ X \033[0m|\033[30m 8 \033[0m| O \033[0m
 '''
 
     def test_display_start_of_game(self):
