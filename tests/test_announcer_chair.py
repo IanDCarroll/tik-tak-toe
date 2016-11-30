@@ -11,7 +11,6 @@ class AnnouncerTestCase(unittest.TestCase):
         self.computer = "Computer Wins"
         self.human = "You Win"
         self.question = "Which square do you choose?"
-        self.next_move = "What is your next move?"
         self.bad_move = "That is not a legal move."
         self.nought = " O "
         self.cross = " X "
@@ -38,9 +37,6 @@ class AnnouncerTestCase(unittest.TestCase):
 
     def test_display_game_over_human_wins(self):
         self.assertEqual(self.announcer.human, self.human)
-
-    def test_display_ask_for_human_input(self):
-        self.assertEqual(self.announcer.next_move, self.next_move)
 
     def test_display_question_the_human(self):
         self.assertEqual(self.announcer.question, self.question)
