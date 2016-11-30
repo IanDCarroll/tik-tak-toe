@@ -1,6 +1,6 @@
 from math import sqrt
 
-class Facilitator(object):
+class Observer(object):
 
     def scan_board(self, board):
         analyzed_list = []

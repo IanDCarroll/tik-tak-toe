@@ -1,6 +1,7 @@
+from observer_abilities import *
 from announcer_chair import *
 
-class Player(object):
+class Player(Observer):
 
     def __init__(self, marker_code):
         self.announcer = Announcer()

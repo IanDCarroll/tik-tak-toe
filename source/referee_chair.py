@@ -1,9 +1,9 @@
-from facilitator_credentials import Facilitator
+from observer_abilities import *
 from announcer_chair import Announcer
 from player_chair import *
 from time import sleep
 
-class Referee(Facilitator):
+class Referee(Observer):
 
     def __init__(self, table_top):
         self.table_top = table_top

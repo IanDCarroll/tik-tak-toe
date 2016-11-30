@@ -1,6 +1,6 @@
-from facilitator_credentials import Facilitator
+from observer_abilities import *
 
-class Announcer(Facilitator):
+class Announcer(Observer):
     
     def __init__(self):
         self.start = "Welcome"
