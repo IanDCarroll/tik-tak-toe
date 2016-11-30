@@ -5,13 +5,13 @@ class AnnouncerTestCase(unittest.TestCase):
 
     def setUp(self):
         self.announcer = Announcer()
-        self.start = "Welcome"
-        self.select = "Type 1 to go first, 2 to go second."
-        self.tie = "Draw"
-        self.computer = "Computer Wins"
-        self.human = "You Win"
+        self.start = "Welcome to XOX, a Noughts and Crosses Game"
+        self.select = "Type 1 to go first, or 2 to go second."
+        self.tie = "The game is a draw."
+        self.computer = "the Computer wins the game."
+        self.human = "You Win!"
         self.question = "Which square do you choose?"
-        self.bad_move = "That is not a legal move."
+        self.bad_move = "Sorry, That's not a legal move. Try again."
         self.nought = " O "
         self.cross = " X "
         self.mock_board = [1,10,1, 0,10,0, 1,0,10]
