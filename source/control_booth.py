@@ -1,3 +1,5 @@
+from emcee_podium import Emcee as mc
+
 class StageManager(object):
 
     def play_game(self):
