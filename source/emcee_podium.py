@@ -12,5 +12,13 @@ class Emcee(object):
             self.announcer.show(announcer.bad_move)
             return self.open_game()
 
+    def end_game(self, winner):
+        if winner == 'tie':
+            self.announcer.show(self.announcer.tie)
+        elif winner == 'computer':
+            self.announcer.show(self.announcer.computer)
+        elif winner == 'human':
+            self.announcer.show(self.announcer.human)
+
     def ask_human(self):
         return raw_input('> ')
