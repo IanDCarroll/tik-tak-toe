@@ -1,3 +1,5 @@
+from player_chair import *
+
 class TableTop(object):
     
     def __init__(self):
