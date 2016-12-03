@@ -8,11 +8,11 @@ class StageManager(object):
         self.table_top = TableTop()
 
     def play_game(self):
-        play_options = mc.open_game()
-        if play_options = '2':
+        game_mode = mc.open_game()
+        if game_mode = '2':
             self.table_top.switch_players()
 
-        ref = Referee(self.table_top)
+        ref = Referee(table_top)
         winner = ref.run_game()
 
         return mc.end_game(winner)      
