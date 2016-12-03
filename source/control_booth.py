@@ -9,7 +9,7 @@ class StageManager(object):
 
     def play_game(self):
         game_mode = mc.open_game()
-        if game_mode = '2':
+        if game_mode == '2':
             self.table_top.switch_players()
 
         ref = Referee(table_top)
