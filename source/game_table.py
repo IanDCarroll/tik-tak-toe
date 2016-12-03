@@ -10,7 +10,7 @@ class TableTop(object):
         self.player2 = Computer(self.noughts)
         self.whos_turn = self.player1
 
-    def switch_players(self):
+    def give_computer_the_first_move(self):
         self.player1 = Computer(self.crosses)
         self.player2 = Human(self.noughts)
 

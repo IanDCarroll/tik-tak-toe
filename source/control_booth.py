@@ -10,7 +10,7 @@ class StageManager(object):
     def play_game(self):
         game_mode = mc.open_game()
         if game_mode == '2':
-            self.table_top.switch_players()
+            self.table_top.give_computer_the_first_move()
 
         ref = Referee(table_top)
         winner = ref.facilitate_turns()
