@@ -7,7 +7,7 @@ class Referee(Observer):
         self.announcer = Announcer()
         self.moves_taken = 0
 
-    def take_turns(self): # might belong to Judge
+    def facilitate_turns(self): # might belong to Judge
         board_size = self.get_board_size(self.table_top.board)
         winner = check_for_winner() # definitely belongs to Judge
         if winner:

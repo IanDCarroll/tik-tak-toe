@@ -13,6 +13,6 @@ class StageManager(object):
             self.table_top.switch_players()
 
         ref = Referee(table_top)
-        winner = ref.run_game()
+        winner = ref.facilitate_turns()
 
         return mc.end_game(winner)      
