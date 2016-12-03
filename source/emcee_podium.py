@@ -1,13 +1,13 @@
+from announcer_chair import *
+
 class Emcee(object):
 
     def open_game(self):
         self.announcer.show(self.announcer.start)
         self.announcer.show(self.announcer.select)
-        select = self.ask_human()
-        if select == '1':
-            return #human goes first
-        elif select == '2':
-            return #computer goes first
+        return self.ask_human()
+        if select == '1' or select == '2':
+            return select
         else:
             self.announcer.show(announcer.bad_move)
             return self.open_game()
