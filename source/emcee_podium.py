@@ -7,12 +7,12 @@ class Emcee(object):
     def choose_who_goes_first(self):
         self.announcer.show(self.announcer.start)
         self.announcer.show(self.announcer.select)
-        selection = get_selection()
-        if selection == '2':
+        choice = get_selection()
+        if choice == '2':
            self.table_top.give_computer_the_first_move()
 
     def get_selection(self):
-        return self.ask_human()
+        select = self.ask_human()
         if select == '1' or select == '2':
             return select
         else:
