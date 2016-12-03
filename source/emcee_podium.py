@@ -2,6 +2,8 @@ from announcer_chair import *
 
 class Emcee(object):
 
+    announcer = Announcer()
+
     def open_game(self):
         self.announcer.show(self.announcer.start)
         self.announcer.show(self.announcer.select)
