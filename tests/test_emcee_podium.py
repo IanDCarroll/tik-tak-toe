@@ -34,10 +34,10 @@ class EmceeTestCase(unittest.TestCase):
         self.tied_game = 'tie'
 
     def test_open_game_human_chooses_to_go_first(self):
-        self.assertEqual(self.mc_human.get_selection(), '1')
+        self.assertEqual(self.mc_human.get_choice(), '1')
 
     def test_open_game_human_chooses_to_go_second(self):
-        self.assertEqual(self.mc_computer.get_selection(), '2')
+        self.assertEqual(self.mc_computer.get_choice(), '2')
 
     def test_open_game_human_says_ni(self):
         pass

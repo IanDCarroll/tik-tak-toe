@@ -11,10 +11,10 @@ class Emcee(object):
         if choice == '2':
            self.table_top.give_computer_the_first_move()
 
-    def get_selection(self):
-        select = self.ask_human()
-        if select == '1' or select == '2':
-            return select
+    def get_choice(self):
+        choice = self.ask_human()
+        if choice == '1' or choice == '2':
+            return choice
         else:
             self.announcer.show(announcer.bad_move)
             return self.open_game()
