@@ -14,11 +14,11 @@ class Emcee(object):
 
     def end_game(self, winner):
         if winner == 'tie':
-            self.announcer.show(self.announcer.tie)
+            return self.announcer.show(self.announcer.tie)
         elif winner == 'computer':
-            self.announcer.show(self.announcer.computer)
+            return self.announcer.show(self.announcer.computer)
         elif winner == 'human':
-            self.announcer.show(self.announcer.human)
+            return self.announcer.show(self.announcer.human)
 
     def ask_human(self):
         return raw_input('> ')
