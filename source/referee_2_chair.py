@@ -16,7 +16,7 @@ class Referee(Observer):
            return 'tie'
         else:
            self.moves_taken += 1
-           self.next_players_turn() # maybe belongs to TableTop
+           self.table_top.give_next_player_a_go()
            self.take_a_turn()
            
 

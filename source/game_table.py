@@ -13,3 +13,9 @@ class TableTop(object):
     def switch_players(self):
         self.player1 = Computer(self.crosses)
         self.player2 = Human(self.noughts)
+
+    def give_next_player_a_go(self):
+        if self.whos_turn == self.player1:
+            self.whos_turn = self.player2
+        elif self.whos_turn == self.player2:
+            self.whos_turn = self.player1
