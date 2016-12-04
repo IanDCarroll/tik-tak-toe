@@ -18,7 +18,6 @@ class Referee(object):
            self.moves_taken += 1
            self.table_top.give_next_player_a_go()
            self.take_a_turn()
-           
 
     def take_a_turn(self):
         self.show_board
