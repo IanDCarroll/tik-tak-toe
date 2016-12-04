@@ -4,7 +4,7 @@ class Emcee(object):
 
     announcer = Announcer()
 
-    def choose_who_goes_first(self):
+    def choose_who_goes_first(self): # needs test
         self.announcer.show(self.announcer.start)
         self.announcer.show(self.announcer.select)
         choice = get_selection()

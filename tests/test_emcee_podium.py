@@ -33,13 +33,13 @@ class EmceeTestCase(unittest.TestCase):
         self.computer_win = 'computer'
         self.tied_game = 'tie'
 
-    def test_open_game_human_chooses_to_go_first(self):
+    def test_get_choice_human_chooses_to_go_first(self):
         self.assertEqual(self.mc_human.get_choice(), '1')
 
-    def test_open_game_human_chooses_to_go_second(self):
+    def test_get_choice_human_chooses_to_go_second(self):
         self.assertEqual(self.mc_computer.get_choice(), '2')
 
-    def test_open_game_human_says_ni(self):
+    def test_get_choice_human_says_ni(self):
         pass
         # we can try to test this later 
         # if we include a try-counter that after so many tries, 
