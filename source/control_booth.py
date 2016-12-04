@@ -14,4 +14,4 @@ class StageManager(object):
         ref = Referee(table_top)
         winner = ref.facilitate_turns()
 
-        return mc.end_game(winner)      
+        return mc.end_game(winner)  
