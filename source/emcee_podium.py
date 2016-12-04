@@ -2,12 +2,14 @@ from announcer_chair import *
 
 class Emcee(object):
 
-    announcer = Announcer()
+    def __init__(self, board):
+        self.table_top = board
+        self.announcer = Announcer()
 
-    def choose_who_goes_first(self): # needs test
+    def choose_who_goes_first(self):
         self.announcer.show(self.announcer.start)
         self.announcer.show(self.announcer.select)
-        choice = get_selection()
+        choice = self.get_choice()
         if choice == '2':
            self.table_top.give_computer_the_first_move()
 
