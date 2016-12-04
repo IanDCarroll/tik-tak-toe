@@ -13,6 +13,7 @@ class TableTop(object):
     def give_computer_the_first_move(self):
         self.player1 = Computer(self.crosses)
         self.player2 = Human(self.noughts)
+        self.whos_turn = self.player1
 
     def give_next_player_a_go(self):
         if self.whos_turn == self.player1:
