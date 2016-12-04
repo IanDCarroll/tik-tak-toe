@@ -11,6 +11,6 @@ class Judge(Observer):
         noughts_win = crosses_win * 10
         scan = self.scan_board(board)
         if crosses_win in scan or noughts_win in scan:
-           return True
+           return self.table_top.whos_turn.name
         else:
            return False
