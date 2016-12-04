@@ -1,18 +1,18 @@
 from announcer_chair import Announcer
 
-class Referee(Observer):
+class Referee(object):
 
-    def __init__(self, board_object): # better as part of TableTop.
+    def __init__(self, board_object):
         self.table_top = board_object
+        self.judge = Judge(self.table_top)
         self.announcer = Announcer()
         self.moves_taken = 0
 
-    def facilitate_turns(self): # might belong to Judge
-        board_size = self.get_board_size(self.table_top.board)
-        winner = check_for_winner() # definitely belongs to Judge
+    def facilitate_turns(self):
+        winner = self.judge.check_for_winner()
         if winner:
            return winner
-        elif moves_taken == board_size: 
+        elif moves_taken == len(self.table_top.board): 
            return 'tie'
         else:
            self.moves_taken += 1
@@ -22,7 +22,7 @@ class Referee(Observer):
 
     def take_a_turn(self):
         self.show_board
-        # all the rest of the steps needed to take a turn
+        self.table_top.whos_turn.move(self.table_top.board)
 
     def show_board(self):
         board = self.announcer.render_board(self.table_top.board)
