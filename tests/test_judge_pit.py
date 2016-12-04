@@ -35,4 +35,7 @@ class JudgeTestCase(unittest.TestCase):
         self.assertEqual(test_yields, 'human')
 
     def test_check_for_winner_returns_human_p2_win(self):
-        pass
+        self.table_top.give_next_player_a_go()
+        self.table_top.board = self.mock_p2_win_board
+        test_yields = self.judge.check_for_winner()
+        self.assertEqual(test_yields, 'computer')
