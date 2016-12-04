@@ -8,7 +8,6 @@ class MuteAnnouncer(Announcer):
         return what_is_said
 
 class Dummy(Emcee):
-
     def __init__(self, board):
         self.table_top = board
         self.announcer = MuteAnnouncer()
