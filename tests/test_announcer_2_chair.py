@@ -19,4 +19,4 @@ class AnnouncerTestCase(unittest.TestCase):
         self.assertTrue('show' in self.methodList)
 
     def test_announcer_has_an_ask_human_method(self):
-        pass
+        self.assertTrue('ask_human' in self.methodList)
