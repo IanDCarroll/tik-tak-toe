@@ -1,4 +1,4 @@
-from scriptographer.desk import *
+from scriptographer_desk import *
 
 class Announcer(Scriptographer):
 
