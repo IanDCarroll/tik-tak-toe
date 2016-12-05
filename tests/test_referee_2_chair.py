@@ -47,7 +47,8 @@ class RefereeTestCase(unittest.TestCase):
         self.won_board = [1,10,1, 10,1,10, 1,0,0] 
 
     def test_referee_ties_when_all_squares_taken_no_winner(self):
-        pass
+        self.ref.moves_taken = 9
+        self.assertEqual(self.ref.facilitate_turns(), 'tie')
 
     def test_referee_returns_win_even_if_all_squares_taken(self):
         self.ref.table_top.board = self.won_board
