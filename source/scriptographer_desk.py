@@ -8,6 +8,8 @@ class Scriptographer(object):
         self.human = "You Win!"
         self.question = "Which square do you choose?"
         self.bad_move = "Sorry, that's not a legal move. Try again."
+        self.prompt = "> "
+
         self.nought = "\033[34m O \033[0m"
         self.cross = "\033[91m X \033[0m"
         self.before_num = "\033[30m "
