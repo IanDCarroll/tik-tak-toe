@@ -1,6 +1,6 @@
 import unittest
 from source.control_booth import *
-from source.referee_2_chair import *
+from source.referee_chair import *
 from source.announcer_chair import *
 from source.emcee_podium import *
 from source.player_chair import *

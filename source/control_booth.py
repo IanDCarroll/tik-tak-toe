@@ -1,5 +1,5 @@
 from emcee_podium import Emcee
-from referee_2_chair import Referee
+from referee_chair import Referee
 from game_table import TableTop
 
 class StageManager(object):

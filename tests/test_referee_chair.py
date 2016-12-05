@@ -1,5 +1,5 @@
 import unittest
-from source.referee_2_chair import *
+from source.referee_chair import *
 from source.announcer_chair import *
 from source.player_chair import *
 from source.game_table import *
