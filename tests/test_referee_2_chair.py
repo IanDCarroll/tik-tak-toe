@@ -51,10 +51,14 @@ class RefereeTestCase(unittest.TestCase):
     def test_referee_returns_win_even_if_all_squares_taken(self):
         pass
 
+    def test_referee_switches_players_when_it_takes_a_turn(self):
+        self.ref.take_a_turn()
+        test_yields = self.ref.table_top.whos_turn
+        self.assertEqual(test_yields, self.ref.table_top.player2)
+
     def test_referee_moves_taken_plus_1_when_it_takes_a_turn(self):
         self.ref.take_a_turn()
-        test_yields = self.ref.moves_taken
-        self.assertEqual(test_yields, 1)
+        self.assertEqual(self.ref.moves_taken, 1)
 
     def test_referee_changes_the_board_when_it_takes_a_turn(self):
         self.ref.take_a_turn()
