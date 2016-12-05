@@ -2,8 +2,8 @@ from announcer_chair import *
 
 class Emcee(object):
 
-    def __init__(self, board):
-        self.table_top = board
+    def __init__(self, board_object):
+        self.table_top = board_object
         self.announcer = Announcer()
 
     def choose_who_goes_first(self):
