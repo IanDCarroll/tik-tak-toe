@@ -12,7 +12,7 @@ class RefereeTestCase(unittest.TestCase):
     def test_referee_returns_win_even_if_all_squares_taken(self):
         pass
 
-    def test_referee_does_what_it_should_if_no_tie_or_win(self):
+    def test_referee_moves_taken_plus_1_when_it_takes_a_turn(self):
         pass
 
     def test_referee_changes_the_board_when_it_takes_a_turn(self):
