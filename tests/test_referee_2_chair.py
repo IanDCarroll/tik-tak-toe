@@ -43,13 +43,15 @@ class RefereeTestCase(unittest.TestCase):
         self.table_top = DummyTable()
         self.ref = DummyRef(self.table_top)
         self.announcer = MuteAnnouncer()
-        self.expected_board = [1,0,0, 0,0,0, 0,0,0]
+        self.first_move_board = [1,0,0, 0,0,0, 0,0,0]
+        self.won_board = [1,10,1, 10,1,10, 1,0,0] 
 
     def test_referee_ties_when_all_squares_taken_no_winner(self):
         pass
 
     def test_referee_returns_win_even_if_all_squares_taken(self):
-        pass
+        self.ref.table_top.board = self.won_board
+        self.assertEqual(self.ref.facilitate_turns(), 'human')
 
     def test_referee_switches_players_when_it_takes_a_turn(self):
         self.ref.take_a_turn()
@@ -63,7 +65,7 @@ class RefereeTestCase(unittest.TestCase):
     def test_referee_changes_the_board_when_it_takes_a_turn(self):
         self.ref.take_a_turn()
         test_yields = self.ref.table_top.board
-        self.assertEqual(test_yields, self.expected_board)
+        self.assertEqual(test_yields, self.first_move_board)
 
     def test_show_board_shows_the_board(self):
         board = self.announcer.render_board(self.table_top.board)
