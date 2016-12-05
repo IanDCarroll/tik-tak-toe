@@ -11,7 +11,7 @@ class MuteAnnouncer(Announcer):
 
 class DummyHuman(Player):
     name = 'human'
-
+        
 class DummyComp(Player):
     name = 'computer'
 
@@ -40,7 +40,7 @@ class DummyRef(Referee):
 class RefereeTestCase(unittest.TestCase):
 
     def setUp(self):
-        self.table_top = TableTop()
+        self.table_top = DummyTable()
         self.ref = DummyRef(self.table_top)
         self.announcer = MuteAnnouncer()
         self.expected_board = [1,0,0, 0,0,0, 0,0,0]
