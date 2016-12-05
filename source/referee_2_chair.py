@@ -15,12 +15,12 @@ class Referee(object):
         elif moves_taken == len(self.table_top.board): 
            return 'tie'
         else:
-           self.moves_taken += 1
-           self.table_top.give_next_player_a_go()
            self.take_a_turn()
 
     def take_a_turn(self):
-        self.show_board
+        self.moves_taken += 1
+        self.show_board()
+        self.table_top.give_next_player_a_go()
         self.table_top.whos_turn.move(self.table_top.board)
 
     def show_board(self):
