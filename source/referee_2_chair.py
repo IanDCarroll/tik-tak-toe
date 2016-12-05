@@ -13,7 +13,7 @@ class Referee(object):
         winner = self.judge.check_for_winner()
         if winner:
            return winner
-        elif moves_taken == len(self.table_top.board):
+        elif self.moves_taken == len(self.table_top.board):
            return 'tie'
         else:
            self.take_a_turn()
