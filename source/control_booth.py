@@ -6,12 +6,10 @@ class StageManager(object):
 
     def __init__(self):
         self.table_top = TableTop()
+        self.mc = Emcee(self.table_top)
+        self.ref = Referee(self.table_top)
 
     def play_game(self):
-        mc = Emcee(table_top)
-        mc.choose_who_goes_first()
-
-        ref = Referee(table_top)
-        winner = ref.facilitate_turns()
-
-        return mc.end_game(winner)  
+        self.mc.choose_who_goes_first()
+        winner = self.ref.facilitate_turns()
+        return self.mc.end_game(winner)  

@@ -1,4 +1,5 @@
 from announcer_chair import Announcer
+from judge_pit import Judge
 
 class Referee(object):
 
