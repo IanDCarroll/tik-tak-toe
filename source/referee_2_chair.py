@@ -25,4 +25,4 @@ class Referee(object):
 
     def show_board(self):
         board = self.announcer.render_board(self.table_top.board)
-        self.announcer.show(board)
+        return self.announcer.show(board)
