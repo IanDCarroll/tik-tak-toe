@@ -5,7 +5,6 @@ class Helper(object):
      def get_methods(self, obj):
          return [i for i in dir(obj) if callable(getattr(obj, i))]
 
-
 class AnnouncerTestCase(unittest.TestCase):
 
     def setUp(self):
@@ -17,7 +16,7 @@ class AnnouncerTestCase(unittest.TestCase):
         self.assertIsInstance(self.announcer, Announcer)
 
     def test_announcer_has_a_show_method(self):
-        pass
+        self.assertTrue('show' in self.methodList)
 
     def test_announcer_has_an_ask_human_method(self):
         pass
