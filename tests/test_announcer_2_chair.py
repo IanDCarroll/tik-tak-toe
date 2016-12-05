@@ -1,11 +1,17 @@
 import unittest
 from source.announcer_2_chair import *
 
+class Helper(object):
+     def get_methods(self, obj):
+         return [i for i in dir(obj) if callable(getattr(obj, i))]
+
+
 class AnnouncerTestCase(unittest.TestCase):
 
     def setUp(self):
         self.announcer = Announcer()
-        self.methodList = [method for method in dir(self.announcer) if callable(getattr(self.announcer, method))]
+        self.helper = Helper()
+        self.methodList = self.helper.get_methods(self.announcer)
 
     def test_announcer_is_a_class(self):
         self.assertIsInstance(self.announcer, Announcer)
