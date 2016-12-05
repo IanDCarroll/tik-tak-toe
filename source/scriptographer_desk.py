@@ -1,4 +1,6 @@
-class Scriptographer(object):
+from observer_abilities import *
+
+class Scriptographer(Observer):
 
     def __init__(self):
         self.start = "Welcome to XOX, a Noughts and Crosses Game"
