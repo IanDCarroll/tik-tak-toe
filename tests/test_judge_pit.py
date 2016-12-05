@@ -19,23 +19,23 @@ class JudgeTestCase(unittest.TestCase):
     def test_check_for_winner_returns_computer_p1_win(self):
         self.table_top.give_computer_the_first_move()
         self.table_top.board = self.mock_p1_win_board
+        self.table_top.give_next_player_a_go() # sim sideEffect
         test_yields = self.judge.check_for_winner()
         self.assertEqual(test_yields, 'computer')
 
     def test_check_for_winner_returns_computer_p2_win(self):
         self.table_top.give_computer_the_first_move()
-        self.table_top.give_next_player_a_go()
         self.table_top.board = self.mock_p2_win_board
         test_yields = self.judge.check_for_winner()
         self.assertEqual(test_yields, 'human')
 
     def test_check_for_winner_returns_human_p1_win(self):
         self.table_top.board = self.mock_p1_win_board
+        self.table_top.give_next_player_a_go() # sim sideEffect
         test_yields = self.judge.check_for_winner()
         self.assertEqual(test_yields, 'human')
 
     def test_check_for_winner_returns_human_p2_win(self):
-        self.table_top.give_next_player_a_go()
         self.table_top.board = self.mock_p2_win_board
         test_yields = self.judge.check_for_winner()
         self.assertEqual(test_yields, 'computer')

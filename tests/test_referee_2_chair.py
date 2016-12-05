@@ -52,6 +52,7 @@ class RefereeTestCase(unittest.TestCase):
 
     def test_referee_returns_win_even_if_all_squares_taken(self):
         self.ref.table_top.board = self.won_board
+        self.ref.table_top.give_next_player_a_go() # sim sideEffect
         self.assertEqual(self.ref.facilitate_turns(), 'human')
 
     def test_referee_switches_players_when_it_takes_a_turn(self):
