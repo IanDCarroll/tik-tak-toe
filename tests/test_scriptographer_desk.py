@@ -16,11 +16,12 @@ class ScriptographerTestCase(unittest.TestCase):
 
         self.nought = "\033[34m O \033[0m"
         self.cross = "\033[91m X \033[0m"
-        self.before_num = "\033[30m "
-        self.after_num = " \033[0m"
+        self.pre_num = "\033[30m "
+        self.post_num = " \033[0m"
         self.plank = '---'
         self.corner = '+'
         self.wall = '|'
+        self.nl = '\n'
 
     def test_say_start_of_game(self):
         self.assertEqual(self.say.start, self.start)
@@ -53,10 +54,10 @@ class ScriptographerTestCase(unittest.TestCase):
         self.assertEqual(self.say.cross, self.cross)
 
     def test_provide_before_num(self):
-        self.assertEqual(self.say.before_num, self.before_num)
+        self.assertEqual(self.say.pre_num, self.pre_num)
 
     def test_provide_after_num(self):
-        self.assertEqual(self.say.after_num, self.after_num)
+        self.assertEqual(self.say.post_num, self.post_num)
 
     def test_provide_plank(self):
         self.assertEqual(self.say.plank, self.plank)
@@ -66,6 +67,9 @@ class ScriptographerTestCase(unittest.TestCase):
 
     def test_provide_wall(self):
         self.assertEqual(self.say.wall, self.wall)
+
+    def test_provide_new_line(self):
+        self.assertEqual(self.say.nl, self.nl)
 
 if __name__ == '__main__':
     unittest.main()
