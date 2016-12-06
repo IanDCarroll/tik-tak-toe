@@ -15,7 +15,8 @@ class CarpenterTestCase(unittest.TestCase):
 '''
 
     def test_rendered_board_is_rendered_well(self):
-        pass
+        test_yields = self.carpenter.render_board(self.mock_board)
+        self.assertEqual(test_yields, self.rendered_board)
 
     def test_number_square_numbers_square(self):
         pass
