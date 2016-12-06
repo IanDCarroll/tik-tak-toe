@@ -19,7 +19,7 @@ class Carpenter(Scriptographer):
         return fresh_board
 
     def number_square(self, number):
-        return self.pre_num + str(i+1) + self.post_num
+        return self.pre_num + str(number+1) + self.post_num
 
     def construct_board(self, board):
         rack = self.assemble_rack(board)
