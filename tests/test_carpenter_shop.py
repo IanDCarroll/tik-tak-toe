@@ -33,7 +33,8 @@ class CarpenterTestCase(unittest.TestCase):
         self.assertEqual(test, self.stringy_board)
 
     def test_construct_board_builds_the_board(self):
-        pass
+        test = self.carpenter.construct_board(self.stringy_board)
+        self.assertEqual(test, self.rendered_board)
 
     def test_assemble_rack_builds_a_rack(self):
         pass
