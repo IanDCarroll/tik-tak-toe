@@ -5,6 +5,7 @@ class CarpenterTestCase(unittest.TestCase):
 
     def setUp(self):
         self.carpenter = Carpenter()
+        self.square_4 = '\033[30m 5 \033[0m'
         self.mock_board = [1,10,1, 0,10,0, 1,0,10]
         self.rendered_board = '''
 \033[91m X \033[0m|\033[34m O \033[0m|\033[91m X \033[0m
@@ -19,7 +20,8 @@ class CarpenterTestCase(unittest.TestCase):
         self.assertEqual(test_yields, self.rendered_board)
 
     def test_number_square_numbers_square(self):
-        pass
+        test_yields = self.carpenter.number_square(4)
+        self.assertEqual(test_yields, self.square_4)
 
     def test_stringify_board_stringifies_the_board(self):
         pass
