@@ -19,3 +19,4 @@ class Scriptographer(Observer):
         self.plank = '---'
         self.corner = '+'
         self.wall = '|'
+        self.nl = '\n'
