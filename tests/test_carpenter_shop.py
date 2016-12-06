@@ -7,6 +7,11 @@ class CarpenterTestCase(unittest.TestCase):
         self.carpenter = Carpenter()
         self.square_4 = '\033[30m 5 \033[0m'
         self.mock_board = [1,10,1, 0,10,0, 1,0,10]
+        self.stringy_board = ['\033[91m X \033[0m',
+         '\033[34m O \033[0m','\033[91m X \033[0m',
+         '\033[30m 4 \033[0m','\033[34m O \033[0m',
+         '\033[30m 6 \033[0m','\033[91m X \033[0m',
+         '\033[30m 8 \033[0m','\033[34m O \033[0m']
         self.rendered_board = '''
 \033[91m X \033[0m|\033[34m O \033[0m|\033[91m X \033[0m
 ---+---+---
@@ -24,7 +29,8 @@ class CarpenterTestCase(unittest.TestCase):
         self.assertEqual(test_yields, self.square_4)
 
     def test_stringify_board_stringifies_the_board(self):
-        pass
+        test = self.carpenter.stringify_board(self.mock_board)
+        self.assertEqual(test, self.stringy_board)
 
     def test_construct_board_builds_the_board(self):
         pass
