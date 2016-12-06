@@ -13,7 +13,10 @@ class CarpenterTestCase(unittest.TestCase):
          '\033[30m 6 \033[0m','\033[91m X \033[0m',
          '\033[30m 8 \033[0m','\033[34m O \033[0m']
         self.rack = '\n---+---+---\n'
-        self.rows = [
+        self.proto_row = ['\033[30m 4 \033[0m',
+                          '\033[34m O \033[0m',
+                          '\033[30m 6 \033[0m']
+        self.rows = [ 
 '\033[91m X \033[0m|\033[34m O \033[0m|\033[91m X \033[0m',
 '\033[30m 4 \033[0m|\033[34m O \033[0m|\033[30m 6 \033[0m',
 '\033[91m X \033[0m|\033[30m 8 \033[0m|\033[34m O \033[0m']
@@ -50,4 +53,5 @@ class CarpenterTestCase(unittest.TestCase):
         self.assertEqual(test, self.rows)
 
     def test_build_proto_row_builds_a_list_of_row_bits(self):
-        pass
+        test = self.carpenter.build_proto_row(self.stringy_board, 3)
+        self.assertEqual(test, self.proto_row)
