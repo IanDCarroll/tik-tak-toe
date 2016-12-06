@@ -2,6 +2,7 @@ import unittest
 from source.control_booth import *
 from source.referee_chair import *
 from source.announcer_chair import *
+from source.carpenter_shop import *
 from source.emcee_podium import *
 from source.player_chair import *
 from source.game_table import *
@@ -36,6 +37,7 @@ class DummyRef(Referee):
         self.table_top = board_object
         self.judge = Judge(self.table_top)
         self.announcer = MuteAnnouncer()
+        self.carpenter = Carpenter()
         self.moves_taken = 0
 
 class DummyMC(Emcee):

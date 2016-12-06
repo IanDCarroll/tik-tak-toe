@@ -1,6 +1,7 @@
 import unittest
 from source.referee_chair import *
 from source.announcer_chair import *
+from source.carpenter_shop import *
 from source.player_chair import *
 from source.game_table import *
 from source.judge_pit import*
@@ -34,6 +35,7 @@ class DummyRef(Referee):
         self.table_top = board_object
         self.judge = Judge(self.table_top)
         self.announcer = MuteAnnouncer()
+        self.carpenter = Carpenter()
         self.moves_taken = 0
     
 
@@ -43,6 +45,7 @@ class RefereeTestCase(unittest.TestCase):
         self.table_top = DummyTable()
         self.ref = DummyRef(self.table_top)
         self.announcer = MuteAnnouncer()
+        self.carpenter = Carpenter()
         self.first_move_board = [1,0,0, 0,0,0, 0,0,0]
         self.won_board = [1,10,1, 10,1,10, 1,0,0] 
 
@@ -70,7 +73,7 @@ class RefereeTestCase(unittest.TestCase):
         self.assertEqual(test_yields, self.first_move_board)
 
     def test_show_board_shows_the_board(self):
-        board = self.announcer.render_board(self.table_top.board)
+        board = self.carpenter.render_board(self.table_top.board)
         expected = self.announcer.show(board)
         test_yields = self.ref.show_board()
         self.assertEqual(test_yields, expected)

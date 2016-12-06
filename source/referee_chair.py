@@ -1,4 +1,5 @@
 from announcer_chair import Announcer
+from carpenter_shop import Carpenter
 from judge_pit import Judge
 
 class Referee(object):
@@ -7,6 +8,7 @@ class Referee(object):
         self.table_top = board_object
         self.judge = Judge(self.table_top)
         self.announcer = Announcer()
+        self.carpenter = Carpenter()
         self.moves_taken = 0
 
     def facilitate_turns(self):
@@ -26,5 +28,5 @@ class Referee(object):
         self.table_top.give_next_player_a_go()
 
     def show_board(self):
-        board = self.announcer.render_board(self.table_top.board)
+        board = self.carpenter.render_board(self.table_top.board)
         return self.announcer.show(board)
