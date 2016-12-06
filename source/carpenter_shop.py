@@ -11,14 +11,14 @@ class Carpenter(Scriptographer):
         fresh_board = []
         for i in range(0, len(board)):
             if board[i] == 0:
-                fresh_board.append(self.square_number(i))
+                fresh_board.append(self.number_square(i))
             elif board[i] == 1:
                 fresh_board.append(self.cross)
             elif board[i] == 10:
                 fresh_board.append(self.nought)
         return fresh_board
 
-    def square_number(self, number):
+    def number_square(self, number):
         return self.pre_num + str(i+1) + self.post_num
 
     def construct_board(self, board):
