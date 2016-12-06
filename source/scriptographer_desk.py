@@ -14,8 +14,8 @@ class Scriptographer(Observer):
 
         self.nought = "\033[34m O \033[0m"
         self.cross = "\033[91m X \033[0m"
-        self.before_num = "\033[30m "
-        self.after_num = " \033[0m"
+        self.pre_num = "\033[30m "
+        self.post_num = " \033[0m"
         self.plank = '---'
         self.corner = '+'
         self.wall = '|'
