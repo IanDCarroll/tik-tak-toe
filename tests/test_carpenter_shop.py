@@ -5,14 +5,18 @@ class CarpenterTestCase(unittest.TestCase):
 
     def setUp(self):
         self.carpenter = Carpenter()
-        self.square_4 = '\033[30m 5 \033[0m'
-        self.rack = '\n---+---+---\n'
         self.mock_board = [1,10,1, 0,10,0, 1,0,10]
+        self.square_4 = '\033[30m 5 \033[0m'
         self.stringy_board = ['\033[91m X \033[0m',
          '\033[34m O \033[0m','\033[91m X \033[0m',
          '\033[30m 4 \033[0m','\033[34m O \033[0m',
          '\033[30m 6 \033[0m','\033[91m X \033[0m',
          '\033[30m 8 \033[0m','\033[34m O \033[0m']
+        self.rack = '\n---+---+---\n'
+        self.rows = [
+'\033[91m X \033[0m|\033[34m O \033[0m|\033[91m X \033[0m',
+'\033[30m 4 \033[0m|\033[34m O \033[0m|\033[30m 6 \033[0m',
+'\033[91m X \033[0m|\033[30m 8 \033[0m|\033[34m O \033[0m']
         self.rendered_board = '''
 \033[91m X \033[0m|\033[34m O \033[0m|\033[91m X \033[0m
 ---+---+---
@@ -42,7 +46,8 @@ class CarpenterTestCase(unittest.TestCase):
         self.assertEqual(test, self.rack)
 
     def test_assemble_rows_builds_a_list_of_rows(self):
-        pass
+        test = self.carpenter.assemble_rows(self.stringy_board)
+        self.assertEqual(test, self.rows)
 
     def test_build_proto_row_builds_a_list_of_row_bits(self):
         pass
