@@ -1,5 +1,5 @@
 import unittest
-from source.carpenter_shop import *
+from source.Scenery.carpenter_shop import *
 
 class CarpenterTestCase(unittest.TestCase):
 

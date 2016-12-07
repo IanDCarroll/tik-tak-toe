@@ -1,5 +1,5 @@
 import unittest
-from source.game_table import * 
+from source.OnStage.game_table import * 
 
 class TableTopTestCase(unittest.TestCase):
 

@@ -1,5 +1,5 @@
 import unittest
-from source.scriptographer_desk import *
+from source.Scenery.scriptographer_desk import *
 
 class ScriptographerTestCase(unittest.TestCase):
 

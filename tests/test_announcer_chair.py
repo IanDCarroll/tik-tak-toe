@@ -1,5 +1,5 @@
 import unittest
-from source.announcer_chair import *
+from source.Scenery.announcer_chair import *
 
 class Helper(object):
      def get_methods(self, obj):

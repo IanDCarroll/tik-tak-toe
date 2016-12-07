@@ -1,6 +1,6 @@
 import unittest
-from source.judge_pit import *
-from source.game_table import *
+from source.BackStage.judge_pit import *
+from source.OnStage.game_table import *
 
 class JudgeTestCase(unittest.TestCase):
 

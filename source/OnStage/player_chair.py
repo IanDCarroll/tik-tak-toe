@@ -1,5 +1,5 @@
-from observer_abilities import *
-from announcer_chair import *
+from Training.observer_abilities import *
+from Scenery.announcer_chair import *
 
 class Player(Observer):
 
