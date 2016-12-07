@@ -1,7 +1,7 @@
 import unittest
-from source.BackStage.emcee_podium import *
-from source.Scenery.announcer_chair import *
-from source.OnStage.game_table import *
+from BackStage.emcee_podium import *
+from Scenery.announcer_chair import *
+from OnStage.game_table import *
 
 class MuteAnnouncer(Announcer):
     def show(self, what_is_said):
