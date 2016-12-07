@@ -1,4 +1,4 @@
-from announcer_chair import *
+from Scenery.announcer_chair import *
 
 class Emcee(object):
 

@@ -1,5 +1,5 @@
 import unittest
-from source.observer_abilities import *
+from Training.observer_abilities import *
 
 class ObserverTestCase(unittest.TestCase):
 

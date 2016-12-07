@@ -1,5 +1,5 @@
 import unittest
-from source.player_chair import *
+from OnStage.player_chair import *
 
 class Dummy(Human):
       def choose(self, board):

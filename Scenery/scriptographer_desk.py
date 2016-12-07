@@ -1,4 +1,4 @@
-from observer_abilities import *
+from Training.observer_abilities import *
 
 class Scriptographer(Observer):
 

@@ -1,12 +1,10 @@
 import unittest
-from source.control_booth import *
-from source.referee_chair import *
-from source.announcer_chair import *
-from source.carpenter_shop import *
-from source.emcee_podium import *
-from source.player_chair import *
-from source.game_table import *
-from source.judge_pit import*
+from BackStage.control_booth import *
+from BackStage.referee_chair import *
+from BackStage.emcee_podium import *
+from Scenery.announcer_chair import *
+from OnStage.player_chair import *
+from OnStage.game_table import *
 
 class MuteAnnouncer(Announcer):
     def show(self, statement):

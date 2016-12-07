@@ -16,7 +16,7 @@ This is a simple command line noughts and crosses game.
 ### How to play:
 
  1. `$ git clone git@github.com:IanDCarroll/xox.git`
- 2. `$ cd xox/source/`
+ 2. `$ cd xox/`
  3. `$ python xox.py`
 
 ### How to test:

@@ -1,5 +1,5 @@
-from announcer_chair import Announcer
-from carpenter_shop import Carpenter
+from Scenery.announcer_chair import Announcer
+from Scenery.carpenter_shop import Carpenter
 from judge_pit import Judge
 
 class Referee(object):
