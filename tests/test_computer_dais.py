@@ -26,4 +26,5 @@ class ComputerTestCase(unittest.TestCase):
         self.assertEqual(test_yields, self.fill_corners)
 
     def test_the_computer_will_choose_edges_as_a_last_resort(self):
-        pass
+        test_yields = self.hal.move(self.diagon_board)
+        self.assertEqual(test_yields, self.fill_whatevs)
