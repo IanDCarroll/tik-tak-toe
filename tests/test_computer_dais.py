@@ -15,6 +15,16 @@ class ComputerTestCase(unittest.TestCase):
         self.fill_corners = [10,0,1, 0,1,0, 10,0,1]
         self.fill_whatevs = [10,1,1, 1,1,10, 10,0,1]
 
+        self.open_4 = [0,0,0, 0,0,0, 0,0,0]
+        self.open_0 = [0,0,0, 0,1,0, 0,0,0]
+        self.open_2 = [1,0,0, 0,1,0, 0,0,0]
+        self.open_6 = [1,0,1, 0,1,0, 0,0,0]
+        self.open_8 = [1,0,1, 0,1,0, 1,0,0]
+        self.open_1 = [1,0,1, 0,1,0, 1,0,1]
+        self.open_3 = [1,1,1, 0,1,0, 1,0,1]
+        self.open_5 = [1,1,1, 1,1,0, 1,0,1]
+        self.open_7 = [1,1,1, 1,1,1, 1,0,1]
+
     def test_the_computer_prefers_the_center_to_all_else(self):
         test_yields = self.hal.move(self.empty_board)
         self.assertEqual(test_yields, self.take_center)
@@ -28,3 +38,39 @@ class ComputerTestCase(unittest.TestCase):
     def test_the_computer_will_choose_edges_as_a_last_resort(self):
         test_yields = self.hal.move(self.diagon_board)
         self.assertEqual(test_yields, self.fill_whatevs)
+
+    def test_make_default_choice_chooses_center_first(self):
+        test_yields = self.hal.make_default_choice(self.open_4)
+        self.assertEqual(test_yields, 4)
+
+    def test_make_default_choice_chooses_NW_after_center(self):
+        test_yields = self.hal.make_default_choice(self.open_0)
+        self.assertEqual(test_yields, 0)
+
+    def test_make_default_choice_chooses_NE_after_NW(self):
+        test_yields = self.hal.make_default_choice(self.open_2)
+        self.assertEqual(test_yields, 2)
+
+    def test_make_default_choice_chooses_SW_after_NE(self):
+        test_yields = self.hal.make_default_choice(self.open_6)
+        self.assertEqual(test_yields, 6)
+
+    def test_make_default_choice_chooses_SE_after_SW(self):
+        test_yields = self.hal.make_default_choice(self.open_8)
+        self.assertEqual(test_yields, 8)
+
+    def test_make_default_choice_chooses_N_after_SW(self):
+        test_yields = self.hal.make_default_choice(self.open_1)
+        self.assertEqual(test_yields, 1)
+
+    def test_make_default_choice_chooses_W_after_N(self):
+        test_yields = self.hal.make_default_choice(self.open_3)
+        self.assertEqual(test_yields, 3)
+
+    def test_make_default_choice_chooses_E_after_W(self):
+        test_yields = self.hal.make_default_choice(self.open_5)
+        self.assertEqual(test_yields, 5)
+
+    def test_make_default_choice_chooses_S_last(self):
+        test_yields = self.hal.make_default_choice(self.open_7)
+        self.assertEqual(test_yields, 7)
