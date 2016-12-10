@@ -39,9 +39,13 @@ class ComputerTestCase(unittest.TestCase):
         test_yields = self.hal.move(self.diagon_board)
         self.assertEqual(test_yields, self.fill_whatevs)
 
-    def test_make_default_choice_chooses_center_first(self):
-        test_yields = self.hal.make_default_choice(self.open_4)
+    def test_take_center_chooses_center(self):
+        test_yields = self.hal.take_the_center(self.open_4)
         self.assertEqual(test_yields, 4)
+
+    def test_take_center_returns_false_if_taken(self):
+        test_yields = self.hal.take_the_center(self.open_0)
+        self.assert_equal(test_yields, False)
 
     def test_make_default_choice_chooses_NW_after_center(self):
         test_yields = self.hal.make_default_choice(self.open_0)
