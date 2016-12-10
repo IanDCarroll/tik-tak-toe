@@ -11,7 +11,13 @@ class Computer(Player):
         options = self.get_legal_moves(board)
         if 4 in options:
             return 4
-        elif number in options % 2 == 0:
-            return number
+        if 0 in options:
+            return 0
+        if 2 in options:
+            return 2
+        if 6 in options:
+            return 6
+        if 8 in options:
+            return 8
         else:
             return options[0]
