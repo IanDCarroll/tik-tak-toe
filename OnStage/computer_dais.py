@@ -5,22 +5,21 @@ class Computer(Player):
     name = 'computer'
 
     def choose(self, board):
-        center = self.take_the_center(board)
-        catty_corner = self.take_catty_corner(board)
+        options = self.get_legal_moves(board)
+        center = self.take_the_center(options)
+        catty_corner = self.take_catty_corner(options, board)
         if center:
              return center
         elif catty_corner:
              return catty_corner
-        return self.make_default_choice(board)
+        return self.make_default_choice(options)
 
-    def take_the_center(self, board):
-        options = self.get_legal_moves(board)
+    def take_the_center(self, options):
         if 4 in options:
             return 4
         return False
 
-    def take_catty_corner(self, board):
-        options = self.get_legal_moves(board)
+    def take_catty_corner(self, options, board):
         analysis = self.scan_board(board)
         if analysis[6] == 11:
             if 0 in options:
@@ -32,8 +31,7 @@ class Computer(Player):
             return 6
         return False
 
-    def make_default_choice(self, board):
-        options = self.get_legal_moves(board)
+    def make_default_choice(self, options):
         priorities = [0,2,6,8]
         for priority in priorities:
             if priority in options:
