@@ -10,7 +10,7 @@ class ComputerTestCase(unittest.TestCase):
         self.diagon_board = [10,0,1, 1,1,10, 10,0,1]
 
         self.fill_hollows = [1,10,0, 0,1,0, 10,1,0]
-        self.caddy_corner = [0,0,10, 0,1,0, 1,0,0]
+        self.catty_corner = [0,0,10, 0,1,0, 1,0,0]
         self.fill_corners = [10,0,1, 0,1,0, 10,0,1]
         self.fill_whatevs = [10,1,1, 1,1,10, 10,0,1]
 
