@@ -20,15 +20,16 @@ class Computer(Player):
         return False
 
     def take_catty_corner(self, options, board):
-        analysis = self.scan_board(board)
-        if analysis[6] == 11:
-            if 0 in options:
-               return 0
-            return 8
-        elif analysis[7] == 11:
-            if 2 in options:
-               return 2
-            return 6
+        if board[4] == self.marker_code:
+            analysis = self.scan_board(board)
+            if analysis[6] == 11:
+                if 0 in options:
+                   return 0
+                return 8
+            elif analysis[7] == 11:
+                if 2 in options:
+                   return 2
+                return 6
         return False
 
     def make_default_choice(self, options):
