@@ -7,6 +7,13 @@ class Computer(Player):
     def choose(self, board):
         return self.make_default_choice(board)
 
+    def take_the_center(self, board):
+        options = self.get_legal_moves(board)
+        if 4 in options:
+            return 4
+        else:
+            return False
+
     def make_default_choice(self, board):
         options = self.get_legal_moves(board)
         priorities = [4,0,2,6,8]
