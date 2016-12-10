@@ -31,6 +31,7 @@ class ComputerTestCase(unittest.TestCase):
         self.NE_corner = [0,0,10, 0,1,0, 0,0,0]
         self.SW_corner = [0,0,0, 0,1,0, 10,0,0]
         self.SE_corner = [0,0,0, 0,1,0, 0,0,10]
+        self.no_corner = [1,10,0, 0,1,0, 0,0,10]
 
     def test_computer_prefers_the_center_to_all_else(self):
         test_yields = self.hal.move(self.empty_board)
@@ -63,19 +64,34 @@ class ComputerTestCase(unittest.TestCase):
 
 
     def test_take_catty_corner_chooses_the_SE_corner(self):
-        pass
+        options = self.hal.get_legal_moves(self.NW_corner_x)
+        test = self.hal.take_catty_corner(options, self.NW_corner_x)
+        self.assertEqual(test, 8)
 
-    def test_take_catty_corner_doesnt_care_whos_at_center(self):
-        pass
+    def test_take_catty_corner_doesnt_care_whos_at_center(self): 
+        options = self.hal.get_legal_moves(self.NW_corner_o)
+        test = self.hal.take_catty_corner(options, self.NW_corner_o)
+        self.assertEqual(test, 8)
 
     def test_take_catty_corner_chooses_the_SW_corner(self):
-        pass
+        options = self.hal.get_legal_moves(self.NE_corner)
+        test = self.hal.take_catty_corner(options, self.NE_corner)
+        self.assertEqual(test, 6)
 
     def test_take_catty_corner_chooses_the_NE_corner(self):
-        pass
+        options = self.hal.get_legal_moves(self.SW_corner)
+        test = self.hal.take_catty_corner(options, self.SW_corner)
+        self.assertEqual(test, 2)
 
     def test_take_catty_corner_chooses_the_NW_corner(self):
-        pass
+        options = self.hal.get_legal_moves(self.SE_corner)
+        test = self.hal.take_catty_corner(options, self.SE_corner)
+        self.assertEqual(test, 0)
+
+    def test_take_catty_corner_returns_false_otherwise(self):
+        options = self.hal.get_legal_moves(self.no_corner)
+        test = self.hal.take_catty_corner(options, self.no_corner)
+        self.assertEqual(test, False)
 
 
 
