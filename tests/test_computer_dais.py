@@ -68,10 +68,10 @@ class ComputerTestCase(unittest.TestCase):
         test = self.hal.take_catty_corner(options, self.NW_corner_x)
         self.assertEqual(test, 8)
 
-    def test_take_catty_corner_doesnt_care_whos_at_center(self): 
+    def test_take_catty_corner_cares_whos_at_center(self): 
         options = self.hal.get_legal_moves(self.NW_corner_o)
         test = self.hal.take_catty_corner(options, self.NW_corner_o)
-        self.assertEqual(test, 8)
+        self.assertEqual(test, False)
 
     def test_take_catty_corner_chooses_the_SW_corner(self):
         options = self.hal.get_legal_moves(self.NE_corner)
