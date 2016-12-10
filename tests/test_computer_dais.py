@@ -11,6 +11,7 @@ class ComputerTestCase(unittest.TestCase):
         self.diagon_board = [10,0,1, 1,1,10, 10,0,1]
 
         self.take_center = [0,0,0, 0,1,0, 0,0,0]
+        self.caddy_corner = [0,0,10, 0,1,0, 1,0,0]
         self.fill_hollows = [1,10,0, 0,1,0, 10,1,0]
         self.fill_corners = [10,0,1, 0,1,0, 10,0,1]
         self.fill_whatevs = [10,1,1, 1,1,10, 10,0,1]
@@ -25,17 +26,27 @@ class ComputerTestCase(unittest.TestCase):
         self.open_5 = [1,1,1, 1,1,0, 1,0,1]
         self.open_7 = [1,1,1, 1,1,1, 1,0,1]
 
-    def test_the_computer_prefers_the_center_to_all_else(self):
+        self.NW_corner_x = [10,0,0, 0,1,0, 0,0,0]
+        self.NW_corner_o = [1,0,0, 0,10,0, 0,0,0]
+        self.NE_corner = [0,0,10, 0,1,0, 0,0,0]
+        self.SW_corner = [0,0,0, 0,1,0, 10,0,0]
+        self.SE_corner = [0,0,0, 0,1,0, 0,0,10]
+
+    def test_computer_prefers_the_center_to_all_else(self):
         test_yields = self.hal.move(self.empty_board)
         self.assertEqual(test_yields, self.take_center)
         test_yields = self.hal.move(self.hollow_board)
         self.assertEqual(test_yields, self.fill_hollows)
 
-    def test_the_computer_prefers_corners_to_edges(self):
+    def test_computer_prefers_oposite_corner_to_other_corners(self):
+        test_yields = self.hal.move(self.NE_corner)
+        self.assertEqual(test_yields, self.caddy_corner)
+
+    def test_computer_prefers_corners_to_edges(self):
         test_yields = self.hal.move(self.center_board)
         self.assertEqual(test_yields, self.fill_corners)
 
-    def test_the_computer_will_choose_edges_as_a_last_resort(self):
+    def test_computer_will_choose_edges_as_a_last_resort(self):
         test_yields = self.hal.move(self.diagon_board)
         self.assertEqual(test_yields, self.fill_whatevs)
 
