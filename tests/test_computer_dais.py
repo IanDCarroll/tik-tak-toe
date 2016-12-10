@@ -50,6 +50,8 @@ class ComputerTestCase(unittest.TestCase):
         test_yields = self.hal.move(self.diagon_board)
         self.assertEqual(test_yields, self.fill_whatevs)
 
+
+
     def test_take_center_chooses_center(self):
         test_yields = self.hal.take_the_center(self.open_4)
         self.assertEqual(test_yields, 4)
@@ -57,6 +59,25 @@ class ComputerTestCase(unittest.TestCase):
     def test_take_center_returns_false_if_taken(self):
         test_yields = self.hal.take_the_center(self.open_0)
         self.assertEqual(test_yields, False)
+
+
+
+    def test_take_catty_corner_chooses_the_SE_corner(self):
+        pass
+
+    def test_take_catty_corner_doesnt_care_whos_at_center(self):
+        pass
+
+    def test_take_catty_corner_chooses_the_SW_corner(self):
+        pass
+
+    def test_take_catty_corner_chooses_the_NE_corner(self):
+        pass
+
+    def test_take_catty_corner_chooses_the_NW_corner(self):
+        pass
+
+
 
     def test_make_default_choice_chooses_NW_after_center(self):
         test_yields = self.hal.make_default_choice(self.open_0)
