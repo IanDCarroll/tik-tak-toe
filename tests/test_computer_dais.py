@@ -38,7 +38,7 @@ class ComputerTestCase(unittest.TestCase):
 
     def test_computer_prefers_oposite_corner_to_other_corners(self):
         test_yields = self.hal.move(self.NE_corner)
-        self.assertEqual(test_yields, self.caddy_corner)
+        self.assertEqual(test_yields, self.catty_corner)
 
     def test_computer_prefers_corners_to_edges(self):
         test_yields = self.hal.move(self.center_board)
