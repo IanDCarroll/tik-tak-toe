@@ -14,8 +14,7 @@ class Computer(Player):
         options = self.get_legal_moves(board)
         if 4 in options:
             return 4
-        else:
-            return False
+        return False
 
     def make_default_choice(self, board):
         options = self.get_legal_moves(board)
