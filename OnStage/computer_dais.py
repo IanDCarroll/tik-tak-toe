@@ -9,7 +9,7 @@ class Computer(Player):
         catty_corner = self.take_catty_corner(board)
         if center:
              return center
-        if catty_corner:
+        elif catty_corner:
              return catty_corner
         return self.make_default_choice(board)
 
