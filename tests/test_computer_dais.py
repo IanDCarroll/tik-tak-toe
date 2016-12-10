@@ -45,7 +45,7 @@ class ComputerTestCase(unittest.TestCase):
 
     def test_take_center_returns_false_if_taken(self):
         test_yields = self.hal.take_the_center(self.open_0)
-        self.assert_equal(test_yields, False)
+        self.assertEqual(test_yields, False)
 
     def test_make_default_choice_chooses_NW_after_center(self):
         test_yields = self.hal.make_default_choice(self.open_0)
