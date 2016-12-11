@@ -19,6 +19,10 @@ class Computer(Player):
 
     def take_win_chances(self, options, board):
         analysis = self.scan_board(board)
+        for condition in analysis:
+            if condition == self.marker_code * 2:
+               code = analysis.index(condition)
+               return self.parse_analysis(options, code)
         return False
 
     def take_the_center(self, options):
@@ -45,3 +49,53 @@ class Computer(Player):
             if priority in options:
                return priority
         return options[0]
+
+    def parse_analysis(self, options, code):
+        if code == 0:
+           if 0 in options:
+              return 0
+           elif 1 in options:
+              return 1
+           return 2
+        elif code == 1:
+           if 3 in options:
+              return 3
+           elif 4 in options:
+              return 4
+           return 5
+        elif code == 2:
+           if 6 in options:
+              return 6
+           elif 7 in options:
+              return 7
+           return 8
+        elif code == 3:
+           if 0 in options:
+              return 0
+           elif 3 in options:
+              return 3
+           return 6
+        elif code == 4:
+           if 1 in options:
+              return 1
+           elif 4 in options:
+              return 4
+           return 7
+        elif code == 5:
+           if 2 in options:
+              return 2
+           elif 5 in options:
+              return 5
+           return 8
+        elif code == 6:
+           if 0 in options:
+              return 0
+           elif 4 in options:
+              return 4
+           return 8
+        elif code == 7:
+           if 2 in options:
+              return 2
+           elif 4 in options:
+              return 4
+           return 6
