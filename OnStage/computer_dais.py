@@ -9,7 +9,9 @@ class Computer(Player):
         win_chance = self.take_win_chances(board)
         center = self.take_the_center(options)
         catty_corner = self.take_catty_corner(options, board)
-        if center:
+        if win_chance:
+             return win_chance
+        elif center:
              return center
         elif catty_corner:
              return catty_corner
