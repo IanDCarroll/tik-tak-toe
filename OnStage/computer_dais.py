@@ -6,6 +6,7 @@ class Computer(Player):
 
     def choose(self, board):
         options = self.get_legal_moves(board)
+        win_chance = self.take_win_chances(board)
         center = self.take_the_center(options)
         catty_corner = self.take_catty_corner(options, board)
         if center:
@@ -13,6 +14,10 @@ class Computer(Player):
         elif catty_corner:
              return catty_corner
         return self.make_default_choice(options)
+
+    def take_win_chances(self, board):
+        analysis = self.scan_board(board)
+        return False
 
     def take_the_center(self, options):
         if 4 in options:
