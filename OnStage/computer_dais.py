@@ -6,7 +6,7 @@ class Computer(Player):
 
     def choose(self, board):
         options = self.get_legal_moves(board)
-        win_chance = self.take_win_chances(board)
+        win_chance = self.take_win_chances(options, board)
         center = self.take_the_center(options)
         catty_corner = self.take_catty_corner(options, board)
         if win_chance:
@@ -17,7 +17,7 @@ class Computer(Player):
              return catty_corner
         return self.make_default_choice(options)
 
-    def take_win_chances(self, board):
+    def take_win_chances(self, options, board):
         analysis = self.scan_board(board)
         return False
 
