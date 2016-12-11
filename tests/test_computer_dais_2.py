@@ -12,6 +12,8 @@ class HighPriorityComputerStrategyTestCase(unittest.TestCase):
         self.win = [10,10,0, 0,0,0, 1,1,1]
         self.dont_loose = [10,0,1, 1,1,0, 10,0,0]
 
+        self.no_win_chance = [10,0,0, 0,1,0, 0,0,0]
+
     def test_computer_chooses_to_win(self):
         test_yields = self.hal.move(self.win_chance)
         self.assertEqual(test_yields, self.win)
@@ -19,3 +21,7 @@ class HighPriorityComputerStrategyTestCase(unittest.TestCase):
     def test_computer_doesnt_let_you_win(self):
         test_yields = self.hal.move(self.loose_chance)
         self.assertEqual(test_yields, self.dont_loose)
+
+    def test_take_win_chances_returns_false(self):
+        test_yields = self.hal.take_win_chances(self.no_win_chance)
+        self.assertEqual(test_yields, False)
