@@ -34,13 +34,9 @@ class Computer(Player):
         if board[4] == self.marker_code:
             analysis = self.scan_board(board)
             if analysis[6] == 11:
-                if 0 in options:
-                   return 0
-                return 8
+                return self.parse_analysis(options, 6)
             elif analysis[7] == 11:
-                if 2 in options:
-                   return 2
-                return 6
+                return self.parse_analysis(options, 7)
         return False
 
     def make_default_choice(self, options):
