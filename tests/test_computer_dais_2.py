@@ -23,5 +23,6 @@ class HighPriorityComputerStrategyTestCase(unittest.TestCase):
         self.assertEqual(test_yields, self.dont_loose)
 
     def test_take_win_chances_returns_false(self):
-        test_yields = self.hal.take_win_chances(self.no_win_chance)
-        self.assertEqual(test_yields, False)
+        opt = self.hal.get_legal_moves(self.no_win_chance)
+        test = self.hal.take_win_chances(opt, self.no_win_chance)
+        self.assertEqual(test, False)
