@@ -7,13 +7,13 @@ class ComputerTestCase(unittest.TestCase):
         self.hal = Computer(1)
         self.empty_board = [0,0,0, 0,0,0, 0,0,0]
         self.hollow_board = [1,10,0, 0,0,0, 10,1,0]
-        self.center_board = [10,0,0, 0,1,0, 10,0,1]
+        self.center_board = [10,0,0, 1,1,10, 10,0,1]
         self.diagon_board = [10,0,1, 1,1,10, 10,0,1]
 
         self.fill_center = [0,0,0, 0,1,0, 0,0,0]
         self.fill_hollows = [1,10,0, 0,1,0, 10,1,0]
         self.catty_corner = [0,0,10, 0,1,0, 1,0,0]
-        self.fill_corners = [10,0,1, 0,1,0, 10,0,1]
+        self.fill_corners = [10,0,1, 1,1,10, 10,0,1]
         self.fill_whatevs = [10,1,1, 1,1,10, 10,0,1]
 
         self.open_4 = [0,1,2, 3,4,5, 6,7,8]
