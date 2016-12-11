@@ -7,10 +7,13 @@ class Computer(Player):
     def choose(self, board):
         options = self.get_legal_moves(board)
         win_chance = self.take_win_chances(options, board)
+        lose_chance = self.avoid_losing(options, board)
         center = self.take_the_center(options)
         catty_corner = self.take_catty_corner(options, board)
         if win_chance:
              return win_chance
+        elif lose_chance:
+             return lose_chance
         elif center:
              return center
         elif catty_corner:
@@ -24,6 +27,18 @@ class Computer(Player):
                code = analysis.index(condition)
                return self.parse_analysis(options, code)
         return False
+
+    def avoid_losing(self, options, board):
+        enemy_code = 10
+        if self.marker_code == 10:
+            enemy_code = 1
+        analysis = self.scan_board(board)
+        for condition in analysis:
+            if condition == enemy_code * 2:
+               code = analysis.index(condition)
+               return self.parse_analysis(options, code)
+        return False
+
 
     def take_the_center(self, options):
         if 4 in options:
