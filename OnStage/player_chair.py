@@ -53,7 +53,3 @@ class Human(Player):
     def redo_move(self, board):
         self.announcer.show(self.announcer.bad_move)
         return self.choose(board)
-
-class Computer(Player):
-
-    name = 'computer'

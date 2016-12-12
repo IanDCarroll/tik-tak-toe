@@ -1,4 +1,5 @@
 from player_chair import *
+from computer_dais import *
 
 class TableTop(object):
     
