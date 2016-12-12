@@ -26,3 +26,8 @@ class HighPriorityComputerStrategyTestCase(unittest.TestCase):
         opt = self.hal.get_legal_moves(self.no_win_chance)
         test = self.hal.take_win_chances(opt, self.no_win_chance)
         self.assertEqual(test, False)
+
+    def test_avoid_losing_returns_false(self):
+        opt = self.hal.get_legal_moves(self.no_win_chance)
+        test = self.hal.avoid_losing(opt, self.no_win_chance)
+        self.assertEqual(test, False)
