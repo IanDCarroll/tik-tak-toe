@@ -41,5 +41,9 @@ class PlayerTestCase(unittest.TestCase):
     def test_computer_id_says_computer(self):
         self.assertEqual(self.computer.name, 'computer')
 
+    def test_get_enemy_code_gets_enemy_code(self):
+        self.assertEqual(self.computer.get_enemy_code(), 10)
+        self.assertEqual(self.human.get_enemy_code(), 1)
+
 if __name__ == '__main__':
     unittest.main()
