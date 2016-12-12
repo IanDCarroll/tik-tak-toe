@@ -29,16 +29,13 @@ class Computer(Player):
         return False
 
     def avoid_losing(self, options, board):
-        enemy_code = 10
-        if self.marker_code == 10:
-            enemy_code = 1
+        enemy_code = self.get_enemy_code()
         analysis = self.scan_board(board)
         for condition in analysis:
             if condition == enemy_code * 2:
                code = analysis.index(condition)
                return self.parse_analysis(options, code)
         return False
-
 
     def take_the_center(self, options):
         if 4 in options:

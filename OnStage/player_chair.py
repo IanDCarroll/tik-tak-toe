@@ -7,6 +7,11 @@ class Player(Observer):
         self.announcer = Announcer()
         self.marker_code = marker_code
 
+    def get_enemy_code(self):
+        if self.marker_code == 10:
+            return 1
+        return 10
+
     def move(self, board):
         choice = self.choose(board)
         board[choice] = self.marker_code
