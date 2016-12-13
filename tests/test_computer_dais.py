@@ -22,6 +22,9 @@ class ComputerTestCase(unittest.TestCase):
         self.fill_corners = [10,0,1, 1,1,10, 10,0,1]
         self.fill_whatevs = [10,1,1, 1,1,10, 10,0,1]
 
+        self.all_open = [0,1,2,3,4,5,6,7,8]
+        self.all_zero = [0,0,0,0,0,0,0,0]
+
     def test_computer_chooses_to_win(self):
         test_yields = self.hal.move(self.win_chance)
         self.assertEqual(test_yields, self.win)
@@ -47,3 +50,11 @@ class ComputerTestCase(unittest.TestCase):
     def test_computer_will_choose_edges_as_a_last_resort(self):
         test_yields = self.hal.move(self.diagon_board)
         self.assertEqual(test_yields, self.fill_whatevs)
+
+    def test_computer_can_get_inteligence_for_cortecies(self):
+        test_yields = self.hal.get_inteligence(self.empty_board)
+        self.assertEqual(test_yields['board'], self.empty_board)
+        self.assertEqual(test_yields['options'], self.all_open)
+        self.assertEqual(test_yields['analysis'], self.all_zero)
+        self.assertEqual(test_yields['marker_code'], 1)
+        self.assertEqual(test_yields['enemy_code'], 10)
