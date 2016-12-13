@@ -5,33 +5,30 @@ class ComputerTestCase(unittest.TestCase):
 
     def setUp(self):
         self.hal = Computer(1)
+        self.win_chance = [10,10,0, 0,0,0, 0,1,1]
+        self.loose_chance = [10,0,1, 0,1,0, 10,0,0]
         self.empty_board = [0,0,0, 0,0,0, 0,0,0]
         self.hollow_board = [1,10,0, 0,0,0, 10,1,0]
+        self.NE_corner = [0,0,10, 0,1,0, 0,0,0]
         self.center_board = [10,0,0, 1,1,10, 10,0,1]
         self.diagon_board = [10,0,1, 1,1,10, 10,0,1]
 
+        self.win = [10,10,0, 0,0,0, 1,1,1]
+        self.dont_loose = [10,0,1, 1,1,0, 10,0,0]
+        self.no_win_chance = [10,0,0, 0,1,0, 0,0,0]
         self.fill_center = [0,0,0, 0,1,0, 0,0,0]
         self.fill_hollows = [1,10,0, 0,1,0, 10,1,0]
         self.catty_corner = [0,0,10, 0,1,0, 1,0,0]
         self.fill_corners = [10,0,1, 1,1,10, 10,0,1]
         self.fill_whatevs = [10,1,1, 1,1,10, 10,0,1]
 
-        self.open_4 = [0,1,2, 3,4,5, 6,7,8]
-        self.open_0 = [0,1,2, 3,  5, 6,7,8]
-        self.open_2 = [  1,2, 3,  5, 6,7,8]
-        self.open_6 = [  1,   3,  5, 6,7,8]
-        self.open_8 = [  1,   3,  5,   7,8]
-        self.open_1 = [  1,   3,  5,   7  ]
-        self.open_3 = [       3,  5,   7  ]
-        self.open_5 = [           5,   7  ]
-        self.open_7 = [                7  ]
+    def test_computer_chooses_to_win(self):
+        test_yields = self.hal.move(self.win_chance)
+        self.assertEqual(test_yields, self.win)
 
-        self.NW_corner_x = [10,0,0, 0,1,0, 0,0,0]
-        self.NW_corner_o = [1,0,0, 0,10,0, 0,0,0]
-        self.NE_corner = [0,0,10, 0,1,0, 0,0,0]
-        self.SW_corner = [0,0,0, 0,1,0, 10,0,0]
-        self.SE_corner = [0,0,0, 0,1,0, 0,0,10]
-        self.no_corner = [1,10,0, 0,1,0, 0,0,10]
+    def test_computer_doesnt_let_you_win(self):
+        test_yields = self.hal.move(self.loose_chance)
+        self.assertEqual(test_yields, self.dont_loose)
 
     def test_computer_prefers_the_center_to_all_else(self):
         test_yields = self.hal.move(self.empty_board)
