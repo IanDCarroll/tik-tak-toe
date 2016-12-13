@@ -25,7 +25,7 @@ class Parser(object):
        elif code == diag1[0]:
            return self.find_empty_spot(options, diag1[1])
        elif code == diag2[0]:
-           return self.find_empty_spot(options, diag[2])
+           return self.find_empty_spot(options, diag2[1])
 
    def find_empty_spot(self, options, index_list):
        for spot in index_list:
