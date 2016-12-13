@@ -15,7 +15,7 @@ class Computer(Player):
                return priority
 
     def ask_cortecies(self, board):
-        intel = self.get_inteligence(board)       
+        intel = self.get_intelligence(board)       
         p1 = self.tac.take_win_chance(intel)
         p2 = self.tac.avoid_losing(intel)
         p3 = self.strat.take_the_center(intel)
@@ -24,7 +24,7 @@ class Computer(Player):
         priority_list = [p1, p2, p3, p4, p5]
         return priority_list
 
-    def get_inteligence(self, board):
+    def get_intelligence(self, board):
         intel = { 'board': board, 
                   'options': self.get_legal_moves(board),
                   'analysis': self.scan_board(board),

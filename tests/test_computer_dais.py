@@ -51,8 +51,8 @@ class ComputerTestCase(unittest.TestCase):
         test_yields = self.hal.move(self.diagon_board)
         self.assertEqual(test_yields, self.fill_whatevs)
 
-    def test_computer_can_get_inteligence_for_cortecies(self):
-        test_yields = self.hal.get_inteligence(self.empty_board)
+    def test_computer_can_get_intelligence_for_cortecies(self):
+        test_yields = self.hal.get_intelligence(self.empty_board)
         self.assertEqual(test_yields['board'], self.empty_board)
         self.assertEqual(test_yields['options'], self.all_open)
         self.assertEqual(test_yields['analysis'], self.all_zero)
