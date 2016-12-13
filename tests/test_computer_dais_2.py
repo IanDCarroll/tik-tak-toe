@@ -13,12 +13,6 @@ class HighPriorityComputerStrategyTestCase(unittest.TestCase):
         self.dont_loose = [10,0,1, 1,1,0, 10,0,0]
 
         self.no_win_chance = [10,0,0, 0,1,0, 0,0,0]
-        self.row_0 = [0,1,2]
-        self.row_1 = [3,4,5]
-        self.row_2 = [6,7,8]
-        self.col_3 = [0,3,6]
-        self.col_4 = [1,4,7]
-        self.col_5 = [2,5,8]
 
     def test_computer_chooses_to_win(self):
         test_yields = self.hal.move(self.win_chance)
