@@ -11,9 +11,8 @@ class Computer(Player):
     def choose(self, board):
         priority_list = self.ask_cortecies(board)
         for priority in priority_list:
-            if priority:
+            if priority is not False:
 	        return priority
-        return 0
 
     def ask_cortecies(self, board):
         intel = self.get_intelligence(board)       
