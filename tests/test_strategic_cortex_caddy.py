@@ -56,7 +56,7 @@ class StrategicCortextTestCase(unittest.TestCase):
         self.assertEqual(test_8, 8)
 
     def test_take_catty_corner_does_appropriately(self):
-        
+        pass
 
     def test_take_the_center_takes_the_center(self):
         dic0 = {'options': self.opt0}
