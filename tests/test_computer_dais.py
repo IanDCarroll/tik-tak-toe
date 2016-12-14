@@ -25,6 +25,9 @@ class ComputerTestCase(unittest.TestCase):
         self.all_open = [0,1,2,3,4,5,6,7,8]
         self.all_zero = [0,0,0,0,0,0,0,0]
 
+        self.ask_board = [10,10,0, 1,1,0, 10,0,1]
+        self.intel = [5,2,False,2,2]
+
     def test_computer_chooses_to_win(self):
         test_yields = self.hal.move(self.win_chance)
         self.assertEqual(test_yields, self.win)
@@ -58,3 +61,11 @@ class ComputerTestCase(unittest.TestCase):
         self.assertEqual(test_yields['analysis'], self.all_zero)
         self.assertEqual(test_yields['marker_code'], 1)
         self.assertEqual(test_yields['enemy_code'], 10)
+
+    def test_ask_cortecies_returns_a_priority_list(self):
+        test_yields = self.hal.ask_cortecies(self.ask_board)
+        self.assertEqual(test_yields, self.intel)
+
+    def test_choose_returns_a_choice(self):
+        test_yields = self.hal.choose(self.ask_board)
+        self.assertEqual(test_yields, 5)
