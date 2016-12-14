@@ -43,3 +43,11 @@ class StrategicCortextTestCase(unittest.TestCase):
         self.assertEqual(test_6, 6)
         self.assertEqual(test_7, 7)
         self.assertEqual(test_8, 8)
+
+    def test_take_the_center_takes_the_center(self):
+        dic0 = {'options': self.opt0}
+        dic5 = {'options': self.opt5}
+        test_aye = self.cortex.take_the_center(dic0)
+        test_ney = self.cortex.take_the_center(dic5)
+        self.assertEqual(test_aye, 4)
+        self.assertEqual(test_ney, False)
