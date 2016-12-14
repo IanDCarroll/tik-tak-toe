@@ -18,8 +18,8 @@ class Emcee(object):
         if choice == '1' or choice == '2':
             return choice
         else:
-            self.announcer.show(announcer.bad_move)
-            return self.open_game()
+            self.announcer.show(self.announcer.bad_move)
+            return self.get_choice()
 
     def end_game(self, winner):
         if winner == 'tie':
