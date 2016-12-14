@@ -14,6 +14,17 @@ class StrategicCortextTestCase(unittest.TestCase):
         self.opt4 = [        4,5,  7  ]
         self.opt5 = [          5,  7  ]
         self.opt7 = [              7  ]
+        self.board_0 = [0,0,0, 0,1,0, 0,0,0]
+        self.x = 1
+        self.o = 10
+        self.optnw = [4,8]
+        self.optse = [0,4]
+        self.optne = [2,4]
+        self.optsw = [4,6]
+        self.ananw = [0,0,0,0,0,0,11,0]
+        self.anase = [0,0,0,0,0,0,11,0]
+        self.anane = [0,0,0,0,0,0,0,11]
+        self.anasw = [0,0,0,0,0,0,0,11]
 
     def test_make_default_choice_chooses_the_right_order(self):
         dic0 = {'options': self.opt0}
@@ -43,6 +54,9 @@ class StrategicCortextTestCase(unittest.TestCase):
         self.assertEqual(test_6, 6)
         self.assertEqual(test_7, 7)
         self.assertEqual(test_8, 8)
+
+    def test_take_catty_corner_does_appropriately(self):
+        
 
     def test_take_the_center_takes_the_center(self):
         dic0 = {'options': self.opt0}
