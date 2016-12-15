@@ -14,15 +14,44 @@ class TacticalCortexTestCase(unittest.TestCase):
         self.ana_5 = [0,0,0,0,0,2,0,0]
         self.ana_6 = [0,0,0,0,0,0,2,0]
         self.ana_7 = [0,0,0,0,0,0,0,2]
-        self.opt_f = [0,1,2, 3,4,5, 6,7,8]
-        self.row_0 = [0,1,   3,4,5, 6,7,8]
-        self.row_1 = [0,1,2,   4,5, 6,7,8]
-        self.row_2 = [0,1,2, 3,4,5, 6,  8]
-        self.col_3 = [0,1,2, 3,4,5,  ,7, ]
-        self.col_4 = [0,  2, 3,4,5, 6,7,8]
-        self.col_5 = [0,1,2, 3,4,   6,7,8]
-        self.diag6 = [  1,2, 3,4,5, 6,7,8]
-        self.diag7 = [0,1,2, 3,4,5,   7,8]
+
+        self.opt_f = [ 0,1,2,
+                       3,4,5,
+                       6,7,8 ]
+
+        self.row_0 = [     2,
+                       3,4,5, 
+                       6,7,8 ]
+
+        self.row_1 = [ 0,1,2,
+                           5,
+                       6,7,8 ]
+
+        self.row_2 = [ 0,1,2,
+                       3,4,5,
+                         7   ]
+
+        self.col_3 = [   1,2,
+                       3,4,5,
+                         7,8 ]
+
+        self.col_4 = [ 0,1,2,
+                       3,  5, 
+                       6,  8 ]
+
+        self.col_5 = [ 0,1,  
+                       3,4,   
+                       6,7,8 ]
+
+        self.diag6 = [ 0,1,2,
+                       3,  5,
+                       6,7,  ]
+
+        self.diag7 = [ 0,1,  
+                       3,  5,
+                       6,7,8 ]
+
+        self.expected = [False, 2,5,7, 3,1,8, 0,6]
 
     def test_take_win_chance(self):
         dic_f = { 'analysis': self.ana_f,'options': self.opt_f,
@@ -43,6 +72,16 @@ class TacticalCortexTestCase(unittest.TestCase):
                   'marker_code': 1 }
         dic_7 = { 'analysis': self.ana_7,'options': self.row_7,
                   'marker_code': 1 }
+        tf = self.cortex.take_win_chance(dic_f)
+        t0 = self.cortex.take_win_chance(dic_0)
+        t1 = self.cortex.take_win_chance(dic_1)
+        t2 = self.cortex.take_win_chance(dic_2)
+        t3 = self.cortex.take_win_chance(dic_3)
+        t4 = self.cortex.take_win_chance(dic_4)
+        t5 = self.cortex.take_win_chance(dic_5)
+        t6 = self.cortex.take_win_chance(dic_6)
+        t7 = self.cortex.take_win_chance(dic_7)
+        test_yields = [tf, t0,t1,t2, t3,t4,t5, t6,t7]
 
     def test_avoid_losing(self):
         dic_f = { 'analysis': self.ana_f,'options': self.opt_f,
