@@ -62,15 +62,15 @@ class TacticalCortexTestCase(unittest.TestCase):
                   'marker_code': 1 }
         dic_2 = { 'analysis': self.ana_2,'options': self.row_2,
                   'marker_code': 1 }
-        dic_3 = { 'analysis': self.ana_3,'options': self.row_3,
+        dic_3 = { 'analysis': self.ana_3,'options': self.col_3,
                   'marker_code': 1 }
-        dic_4 = { 'analysis': self.ana_4,'options': self.row_4,
+        dic_4 = { 'analysis': self.ana_4,'options': self.col_4,
                   'marker_code': 1 }
-        dic_5 = { 'analysis': self.ana_5,'options': self.row_5,
+        dic_5 = { 'analysis': self.ana_5,'options': self.col_5,
                   'marker_code': 1 }
-        dic_6 = { 'analysis': self.ana_6,'options': self.row_6,
+        dic_6 = { 'analysis': self.ana_6,'options': self.diag6,
                   'marker_code': 1 }
-        dic_7 = { 'analysis': self.ana_7,'options': self.row_7,
+        dic_7 = { 'analysis': self.ana_7,'options': self.diag7,
                   'marker_code': 1 }
         tf = self.cortex.take_win_chance(dic_f)
         t0 = self.cortex.take_win_chance(dic_0)
@@ -93,15 +93,15 @@ class TacticalCortexTestCase(unittest.TestCase):
                   'enemy_code': 1 }
         dic_2 = { 'analysis': self.ana_2,'options': self.row_2,
                   'enemy_code': 1 }
-        dic_3 = { 'analysis': self.ana_3,'options': self.row_3,
+        dic_3 = { 'analysis': self.ana_3,'options': self.col_3,
                   'enemy_code': 1 }
-        dic_4 = { 'analysis': self.ana_4,'options': self.row_4,
+        dic_4 = { 'analysis': self.ana_4,'options': self.col_4,
                   'enemy_code': 1 }
-        dic_5 = { 'analysis': self.ana_5,'options': self.row_5,
+        dic_5 = { 'analysis': self.ana_5,'options': self.col_5,
                   'enemy_code': 1 }
-        dic_6 = { 'analysis': self.ana_6,'options': self.row_6,
+        dic_6 = { 'analysis': self.ana_6,'options': self.diag6,
                   'enemy_code': 1 }
-        dic_7 = { 'analysis': self.ana_7,'options': self.row_7,
+        dic_7 = { 'analysis': self.ana_7,'options': self.diag7,
                   'enemy_code': 1 }
         tf = self.cortex.avoid_losing(dic_f)
         t0 = self.cortex.avoid_losing(dic_0)
