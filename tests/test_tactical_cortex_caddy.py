@@ -82,6 +82,7 @@ class TacticalCortexTestCase(unittest.TestCase):
         t6 = self.cortex.take_win_chance(dic_6)
         t7 = self.cortex.take_win_chance(dic_7)
         test_yields = [tf, t0,t1,t2, t3,t4,t5, t6,t7]
+        self.assertEqual(test_yields, self.expected)
 
     def test_avoid_losing(self):
         dic_f = { 'analysis': self.ana_f,'options': self.opt_f,
@@ -102,3 +103,14 @@ class TacticalCortexTestCase(unittest.TestCase):
                   'enemy_code': 1 }
         dic_7 = { 'analysis': self.ana_7,'options': self.row_7,
                   'enemy_code': 1 }
+        tf = self.cortex.avoid_losing(dic_f)
+        t0 = self.cortex.avoid_losing(dic_0)
+        t1 = self.cortex.avoid_losing(dic_1)
+        t2 = self.cortex.avoid_losing(dic_2)
+        t3 = self.cortex.avoid_losing(dic_3)
+        t4 = self.cortex.avoid_losing(dic_4)
+        t5 = self.cortex.avoid_losing(dic_5)
+        t6 = self.cortex.avoid_losing(dic_6)
+        t7 = self.cortex.avoid_losing(dic_7)
+        test_yields = [tf, t0,t1,t2, t3,t4,t5, t6,t7]
+        self.assertEqual(test_yields, self.expected)
