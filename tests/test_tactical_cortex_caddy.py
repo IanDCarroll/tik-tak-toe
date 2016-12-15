@@ -25,7 +25,24 @@ class TacticalCortexTestCase(unittest.TestCase):
         self.diag7 = [0,1,2, 3,4,5,   7,8]
 
     def test_take_win_chance(self):
-        pass
+        dic_f = { 'analysis': ,'options': ,'marker_code':}
+        dic_0 = { 'analysis': ,'options': ,'marker_code':}
+        dic_1 = { 'analysis': ,'options': ,'marker_code':}
+        dic_2 = { 'analysis': ,'options': ,'marker_code':}
+        dic_3 = { 'analysis': ,'options': ,'marker_code':}
+        dic_4 = { 'analysis': ,'options': ,'marker_code':}
+        dic_5 = { 'analysis': ,'options': ,'marker_code':}
+        dic_6 = { 'analysis': ,'options': ,'marker_code':}
+        dic_7 = { 'analysis': ,'options': ,'marker_code':}
+  
 
     def test_avoid_losing(self):
-        pass
+        dic_f = { 'analysis': ,'options': ,'marker_code':}
+        dic_0 = { 'analysis': ,'options': ,'marker_code':}
+        dic_1 = { 'analysis': ,'options': ,'marker_code':}
+        dic_2 = { 'analysis': ,'options': ,'marker_code':}
+        dic_3 = { 'analysis': ,'options': ,'marker_code':}
+        dic_4 = { 'analysis': ,'options': ,'marker_code':}
+        dic_5 = { 'analysis': ,'options': ,'marker_code':}
+        dic_6 = { 'analysis': ,'options': ,'marker_code':}
+        dic_7 = { 'analysis': ,'options': ,'marker_code':}
