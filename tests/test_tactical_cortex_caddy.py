@@ -25,24 +25,41 @@ class TacticalCortexTestCase(unittest.TestCase):
         self.diag7 = [0,1,2, 3,4,5,   7,8]
 
     def test_take_win_chance(self):
-        dic_f = { 'analysis': ,'options': ,'marker_code':}
-        dic_0 = { 'analysis': ,'options': ,'marker_code':}
-        dic_1 = { 'analysis': ,'options': ,'marker_code':}
-        dic_2 = { 'analysis': ,'options': ,'marker_code':}
-        dic_3 = { 'analysis': ,'options': ,'marker_code':}
-        dic_4 = { 'analysis': ,'options': ,'marker_code':}
-        dic_5 = { 'analysis': ,'options': ,'marker_code':}
-        dic_6 = { 'analysis': ,'options': ,'marker_code':}
-        dic_7 = { 'analysis': ,'options': ,'marker_code':}
-  
+        dic_f = { 'analysis': self.ana_f,'options': self.opt_f,
+                  'marker_code': 1 }
+        dic_0 = { 'analysis': self.ana_0,'options': self.row_0,
+                  'marker_code': 1 }
+        dic_1 = { 'analysis': self.ana_1,'options': self.row_1,
+                  'marker_code': 1 }
+        dic_2 = { 'analysis': self.ana_2,'options': self.row_2,
+                  'marker_code': 1 }
+        dic_3 = { 'analysis': self.ana_3,'options': self.row_3,
+                  'marker_code': 1 }
+        dic_4 = { 'analysis': self.ana_4,'options': self.row_4,
+                  'marker_code': 1 }
+        dic_5 = { 'analysis': self.ana_5,'options': self.row_5,
+                  'marker_code': 1 }
+        dic_6 = { 'analysis': self.ana_6,'options': self.row_6,
+                  'marker_code': 1 }
+        dic_7 = { 'analysis': self.ana_7,'options': self.row_7,
+                  'marker_code': 1 }
 
     def test_avoid_losing(self):
-        dic_f = { 'analysis': ,'options': ,'marker_code':}
-        dic_0 = { 'analysis': ,'options': ,'marker_code':}
-        dic_1 = { 'analysis': ,'options': ,'marker_code':}
-        dic_2 = { 'analysis': ,'options': ,'marker_code':}
-        dic_3 = { 'analysis': ,'options': ,'marker_code':}
-        dic_4 = { 'analysis': ,'options': ,'marker_code':}
-        dic_5 = { 'analysis': ,'options': ,'marker_code':}
-        dic_6 = { 'analysis': ,'options': ,'marker_code':}
-        dic_7 = { 'analysis': ,'options': ,'marker_code':}
+        dic_f = { 'analysis': self.ana_f,'options': self.opt_f,
+                  'enemy_code': 1 }
+        dic_0 = { 'analysis': self.ana_0,'options': self.row_0,
+                  'enemy_code': 1 }
+        dic_1 = { 'analysis': self.ana_1,'options': self.row_1,
+                  'enemy_code': 1 }
+        dic_2 = { 'analysis': self.ana_2,'options': self.row_2,
+                  'enemy_code': 1 }
+        dic_3 = { 'analysis': self.ana_3,'options': self.row_3,
+                  'enemy_code': 1 }
+        dic_4 = { 'analysis': self.ana_4,'options': self.row_4,
+                  'enemy_code': 1 }
+        dic_5 = { 'analysis': self.ana_5,'options': self.row_5,
+                  'enemy_code': 1 }
+        dic_6 = { 'analysis': self.ana_6,'options': self.row_6,
+                  'enemy_code': 1 }
+        dic_7 = { 'analysis': self.ana_7,'options': self.row_7,
+                  'enemy_code': 1 }
