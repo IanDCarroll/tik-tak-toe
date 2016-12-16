@@ -47,7 +47,10 @@ class ComputerTestCase(unittest.TestCase):
         self.assertEqual(test_yields, self.forked)
 
     def test_computer_does_not_allow_itself_to_be_forked(self):
-        pass
+        test_1_yields = self.hal.move(self.lose_fork_1)
+        test_2_yields = self.hal.move(self.lose_fork_2)
+        self.assertEqual(test_1_yields, self.unforked_1)
+        self.assertEqual(test_2_yields, self.unforked_2)
 
     def test_computer_prefers_the_center_to_all_else(self):
         test_yields = self.hal.move(self.empty_board)
