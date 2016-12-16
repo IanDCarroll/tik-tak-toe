@@ -43,7 +43,8 @@ class ComputerTestCase(unittest.TestCase):
         self.assertEqual(test_yields, self.dont_loose)
 
     def test_computer_forks(self):
-        pass
+        test_yields = self.hal.move(self.fork_chance)
+        self.assertEqual(test_yields, self.forked)
 
     def test_computer_does_not_allow_itself_to_be_forked(self):
         pass
