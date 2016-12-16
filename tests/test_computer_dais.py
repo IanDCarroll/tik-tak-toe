@@ -7,6 +7,9 @@ class ComputerTestCase(unittest.TestCase):
         self.hal = Computer(1)
         self.win_chance = [10,10,0, 0,0,0, 0,1,1]
         self.loose_chance = [10,0,1, 0,1,0, 10,0,0]
+        self.fork_chance = [1,10,0, 0,1,0, 0,0,10]
+        self.lose_fork_1 = [1,0,0, 0,10,0, 0,0,1]
+        self.lose_fork_2 = [0,0,1, 0,10,0, 1,0,1]
         self.empty_board = [0,0,0, 0,0,0, 0,0,0]
         self.hollow_board = [1,10,0, 0,0,0, 10,1,0]
         self.NE_corner = [0,0,10, 0,1,0, 0,0,0]
@@ -15,6 +18,9 @@ class ComputerTestCase(unittest.TestCase):
 
         self.win = [10,10,0, 0,0,0, 1,1,1]
         self.dont_loose = [10,0,1, 1,1,0, 10,0,0]
+        self.forked = [1,10,0, 0,1,0, 1,0,10]
+        self.unforked_1 = [1,1,0, 0,10,0, 0,0,1]
+        self.unforked_2 = [0,1,1, 0,10,0, 1,0,1]
         self.no_win_chance = [10,0,0, 0,1,0, 0,0,0]
         self.fill_center = [0,0,0, 0,1,0, 0,0,0]
         self.fill_hollows = [1,10,0, 0,1,0, 10,1,0]
