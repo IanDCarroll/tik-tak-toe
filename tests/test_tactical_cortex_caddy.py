@@ -53,7 +53,7 @@ class TacticalCortexTestCase(unittest.TestCase):
 
         self.expected = [False, 2,5,7, 3,1,8, 0,6]
 
-        self.forking_board = [1,10,0, 0,1,0, 0,0,10]
+        self.forking_board = {'board': [1,10,0, 0,1,0, 0,0,10]}
 
     def test_take_win_chance(self):
         dic_f = { 'analysis': self.ana_f,'options': self.opt_f,
@@ -118,7 +118,7 @@ class TacticalCortexTestCase(unittest.TestCase):
         self.assertEqual(test_yields, self.expected)
 
     def test_take_fork_chance(self):
-        pass
+        
 
     def test_avoid_fork(self):
         pass
