@@ -123,9 +123,15 @@ class TacticalCortexTestCase(unittest.TestCase):
 
     def test_take_fork_chance(self):
         test_f = self.cortex.take_fork_chance(self.empty_board)
-        test_1 = self.cortex.take_fork_chance(self.fork_chance)
+        test_6a = self.cortex.take_fork_chance(self.fork_with_6a)
+        test_6b = self.cortex.take_fork_chance(self.fork_with_6b)
+        test_8a = self.cortex.take_fork_chance(self.fork_with_8a)
+        test_8b = self.cortex.take_fork_chance(self.fork_with_8b)
         self.assertEqual(test_f, False)
-        self.assertEqual(test_1, 6)
+        self.assertEqual(test_6a, 6)
+        self.assertEqual(test_6b, 6)
+        self.assertEqual(test_8a, 8)
+        self.assertEqual(test_8b, 8)
 
     def test_avoid_fork(self):
         pass
