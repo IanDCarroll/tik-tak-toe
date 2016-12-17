@@ -17,6 +17,12 @@ class TacticalCortex(Parser):
         return False
 
     def take_fork_chance(self, intel):
-        if intel['board'] == [1,10,0, 0,1,0, 0,0,10]:
+        take_6a = [1,10,0, 0,1,0, 0,0,10]
+        take_6b = [10,0,0, 0,1,10, 0,0,1]
+        take_8a = [0,10,1, 0,1,0, 10,0,0]
+        take_8b = [0,0,10, 10,1,0, 1,0,0]
+        if intel['board'] == take_6a or intel['board'] == take_6b:
             return 6
+        elif intel['board'] == take_8a or intel['board'] == take_8b:
+            return 8
         return False
