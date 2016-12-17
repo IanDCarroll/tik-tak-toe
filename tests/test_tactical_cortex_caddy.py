@@ -54,7 +54,10 @@ class TacticalCortexTestCase(unittest.TestCase):
         self.expected = [False, 2,5,7, 3,1,8, 0,6]
 
         self.empty_board = { 'board': [0,0,0, 0,0,0, 0,0,0] }
-        self.fork_chance = { 'board': [1,10,0, 0,1,0, 0,0,10] }
+        self.fork_with_6a = { 'board': [1,10,0, 0,1,0, 0,0,10] }
+        self.fork_with_6b = { 'board': [10,0,0, 0,1,10, 0,0,1] }
+        self.fork_with_8a = { 'board': [0,10,1, 0,1,0, 10,0,0] }
+        self.fork_with_8b = { 'board': [0,0,10, 10,1,0, 1,0,0] }
 
     def test_take_win_chance(self):
         dic_f = { 'analysis': self.ana_f,'options': self.opt_f,
