@@ -114,3 +114,9 @@ class TacticalCortexTestCase(unittest.TestCase):
         t7 = self.cortex.avoid_losing(dic_7)
         test_yields = [tf, t0,t1,t2, t3,t4,t5, t6,t7]
         self.assertEqual(test_yields, self.expected)
+
+    def test_take_fork_chance(self):
+        pass
+
+    def test_avoid_fork(self):
+        pass
