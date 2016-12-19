@@ -26,3 +26,6 @@ class TacticalCortex(Parser):
         elif intel['board'] == take_8a or intel['board'] == take_8b:
             return 8
         return False
+
+    def avoid_fork(self, intel):
+        return False
