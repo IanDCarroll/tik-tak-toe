@@ -21,7 +21,7 @@ class ComputerTestCase(unittest.TestCase):
         self.dont_loose = [10,0,1, 1,1,0, 10,0,0]
         self.forked = [1,10,0, 0,1,0, 1,0,10]
         self.unforked_1 = [1,1,0, 0,10,0, 0,0,1]
-        self.unforked_2 = [0,1,1, 0,10,0, 1,0,1]
+        self.unforked_2 = [0,1,1, 0,10,0, 1,0,0]
         self.no_win_chance = [10,0,0, 0,1,0, 0,0,0]
         self.fill_center = [0,0,0, 0,1,0, 0,0,0]
         self.fill_hollows = [1,10,0, 0,1,0, 10,1,0]
