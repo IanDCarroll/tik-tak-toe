@@ -32,7 +32,7 @@ class ComputerTestCase(unittest.TestCase):
         self.all_zero = [0,0,0,0,0,0,0,0]
 
         self.ask_board = [10,10,0, 1,1,0, 10,0,1]
-        self.intel = [5,2,False,False,2,2]
+        self.intel = [5,2,False,False,False,2,2]
 
     def test_computer_chooses_to_win(self):
         test_yields = self.hal.move(self.win_chance)
