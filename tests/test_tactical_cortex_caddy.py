@@ -141,5 +141,5 @@ class TacticalCortexTestCase(unittest.TestCase):
         test_1 = self.cortex.avoid_fork(self.avoid_fork_1)
         test_2 = self.cortex.avoid_fork(self.avoid_fork_2)
         self.assertEqual(test_f, False)
-        self.assertEqual(test_1, 2)
-        self.assertEqual(test_2, 2)
+        self.assertEqual(test_1, 1)
+        self.assertEqual(test_2, 1)
