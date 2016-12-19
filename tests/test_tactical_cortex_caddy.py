@@ -134,4 +134,5 @@ class TacticalCortexTestCase(unittest.TestCase):
         self.assertEqual(test_8b, 8)
 
     def test_avoid_fork(self):
-        pass
+        test_f = self.cortex.avoid_fork(self.empty_board)
+        self.assertEqual(test_f, False)
