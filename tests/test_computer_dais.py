@@ -5,11 +5,12 @@ class ComputerTestCase(unittest.TestCase):
 
     def setUp(self):
         self.hal = Computer(1)
+        self.holly = Computer(10)
         self.win_chance = [10,10,0, 0,0,0, 0,1,1]
         self.loose_chance = [10,0,1, 0,1,0, 10,0,0]
         self.fork_chance = [1,10,0, 0,1,0, 0,0,10]
         self.lose_fork_1 = [1,0,0, 0,10,0, 0,0,1]
-        self.lose_fork_2 = [0,0,1, 0,10,0, 1,0,1]
+        self.lose_fork_2 = [0,0,1, 0,10,0, 1,0,0]
         self.empty_board = [0,0,0, 0,0,0, 0,0,0]
         self.hollow_board = [1,10,0, 0,0,0, 10,1,0]
         self.NE_corner = [0,0,10, 0,1,0, 0,0,0]
@@ -47,8 +48,8 @@ class ComputerTestCase(unittest.TestCase):
         self.assertEqual(test_yields, self.forked)
 
     def test_computer_does_not_allow_itself_to_be_forked(self):
-        test_1_yields = self.hal.move(self.lose_fork_1)
-        test_2_yields = self.hal.move(self.lose_fork_2)
+        test_1_yields = self.holly.move(self.lose_fork_1)
+        test_2_yields = self.holly.move(self.lose_fork_2)
         self.assertEqual(test_1_yields, self.unforked_1)
         self.assertEqual(test_2_yields, self.unforked_2)
 
