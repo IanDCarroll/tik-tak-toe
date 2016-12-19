@@ -28,4 +28,7 @@ class TacticalCortex(Parser):
         return False
 
     def avoid_fork(self, intel):
+        scenario = intel['analysis'][:6]
+        if scenario == [1,10,1, 1,10,1]:
+            return 2
         return False
