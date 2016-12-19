@@ -1,7 +1,7 @@
 import unittest
-from OnStage.parser_abilities import *
+from Training.parser_3x3_abilities import *
 
-class ParserTestCase(unittest.TestCase):
+class Parser3x3TestCase(unittest.TestCase):
 
     def setUp(self):
         self.test = Parser()

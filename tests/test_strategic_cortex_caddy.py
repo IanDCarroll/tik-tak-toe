@@ -1,10 +1,10 @@
 import unittest
-from OnStage.strategic_cortex_caddy import *
+from Training.strategic_3x3_lobe_slot import *
 
-class StrategicCortextTestCase(unittest.TestCase):
+class Strategic3x3LobeTestCase(unittest.TestCase):
 
     def setUp(self):
-        self.cortex = StrategicCortex()
+        self.lobe = StrategicLobe()
         self.opt0 = [0,1,2,3,4,5,6,7,8]
         self.opt2 = [  1,2,3,4,5,6,7,8]
         self.opt6 = [  1,  3,4,5,6,7,8]
@@ -41,15 +41,15 @@ class StrategicCortextTestCase(unittest.TestCase):
         dic6 = {'options': self.opt6}
         dic7 = {'options': self.opt7}
         dic8 = {'options': self.opt8}
-        test_0 = self.cortex.make_default_choice(dic0)
-        test_1 = self.cortex.make_default_choice(dic1)
-        test_2 = self.cortex.make_default_choice(dic2)
-        test_3 = self.cortex.make_default_choice(dic3)
-        test_4 = self.cortex.make_default_choice(dic4)
-        test_5 = self.cortex.make_default_choice(dic5)
-        test_6 = self.cortex.make_default_choice(dic6)
-        test_7 = self.cortex.make_default_choice(dic7)
-        test_8 = self.cortex.make_default_choice(dic8)
+        test_0 = self.lobe.make_default_choice(dic0)
+        test_1 = self.lobe.make_default_choice(dic1)
+        test_2 = self.lobe.make_default_choice(dic2)
+        test_3 = self.lobe.make_default_choice(dic3)
+        test_4 = self.lobe.make_default_choice(dic4)
+        test_5 = self.lobe.make_default_choice(dic5)
+        test_6 = self.lobe.make_default_choice(dic6)
+        test_7 = self.lobe.make_default_choice(dic7)
+        test_8 = self.lobe.make_default_choice(dic8)
         self.assertEqual(test_0, 0)
         self.assertEqual(test_1, 1)
         self.assertEqual(test_2, 2)
@@ -73,12 +73,12 @@ class StrategicCortextTestCase(unittest.TestCase):
                   'marker_code': 1, 'options': self.optne }
         dicsw = { 'board': self.bdsw, 'analysis': self.anasw,
                   'marker_code': 1, 'options': self.optsw }
-        test_x = self.cortex.take_catty_corner(dic_x)
-        test_o = self.cortex.take_catty_corner(dic_o)
-        testnw = self.cortex.take_catty_corner(dicnw)
-        testse = self.cortex.take_catty_corner(dicse)
-        testne = self.cortex.take_catty_corner(dicne)
-        testsw = self.cortex.take_catty_corner(dicsw)
+        test_x = self.lobe.take_catty_corner(dic_x)
+        test_o = self.lobe.take_catty_corner(dic_o)
+        testnw = self.lobe.take_catty_corner(dicnw)
+        testse = self.lobe.take_catty_corner(dicse)
+        testne = self.lobe.take_catty_corner(dicne)
+        testsw = self.lobe.take_catty_corner(dicsw)
         self.assertEqual(test_x, False)
         self.assertEqual(test_o, False)
         self.assertEqual(testnw, 8)
@@ -89,7 +89,7 @@ class StrategicCortextTestCase(unittest.TestCase):
     def test_take_the_center_takes_the_center(self):
         dic0 = {'options': self.opt0}
         dic5 = {'options': self.opt5}
-        test_aye = self.cortex.take_the_center(dic0)
-        test_ney = self.cortex.take_the_center(dic5)
+        test_aye = self.lobe.take_the_center(dic0)
+        test_ney = self.lobe.take_the_center(dic5)
         self.assertEqual(test_aye, 4)
         self.assertEqual(test_ney, False)

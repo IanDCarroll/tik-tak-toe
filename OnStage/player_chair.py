@@ -1,4 +1,5 @@
 from Training.observer_abilities import *
+from Training.cortex_3x3_caddy import *
 from Scenery.announcer_chair import *
 
 class Player(Observer):
@@ -53,3 +54,20 @@ class Human(Player):
     def redo_move(self, board):
         self.announcer.show(self.announcer.bad_move)
         return self.choose(board)
+
+class Computer(Player):
+
+    name = 'computer'
+    cortex = Cortex_3x3()
+
+    def choose(self, board):
+        intel = self.get_intelligence(board)
+        return self.cortex.direct_move(intel)
+
+    def get_intelligence(self, board):
+        intel = { 'board': board, 
+                  'options': self.get_legal_moves(board),
+                  'analysis': self.scan_board(board),
+                  'marker_code': self.marker_code, 
+                  'enemy_code': self.get_enemy_code() }
+        return intel

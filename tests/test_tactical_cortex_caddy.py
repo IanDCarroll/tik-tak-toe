@@ -1,10 +1,10 @@
 import unittest
-from OnStage.tactical_cortex_caddy import *
+from Training.tactical_3x3_lobe_slot import *
 
-class TacticalCortexTestCase(unittest.TestCase):
+class Tactical3x3LobeTestCase(unittest.TestCase):
 
     def setUp(self):
-        self.cortex = TacticalCortex()
+        self.lobe = TacticalLobe()
         self.ana_f = [0,0,0,0,0,0,0,0]
         self.ana_0 = [2,0,0,0,0,0,0,0]
         self.ana_1 = [0,2,0,0,0,0,0,0]
@@ -81,15 +81,15 @@ class TacticalCortexTestCase(unittest.TestCase):
                   'marker_code': 1 }
         dic_7 = { 'analysis': self.ana_7,'options': self.diag7,
                   'marker_code': 1 }
-        tf = self.cortex.take_win_chance(dic_f)
-        t0 = self.cortex.take_win_chance(dic_0)
-        t1 = self.cortex.take_win_chance(dic_1)
-        t2 = self.cortex.take_win_chance(dic_2)
-        t3 = self.cortex.take_win_chance(dic_3)
-        t4 = self.cortex.take_win_chance(dic_4)
-        t5 = self.cortex.take_win_chance(dic_5)
-        t6 = self.cortex.take_win_chance(dic_6)
-        t7 = self.cortex.take_win_chance(dic_7)
+        tf = self.lobe.take_win_chance(dic_f)
+        t0 = self.lobe.take_win_chance(dic_0)
+        t1 = self.lobe.take_win_chance(dic_1)
+        t2 = self.lobe.take_win_chance(dic_2)
+        t3 = self.lobe.take_win_chance(dic_3)
+        t4 = self.lobe.take_win_chance(dic_4)
+        t5 = self.lobe.take_win_chance(dic_5)
+        t6 = self.lobe.take_win_chance(dic_6)
+        t7 = self.lobe.take_win_chance(dic_7)
         test_yields = [tf, t0,t1,t2, t3,t4,t5, t6,t7]
         self.assertEqual(test_yields, self.expected)
 
@@ -112,24 +112,24 @@ class TacticalCortexTestCase(unittest.TestCase):
                   'enemy_code': 1 }
         dic_7 = { 'analysis': self.ana_7,'options': self.diag7,
                   'enemy_code': 1 }
-        tf = self.cortex.avoid_losing(dic_f)
-        t0 = self.cortex.avoid_losing(dic_0)
-        t1 = self.cortex.avoid_losing(dic_1)
-        t2 = self.cortex.avoid_losing(dic_2)
-        t3 = self.cortex.avoid_losing(dic_3)
-        t4 = self.cortex.avoid_losing(dic_4)
-        t5 = self.cortex.avoid_losing(dic_5)
-        t6 = self.cortex.avoid_losing(dic_6)
-        t7 = self.cortex.avoid_losing(dic_7)
+        tf = self.lobe.avoid_losing(dic_f)
+        t0 = self.lobe.avoid_losing(dic_0)
+        t1 = self.lobe.avoid_losing(dic_1)
+        t2 = self.lobe.avoid_losing(dic_2)
+        t3 = self.lobe.avoid_losing(dic_3)
+        t4 = self.lobe.avoid_losing(dic_4)
+        t5 = self.lobe.avoid_losing(dic_5)
+        t6 = self.lobe.avoid_losing(dic_6)
+        t7 = self.lobe.avoid_losing(dic_7)
         test_yields = [tf, t0,t1,t2, t3,t4,t5, t6,t7]
         self.assertEqual(test_yields, self.expected)
 
     def test_take_fork_chance(self):
-        test_f = self.cortex.take_fork_chance(self.empty_board)
-        test_6a = self.cortex.take_fork_chance(self.fork_with_6a)
-        test_6b = self.cortex.take_fork_chance(self.fork_with_6b)
-        test_8a = self.cortex.take_fork_chance(self.fork_with_8a)
-        test_8b = self.cortex.take_fork_chance(self.fork_with_8b)
+        test_f = self.lobe.take_fork_chance(self.empty_board)
+        test_6a = self.lobe.take_fork_chance(self.fork_with_6a)
+        test_6b = self.lobe.take_fork_chance(self.fork_with_6b)
+        test_8a = self.lobe.take_fork_chance(self.fork_with_8a)
+        test_8b = self.lobe.take_fork_chance(self.fork_with_8b)
         self.assertEqual(test_f, False)
         self.assertEqual(test_6a, 6)
         self.assertEqual(test_6b, 6)
@@ -137,9 +137,9 @@ class TacticalCortexTestCase(unittest.TestCase):
         self.assertEqual(test_8b, 8)
 
     def test_avoid_fork(self):
-        test_f = self.cortex.avoid_fork(self.empty_board)
-        test_1 = self.cortex.avoid_fork(self.avoid_fork_1)
-        test_2 = self.cortex.avoid_fork(self.avoid_fork_2)
+        test_f = self.lobe.avoid_fork(self.empty_board)
+        test_1 = self.lobe.avoid_fork(self.avoid_fork_1)
+        test_2 = self.lobe.avoid_fork(self.avoid_fork_2)
         self.assertEqual(test_f, False)
         self.assertEqual(test_1, 1)
         self.assertEqual(test_2, 1)
