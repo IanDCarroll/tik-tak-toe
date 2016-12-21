@@ -11,6 +11,8 @@ class ScriptographerTestCase(unittest.TestCase):
         self.computer = "The Computer wins the game."
         self.human = "You Win!"
         self.question = "Which square do you choose?"
+        self.pre_choice = "The computer chooses square "
+        self.post_choice = ", a perfect move."
         self.bad_move = "Sorry, that's not a legal move. Try again."
         self.strike_3 = "Look, if you're not going to take this seriously, I'm out."
         self.prompt = "> "
@@ -41,6 +43,10 @@ class ScriptographerTestCase(unittest.TestCase):
 
     def test_say_question_the_human(self):
         self.assertEqual(self.say.question, self.question)
+
+    def test_computer_move_choice_commentary(self):
+        self.assertEqual(self.say.pre_choice, self.pre_choice)
+        self.assertEqual(self.say.post_choice, self.post_choice)
 
     def test_say_human_made_illegal_move(self):
         self.assertEqual(self.say.bad_move, self.bad_move)
