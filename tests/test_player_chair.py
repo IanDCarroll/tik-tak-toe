@@ -6,6 +6,11 @@ class MuteAnnouncer(Announcer):
       def show(self, text):
           return text
 
+class MuteComputer(Computer):
+      def __init__(self, marker_code):
+          self.announcer = MuteAnnouncer()
+          self.marker_code = marker_code
+
 class Dummy(Human):
       def choose(self, board):
           return 3
@@ -22,7 +27,7 @@ class PlayerTestCase(unittest.TestCase):
 
     def setUp(self):
         self.player = Player(1)
-        self.computer = Computer(1)
+        self.computer = MuteComputer(1)
         self.human = Dummy(10)
         self.error = ErrorDummy(10)
         self.mock_board = [1,10,1, 0,10,0, 1,0,10]
