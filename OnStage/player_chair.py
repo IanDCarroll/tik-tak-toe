@@ -1,3 +1,4 @@
+import sys
 from Training.observer_abilities import *
 from Training.cortex_3x3_caddy import *
 from Scenery.announcer_chair import *
@@ -32,28 +33,40 @@ class Player(Observer):
 class Human(Player):
 
     name = 'human'
+    strikes = 0
 
     def choose(self, board):
         choice = self.get_good_input(board)
         if self.check_conscience(choice, board):
             return self.redo_move(board)
         else:
+            self.reset_strikes()
             return choice
 
     def get_good_input(self, board):
         try:
-           self.announcer.show(self.announcer.question)
-           return int(raw_input("> ")) -1
+            self.announcer.show(self.announcer.question)
+            return int(raw_input("> ")) -1
         except(ValueError):
-           return self.redo_move(board)
+            return self.redo_move(board)
 
     def check_conscience(self, choice, board):
         if choice not in self.get_legal_moves(board):
             return True
             
     def redo_move(self, board):
+        self.add_a_strike()
         self.announcer.show(self.announcer.bad_move)
         return self.choose(board)
+
+    def add_a_strike(self):
+        self.strikes += 1
+        if self.strikes == 3:
+            self.announcer.show(self.announcer.strike_3)
+            sys.exit()
+
+    def reset_strikes(self):
+        self.strikes = 0
 
 class Computer(Player):
 
