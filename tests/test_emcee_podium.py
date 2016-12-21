@@ -70,10 +70,8 @@ class EmceeTestCase(unittest.TestCase):
         self.assertEqual(self.mc_computer.get_choice(), '2')
 
     def test_get_choice_human_says_ni(self):
-        pass
-        # we can try to test this later 
-        # if we include a try-counter that after so many tries, 
-        # returns a message and exits the game
+        with self.assertRaises(SystemExit):
+            self.mc_error.get_choice()
 
     def test_end_game_returns_the_tied_game(self):
         test_yields = self.mc_dummy.end_game(self.tied_game)
