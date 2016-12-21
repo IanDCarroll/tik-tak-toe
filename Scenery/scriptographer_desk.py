@@ -9,6 +9,8 @@ class Scriptographer(Observer):
         self.computer = "The Computer wins the game."
         self.human = "You Win!"
         self.question = "Which square do you choose?"
+        self.pre_choice = "The computer chooses square "
+        self.post_choice = ", a perfect move."
         self.bad_move = "Sorry, that's not a legal move. Try again."
         self.strike_3 = "Look, if you're not going to take this seriously, I'm out."
         self.prompt = "> "
