@@ -5,7 +5,12 @@ class ObserverTestCase(unittest.TestCase):
 
     def setUp(self):
         self.observer = Observer()
-        self.mock_4x4_board = [0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0]
+        self.mock_4x4_board = [  1, 0, 0,10,
+                                 0, 1,10, 0,
+                                 0,10, 1, 0,
+                                10, 0, 0, 1 ]
+        self.mock_4x4_analysis = [11,11,11,11, 11,11,11,11, 4,40]
+
         self.mock_board = [1,0,10, 1,10,0, 1,10,1]
         self.expected_analysis = [11,11,12, 3,20,11, 12,21]
         self.expected_rows = [11,11,12]
