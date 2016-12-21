@@ -2,11 +2,19 @@ import unittest
 from OnStage.player_chair import *
 from Scenery.announcer_chair import *
 
+class MuteAnnouncer(Announcer):
+      def show(self, text):
+          return text
+
 class Dummy(Human):
       def choose(self, board):
           return 3
 
 class ErrorDummy(Human):
+      def __init__(self, marker_code):
+          self.announcer = MuteAnnouncer()
+          self.marker_code = marker_code
+
       def get_good_input(self, board):
           return self.redo_move(board)
 
