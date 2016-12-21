@@ -1,3 +1,4 @@
+import sys
 from Scenery.announcer_chair import *
 
 class Emcee(object):
@@ -5,6 +6,8 @@ class Emcee(object):
     def __init__(self, board_object):
         self.table_top = board_object
         self.announcer = Announcer()
+
+    strikes = 0
 
     def choose_who_goes_first(self):
         self.announcer.show(self.announcer.start)
@@ -17,8 +20,12 @@ class Emcee(object):
         choice = self.ask_human()
         if choice == '1' or choice == '2':
             return choice
+        elif self.strikes == 2:
+            self.announcer.show(self.announcer.strike_3)
+            sys.exit()
         else:
             self.announcer.show(self.announcer.bad_move)
+            self.strikes += 1
             return self.get_choice()
 
     def end_game(self, winner):
