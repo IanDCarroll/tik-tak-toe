@@ -1,11 +1,21 @@
 import unittest
 from OnStage.player_chair import Computer
+from Scenery.announcer_chair import *
+
+class MuteAnnouncer(Announcer):
+      def show(self, text):
+          return text
+
+class MuteComputer(Computer):
+      def __init__(self, marker_code):
+          self.announcer = MuteAnnouncer()
+          self.marker_code = marker_code
 
 class ComputerTestCase(unittest.TestCase):
 
     def setUp(self):
-        self.hal = Computer(1)
-        self.holly = Computer(10)
+        self.hal = MuteComputer(1)
+        self.holly = MuteComputer(10)
         self.win_chance = [10,10,0, 0,0,0, 0,1,1]
         self.loose_chance = [10,0,1, 0,1,0, 10,0,0]
         self.fork_chance = [1,10,0, 0,1,0, 0,0,10]
