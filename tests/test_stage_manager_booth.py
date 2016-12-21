@@ -1,5 +1,5 @@
 import unittest
-from BackStage.control_booth import *
+from BackStage.stage_manager_booth import *
 from BackStage.referee_chair import *
 from BackStage.emcee_podium import *
 from Scenery.announcer_chair import *
