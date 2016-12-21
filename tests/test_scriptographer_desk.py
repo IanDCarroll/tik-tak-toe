@@ -12,6 +12,7 @@ class ScriptographerTestCase(unittest.TestCase):
         self.human = "You Win!"
         self.question = "Which square do you choose?"
         self.bad_move = "Sorry, that's not a legal move. Try again."
+        self.strike_3 = "Look, if you're not going to take this seriously, I'm out."
         self.prompt = "> "
 
         self.nought = "\033[34m O \033[0m"
@@ -43,6 +44,9 @@ class ScriptographerTestCase(unittest.TestCase):
 
     def test_say_human_made_illegal_move(self):
         self.assertEqual(self.say.bad_move, self.bad_move)
+
+    def test_say_strike_3(self):
+        self.assertEqual(self.say.strike_3, self.strike_3)
 
     def test_provide_prompt_for_raw_input(self):
         self.assertEqual(self.say.prompt, self.prompt)
