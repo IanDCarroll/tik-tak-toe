@@ -1,9 +1,14 @@
 import unittest
 from OnStage.player_chair import *
+from Scenery.announcer_chair import *
 
 class Dummy(Human):
       def choose(self, board):
           return 3
+
+class ErrorDummy(Human):
+      def get_good_input(self, board):
+          return self.redo_move(board)
 
 class PlayerTestCase(unittest.TestCase):
 
@@ -11,6 +16,7 @@ class PlayerTestCase(unittest.TestCase):
         self.player = Player(1)
         self.computer = Computer(1)
         self.human = Dummy(10)
+        self.error = ErrorDummy(10)
         self.mock_board = [1,10,1, 0,10,0, 1,0,10]
         self.computer_turn = [1,10,1, 1,10,0, 1,0,10]
         self.human_turn = [1,10,1, 10,10,0, 1,0,10]
@@ -44,6 +50,10 @@ class PlayerTestCase(unittest.TestCase):
     def test_get_enemy_code_gets_enemy_code(self):
         self.assertEqual(self.computer.get_enemy_code(), 10)
         self.assertEqual(self.human.get_enemy_code(), 1)
+
+    def test_player_cant_make_infinite_bad_moves(self):
+        with self.assertRaises(SystemExit):
+            self.error.choose(self.mock_board)
 
 if __name__ == '__main__':
     unittest.main()
