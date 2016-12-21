@@ -2,6 +2,9 @@ from math import sqrt
 
 class Observer(object):
 
+    def get_board_size(self, board):
+        return int(sqrt(len(board)))
+
     def scan_board(self, board):
         analyzed_list = []
         analyzed_list.extend(self.scan_rows(board))
@@ -58,6 +61,3 @@ class Observer(object):
             value += board[target_index]
             target_index += board_size - 1
         return value
-
-    def get_board_size(self, board):
-        return int(sqrt(len(board))) 
