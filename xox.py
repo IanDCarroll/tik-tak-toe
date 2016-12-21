@@ -1,4 +1,4 @@
-from BackStage.control_booth import *
+from BackStage.stage_manager_booth import *
 
 if __name__ == "__main__":
     xox = StageManager()
