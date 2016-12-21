@@ -10,6 +10,7 @@ class Scriptographer(Observer):
         self.human = "You Win!"
         self.question = "Which square do you choose?"
         self.bad_move = "Sorry, that's not a legal move. Try again."
+        self.strike_3 = "Look, if you're not going to take this seriously, I'm out."
         self.prompt = "> "
 
         self.nought = "\033[34m O \033[0m"
