@@ -37,7 +37,7 @@ so it can be corrected immediately.
         self.plank = '---'
         self.corner = '+'
         self.wall = '|'
-        self.nl = '\n'
+        self.new_line = '\n'
 
     def test_say_start_of_game(self):
         self.assertEqual(self.say.start, self.start)
@@ -92,7 +92,7 @@ so it can be corrected immediately.
         self.assertEqual(self.say.wall, self.wall)
 
     def test_provide_new_line(self):
-        self.assertEqual(self.say.nl, self.nl)
+        self.assertEqual(self.say.new_line, self.new_line)
 
 if __name__ == '__main__':
     unittest.main()
