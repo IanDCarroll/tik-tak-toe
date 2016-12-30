@@ -40,11 +40,11 @@ class Observer(object):
 
     def scan_diags(self, board):
         analyzed_diags = []
-        analyzed_diags.append(self.scan_NW_SE(board))
-        analyzed_diags.append(self.scan_NE_SW(board))
+        analyzed_diags.append(self.scan_1st_diag(board))
+        analyzed_diags.append(self.scan_2nd_diag(board))
         return analyzed_diags
 
-    def scan_NW_SE(self, board):
+    def scan_1st_diag(self, board):
         value = 0
         board_size = self.get_board_size(board)
         target_index = 0
@@ -53,7 +53,7 @@ class Observer(object):
             target_index += board_size + 1
         return value
 
-    def scan_NE_SW(self, board):
+    def scan_2nd_diag(self, board):
         value = 0
         board_size = self.get_board_size(board)
         target_index = board_size - 1
