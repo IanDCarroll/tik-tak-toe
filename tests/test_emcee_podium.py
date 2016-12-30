@@ -17,22 +17,17 @@ class MuteAnnouncerE(MuteAnnouncer1):
     def ask_human(self):
         return 'Ni'
 
-class Dummy(Emcee):
-    def __init__(self, board):
-        self.table_top = board
-        self.announcer = MuteAnnouncer1()
-
 class Mc_Human(Emcee):
     def __init__(self, board):
         self.table_top = board
         self.announcer = MuteAnnouncer1()
 
-class Mc_Computer(Dummy):
+class Mc_Computer(Mc_Human):
     def __init__(self, board):
         self.table_top = board
         self.announcer = MuteAnnouncer2()
 
-class Mc_Error(Dummy):
+class Mc_Error(Mc_Human):
      def __init__(self, board):
         self.table_top = board
         self.announcer = MuteAnnouncerE()   
