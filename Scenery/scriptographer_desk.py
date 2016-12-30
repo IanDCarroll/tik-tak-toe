@@ -35,4 +35,4 @@ so it can be corrected immediately.
         self.plank = '---'
         self.corner = '+'
         self.wall = '|'
-        self.nl = '\n'
+        self.new_line = '\n'

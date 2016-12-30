@@ -24,7 +24,7 @@ class Carpenter(Scriptographer):
     def construct_board(self, board):
         rack = self.assemble_rack(board)
         rows = self.assemble_rows(board)
-        constructed_board = self.nl + rack.join(rows) + self.nl
+        constructed_board = self.new_line + rack.join(rows) + self.new_line
         return constructed_board
 
     def assemble_rack(self, board):
@@ -32,7 +32,7 @@ class Carpenter(Scriptographer):
         shelves = []
         for i in range(0, board_size):
             shelves.append(self.plank)
-        rack = self.nl + self.corner.join(shelves) + self.nl
+        rack = self.new_line + self.corner.join(shelves) + self.new_line
         return rack
 
     def assemble_rows(self, board):
