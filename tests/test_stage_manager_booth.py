@@ -9,6 +9,8 @@ from OnStage.game_table import *
 class MuteAnnouncer(Announcer):
     def show(self, statement):
         return statement
+    def ask_human(self):
+        return '1'
 
 class DummyHuman(Player):
     name = 'human'

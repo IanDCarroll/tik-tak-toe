@@ -46,7 +46,7 @@ class Human(Player):
     def get_good_input(self, board):
         try:
             self.announcer.show(self.announcer.question)
-            return int(raw_input("> ")) -1
+            return int(self.announcer.ask_human()) -1
         except(ValueError):
             return self.redo_move(board)
 
