@@ -35,6 +35,3 @@ class Emcee(object):
             return self.announcer.show(self.announcer.computer)
         elif winner == 'human':
             return self.announcer.show(self.announcer.human)
-
-    def ask_human(self):
-        return raw_input('> ')
