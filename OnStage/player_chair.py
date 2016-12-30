@@ -80,12 +80,11 @@ class Computer(Player):
         return choice
 
     def get_intelligence(self, board):
-        intel = { 'board': board, 
-                  'options': self.get_legal_moves(board),
-                  'analysis': self.scan_board(board),
-                  'marker_code': self.marker_code, 
-                  'enemy_code': self.get_enemy_code() }
-        return intel
+        return { 'board': board, 
+                 'options': self.get_legal_moves(board),
+                 'analysis': self.scan_board(board),
+                 'marker_code': self.marker_code, 
+                 'enemy_code': self.get_enemy_code() }
 
     def announce_choice(self, choice):
         pre = self.announcer.pre_choice

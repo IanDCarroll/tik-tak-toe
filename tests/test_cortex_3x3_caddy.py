@@ -13,8 +13,8 @@ class Cortex3x3TestCase(unittest.TestCase):
         self.priorities = [5,2,False,False,False,2,2]
 
 
-    def test_ask_lobes_returns_a_priority_list(self):
-        test_yields = self.cortex.ask_lobes(self.intel)
+    def test_get_priority_list_returns_a_priority_list(self):
+        test_yields = self.cortex.get_priority_list(self.intel)
         self.assertEqual(test_yields, self.priorities)
 
     def test_direct_move_returns_a_direction(self):
