@@ -24,16 +24,14 @@ class Carpenter(Scriptographer):
     def construct_board(self, board):
         rack = self.assemble_rack(board)
         rows = self.assemble_rows(board)
-        constructed_board = self.new_line + rack.join(rows) + self.new_line
-        return constructed_board
+        return self.new_line + rack.join(rows) + self.new_line
 
     def assemble_rack(self, board):
         board_size = self.get_board_size(board)
         shelves = []
         for i in range(0, board_size):
             shelves.append(self.plank)
-        rack = self.new_line + self.corner.join(shelves) + self.new_line
-        return rack
+        return self.new_line + self.corner.join(shelves) + self.new_line
 
     def assemble_rows(self, board):
         row_length = self.get_board_size(board)
