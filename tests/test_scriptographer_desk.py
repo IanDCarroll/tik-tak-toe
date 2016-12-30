@@ -32,7 +32,7 @@ so it can be corrected immediately.
 
         self.nought = "\033[34m O \033[0m"
         self.cross = "\033[91m X \033[0m"
-        self.pre_num = "\033[30m "
+        self.pre_num = "\033[90m "
         self.post_num = " \033[0m"
         self.plank = '---'
         self.corner = '+'
