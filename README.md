@@ -10,8 +10,8 @@ This is a simple command line noughts and crosses game.
 
  - You are a human, much like John Henry
  - Your opponent will be a machine, much like a Steam-Powered Drill
- - Your opponent will never lose, and will always play perfectly.(feature to be added)
- - Finally, you can feel what it's like to rage against the machine and never win!(feature to be added)
+ - Your opponent will never lose, and will always play perfectly.
+ - Finally, you can feel what it's like to rage against the machine and never win!
 
 ### How to play:
 
