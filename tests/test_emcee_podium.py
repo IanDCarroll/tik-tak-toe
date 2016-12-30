@@ -3,33 +3,45 @@ from BackStage.emcee_podium import *
 from Scenery.announcer_chair import *
 from OnStage.game_table import *
 
-class MuteAnnouncer(Announcer):
+class MuteAnnouncer1(Announcer):
     def show(self, what_is_said):
         return what_is_said
+    def ask_human(self):
+        return '1'
+
+class MuteAnnouncer2(MuteAnnouncer1):
+    def ask_human(self):
+        return '2'
+
+class MuteAnnouncerE(MuteAnnouncer1):
+    def ask_human(self):
+        return 'Ni'
 
 class Dummy(Emcee):
     def __init__(self, board):
         self.table_top = board
-        self.announcer = MuteAnnouncer()
+        self.announcer = MuteAnnouncer1()
 
-class Mc_Human(Dummy):
-    def ask_human(self):
-        return '1'
+class Mc_Human(Emcee):
+    def __init__(self, board):
+        self.table_top = board
+        self.announcer = MuteAnnouncer1()
 
 class Mc_Computer(Dummy):
-    def ask_human(self):
-        return '2'
+    def __init__(self, board):
+        self.table_top = board
+        self.announcer = MuteAnnouncer2()
 
 class Mc_Error(Dummy):
-    def ask_human(self):
-        return 'Ni!'
+     def __init__(self, board):
+        self.table_top = board
+        self.announcer = MuteAnnouncerE()   
 
 class EmceeTestCase(unittest.TestCase):
 
     def setUp(self):
         self.table_top = TableTop()
-        self.signer = MuteAnnouncer()
-        self.mc_dummy = Dummy(self.table_top)
+        self.signer = MuteAnnouncer1()
         self.mc_human = Mc_Human(self.table_top)
         self.mc_computer = Mc_Computer(self.table_top)
         self.mc_error = Mc_Error(self.table_top)
@@ -74,17 +86,17 @@ class EmceeTestCase(unittest.TestCase):
             self.mc_error.get_choice()
 
     def test_end_game_returns_the_tied_game(self):
-        test_yields = self.mc_dummy.end_game(self.tied_game)
+        test_yields = self.mc_human.end_game(self.tied_game)
         whats_expected = self.signer.show(self.signer.tie)
         self.assertEqual(test_yields, whats_expected)
 
     def test_end_game_returns_the_computer_win(self):
-        test_yields = self.mc_dummy.end_game(self.computer_win)
+        test_yields = self.mc_human.end_game(self.computer_win)
         whats_expected = self.signer.show(self.signer.computer)
         self.assertEqual(test_yields, whats_expected)
 
     def test_end_game_returns_the_human_win(self):
-        test_yields = self.mc_dummy.end_game(self.human_win)
+        test_yields = self.mc_human.end_game(self.human_win)
         whats_expected = self.signer.show(self.signer.human)
         self.assertEqual(test_yields, whats_expected)
 
