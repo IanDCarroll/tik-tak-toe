@@ -5,8 +5,8 @@ from Scenery.announcer_chair import *
 
 class Player(Observer):
 
-    def __init__(self, marker_code):
-        self.ui = Announcer()
+    def __init__(self, marker_code, user_interface):
+        self.ui = user_interface
         self.marker_code = marker_code
 
     def get_enemy_code(self):
@@ -76,7 +76,7 @@ class Computer(Player):
     def choose(self, board):
         intel = self.get_intelligence(board)
         choice = self.cortex.direct_move(intel)
-        self.announce_choice(choice)
+        self.display_choice(choice)
         return choice
 
     def get_intelligence(self, board):
@@ -86,7 +86,7 @@ class Computer(Player):
                  'marker_code': self.marker_code, 
                  'enemy_code': self.get_enemy_code() }
 
-    def announce_choice(self, choice):
+    def display_choice(self, choice):
         pre = self.ui.pre_choice
         post = self.ui.post_choice
         statement = pre + str(choice + 1) + post

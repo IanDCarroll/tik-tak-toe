@@ -1,6 +1,6 @@
-from scriptographer_desk import *
+from carpenter_shop import *
 
-class Announcer(Scriptographer):
+class Commandline_Interface(Carpenter):
 
     def show(self, text):
         print text

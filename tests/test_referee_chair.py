@@ -2,11 +2,10 @@ import unittest
 from BackStage.referee_chair import *
 from BackStage.judge_pit import*
 from Scenery.announcer_chair import *
-from Scenery.carpenter_shop import *
 from OnStage.player_chair import *
 from OnStage.game_table import *
 
-class MuteAnnouncer(Announcer):
+class MuteUI(Commandline_Interface):
     def show(self, statement):
         return statement
 
@@ -17,35 +16,34 @@ class DummyComp(Player):
     name = 'computer'
 
 class DummyTable(TableTop):
-    def __init__(self):
+    def __init__(self, user_interface):
         self.board = [0,0,0, 0,0,0, 0,0,0]
         self.noughts = 10
         self.crosses = 1
-        self.player1 = DummyHuman(self.crosses)
-        self.player2 = DummyComp(self.noughts)
+        self.ui = user_interface
+        self.player1 = DummyHuman(self.crosses, self.ui)
+        self.player2 = DummyComp(self.noughts, self.ui)
         self.whos_turn = self.player1
 
     def give_computer_the_first_move(self):
-        self.player1 = DummyComp(self.crosses)
-        self.player2 = DummyHuman(self.noughts)
+        self.player1 = DummyComp(self.crosses, self.ui)
+        self.player2 = DummyHuman(self.noughts, self.ui)
         self.whos_turn = self.player1
 
 class DummyRef(Referee):
-    def __init__(self, board_object):
+    def __init__(self, board_object, user_interface):
         self.table_top = board_object
         self.judge = Judge(self.table_top)
-        self.ui = MuteAnnouncer()
-        self.carpenter = Carpenter()
+        self.ui = user_interface
         self.moves_taken = 0
     
 
 class RefereeTestCase(unittest.TestCase):
 
     def setUp(self):
-        self.table_top = DummyTable()
-        self.ref = DummyRef(self.table_top)
-        self.announcer = MuteAnnouncer()
-        self.carpenter = Carpenter()
+        self.ui = MuteUI()
+        self.table_top = DummyTable(self.ui)
+        self.ref = DummyRef(self.table_top, self.ui)
         self.first_move_board = [1,0,0, 0,0,0, 0,0,0]
         self.won_board = [1,10,1, 10,1,10, 1,0,0] 
 
@@ -73,7 +71,7 @@ class RefereeTestCase(unittest.TestCase):
         self.assertEqual(test_yields, self.first_move_board)
 
     def test_show_board_shows_the_board(self):
-        board = self.carpenter.render_board(self.table_top.board)
-        expected = self.announcer.show(board)
+        board = self.ui.render_board(self.table_top.board)
+        expected = self.ui.show(board)
         test_yields = self.ref.show_board()
         self.assertEqual(test_yields, expected)

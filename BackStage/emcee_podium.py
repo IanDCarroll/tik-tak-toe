@@ -3,9 +3,9 @@ from Scenery.announcer_chair import *
 
 class Emcee(object):
 
-    def __init__(self, board_object):
+    def __init__(self, board_object, user_interface):
         self.table_top = board_object
-        self.ui = Announcer()
+        self.ui = user_interface
 
     strikes = 0
 

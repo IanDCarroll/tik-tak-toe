@@ -2,13 +2,13 @@ import unittest
 from OnStage.player_chair import Computer
 from Scenery.announcer_chair import *
 
-class MuteAnnouncer(Announcer):
+class MuteInterface(Commandline_Interface):
       def show(self, text):
           return text
 
 class MuteComputer(Computer):
       def __init__(self, marker_code):
-          self.ui = MuteAnnouncer()
+          self.ui = MuteInterface()
           self.marker_code = marker_code
 
 class ComputerTestCase(unittest.TestCase):
