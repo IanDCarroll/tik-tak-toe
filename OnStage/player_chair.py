@@ -1,12 +1,11 @@
 import sys
 from Training.observer_abilities import *
 from Training.cortex_3x3_caddy import *
-from Scenery.announcer_chair import *
 
 class Player(Observer):
 
-    def __init__(self, marker_code):
-        self.announcer = Announcer()
+    def __init__(self, marker_code, user_interface):
+        self.ui = user_interface
         self.marker_code = marker_code
 
     def get_enemy_code(self):
@@ -45,8 +44,8 @@ class Human(Player):
 
     def get_good_input(self, board):
         try:
-            self.announcer.show(self.announcer.question)
-            return int(self.announcer.ask_human()) -1
+            self.ui.show(self.ui.question)
+            return int(self.ui.ask_human()) -1
         except(ValueError):
             return self.redo_move(board)
 
@@ -56,13 +55,13 @@ class Human(Player):
             
     def redo_move(self, board):
         self.add_a_strike()
-        self.announcer.show(self.announcer.bad_move)
+        self.ui.show(self.ui.bad_move)
         return self.choose(board)
 
     def add_a_strike(self):
         self.strikes += 1
         if self.strikes == 3:
-            self.announcer.show(self.announcer.strike_3)
+            self.ui.show(self.ui.strike_3)
             sys.exit()
 
     def reset_strikes(self):
@@ -76,7 +75,7 @@ class Computer(Player):
     def choose(self, board):
         intel = self.get_intelligence(board)
         choice = self.cortex.direct_move(intel)
-        self.announce_choice(choice)
+        self.display_choice(choice)
         return choice
 
     def get_intelligence(self, board):
@@ -86,8 +85,8 @@ class Computer(Player):
                  'marker_code': self.marker_code, 
                  'enemy_code': self.get_enemy_code() }
 
-    def announce_choice(self, choice):
-        pre = self.announcer.pre_choice
-        post = self.announcer.post_choice
+    def display_choice(self, choice):
+        pre = self.ui.pre_choice
+        post = self.ui.post_choice
         statement = pre + str(choice + 1) + post
-        self.announcer.show(statement)
+        self.ui.show(statement)

@@ -4,7 +4,8 @@ from OnStage.game_table import *
 class TableTopTestCase(unittest.TestCase):
 
     def setUp(self):
-        self.table_top = TableTop()
+        self.ui_stub = "ui"
+        self.table_top = TableTop(self.ui_stub)
         self.empty_board = [0,0,0, 0,0,0, 0,0,0]
         self.changed_board = [0,0,1, 0,0,0, 0,0,0] 
 

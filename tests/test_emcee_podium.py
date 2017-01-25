@@ -1,49 +1,53 @@
 import unittest
 from BackStage.emcee_podium import *
-from Scenery.announcer_chair import *
+from Scenery.cli_display import *
 from OnStage.game_table import *
 
-class MuteAnnouncer1(Announcer):
+class MuteUI_1(Commandline_Interface):
     def show(self, what_is_said):
         return what_is_said
     def ask_human(self):
         return '1'
 
-class MuteAnnouncer2(MuteAnnouncer1):
+class MuteUI_2(MuteUI_1):
     def ask_human(self):
         return '2'
 
-class MuteAnnouncerE(MuteAnnouncer1):
+class MuteUI_E(MuteUI_1):
     def ask_human(self):
         return 'Ni'
 
 class Mc_Human(Emcee):
     def __init__(self, board):
         self.table_top = board
-        self.announcer = MuteAnnouncer1()
+        self.ui = MuteUI_1()
 
 class Mc_Computer(Mc_Human):
     def __init__(self, board):
         self.table_top = board
-        self.announcer = MuteAnnouncer2()
+        self.ui = MuteUI_2()
 
 class Mc_Error(Mc_Human):
      def __init__(self, board):
         self.table_top = board
-        self.announcer = MuteAnnouncerE()   
+        self.ui = MuteUI_E()   
 
 class EmceeTestCase(unittest.TestCase):
 
     def setUp(self):
-        self.table_top = TableTop()
-        self.signer = MuteAnnouncer1()
-        self.mc_human = Mc_Human(self.table_top)
-        self.mc_computer = Mc_Computer(self.table_top)
-        self.mc_error = Mc_Error(self.table_top)
-        self.a_human_p1 = Human(1)
-        self.a_human_p2 = Human(10)
-        self.a_computer_p1 = Computer(1)
-        self.a_computer_p2 = Computer(10)
+        self.mute1 = MuteUI_1()
+        self.mute2 = MuteUI_2()
+        self.muteE = MuteUI_E()
+        self.table_top1 = TableTop(self.mute1)
+        self.table_top2 = TableTop(self.mute2)
+        self.table_topE = TableTop(self.muteE)
+        self.mc_human = Mc_Human(self.table_top1)
+        self.mc_computer = Mc_Computer(self.table_top2)
+        self.mc_error = Mc_Error(self.table_topE)
+        self.a_human_p1 = Human(1, self.mute1)
+        self.a_human_p2 = Human(10, self.mute1)
+        self.a_computer_p1 = Computer(1, self.mute1)
+        self.a_computer_p2 = Computer(10, self.mute1)
         self.human_win = 'human'
         self.computer_win = 'computer'
         self.tied_game = 'tie'
@@ -82,17 +86,17 @@ class EmceeTestCase(unittest.TestCase):
 
     def test_end_game_returns_the_tied_game(self):
         test_yields = self.mc_human.end_game(self.tied_game)
-        whats_expected = self.signer.show(self.signer.tie)
+        whats_expected = self.mute1.show(self.mute1.tie)
         self.assertEqual(test_yields, whats_expected)
 
     def test_end_game_returns_the_computer_win(self):
         test_yields = self.mc_human.end_game(self.computer_win)
-        whats_expected = self.signer.show(self.signer.computer)
+        whats_expected = self.mute1.show(self.mute1.computer)
         self.assertEqual(test_yields, whats_expected)
 
     def test_end_game_returns_the_human_win(self):
         test_yields = self.mc_human.end_game(self.human_win)
-        whats_expected = self.signer.show(self.signer.human)
+        whats_expected = self.mute1.show(self.mute1.human)
         self.assertEqual(test_yields, whats_expected)
 
 if __name__ == '__main__':

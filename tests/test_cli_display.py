@@ -1,5 +1,5 @@
 import unittest
-from Scenery.announcer_chair import *
+from Scenery.cli_display import *
 
 class Helper(object):
      def get_methods(self, obj):
@@ -8,12 +8,12 @@ class Helper(object):
 class AnnouncerTestCase(unittest.TestCase):
 
     def setUp(self):
-        self.announcer = Announcer()
+        self.ui = Commandline_Interface()
         self.helper = Helper()
-        self.methodList = self.helper.get_methods(self.announcer)
+        self.methodList = self.helper.get_methods(self.ui)
 
     def test_announcer_is_a_class(self):
-        self.assertIsInstance(self.announcer, Announcer)
+        self.assertIsInstance(self.ui, Commandline_Interface)
 
     def test_announcer_has_a_show_method(self):
         self.assertTrue('show' in self.methodList)
