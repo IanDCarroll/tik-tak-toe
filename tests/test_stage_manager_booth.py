@@ -36,14 +36,14 @@ class DummyRef(Referee):
     def __init__(self, board_object):
         self.table_top = board_object
         self.judge = Judge(self.table_top)
-        self.announcer = MuteAnnouncer()
+        self.ui = MuteAnnouncer()
         self.carpenter = Carpenter()
         self.moves_taken = 0
 
 class DummyMC(Emcee):
     def __init__(self, board):
         self.table_top = board
-        self.announcer = MuteAnnouncer()
+        self.ui = MuteAnnouncer()
 
     def ask_human(self):
         return '1'

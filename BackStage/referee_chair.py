@@ -7,7 +7,7 @@ class Referee(object):
     def __init__(self, board_object):
         self.table_top = board_object
         self.judge = Judge(self.table_top)
-        self.announcer = Announcer()
+        self.ui = Announcer()
         self.carpenter = Carpenter()
         self.moves_taken = 0
 
@@ -29,4 +29,4 @@ class Referee(object):
 
     def show_board(self):
         board = self.carpenter.render_board(self.table_top.board)
-        return self.announcer.show(board)
+        return self.ui.show(board)

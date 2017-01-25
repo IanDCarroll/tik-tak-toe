@@ -6,7 +6,7 @@ from Scenery.announcer_chair import *
 class Player(Observer):
 
     def __init__(self, marker_code):
-        self.announcer = Announcer()
+        self.ui = Announcer()
         self.marker_code = marker_code
 
     def get_enemy_code(self):
@@ -45,8 +45,8 @@ class Human(Player):
 
     def get_good_input(self, board):
         try:
-            self.announcer.show(self.announcer.question)
-            return int(self.announcer.ask_human()) -1
+            self.ui.show(self.ui.question)
+            return int(self.ui.ask_human()) -1
         except(ValueError):
             return self.redo_move(board)
 
@@ -56,13 +56,13 @@ class Human(Player):
             
     def redo_move(self, board):
         self.add_a_strike()
-        self.announcer.show(self.announcer.bad_move)
+        self.ui.show(self.ui.bad_move)
         return self.choose(board)
 
     def add_a_strike(self):
         self.strikes += 1
         if self.strikes == 3:
-            self.announcer.show(self.announcer.strike_3)
+            self.ui.show(self.ui.strike_3)
             sys.exit()
 
     def reset_strikes(self):
@@ -87,7 +87,7 @@ class Computer(Player):
                  'enemy_code': self.get_enemy_code() }
 
     def announce_choice(self, choice):
-        pre = self.announcer.pre_choice
-        post = self.announcer.post_choice
+        pre = self.ui.pre_choice
+        post = self.ui.post_choice
         statement = pre + str(choice + 1) + post
-        self.announcer.show(statement)
+        self.ui.show(statement)

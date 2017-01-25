@@ -20,17 +20,17 @@ class MuteAnnouncerE(MuteAnnouncer1):
 class Mc_Human(Emcee):
     def __init__(self, board):
         self.table_top = board
-        self.announcer = MuteAnnouncer1()
+        self.ui = MuteAnnouncer1()
 
 class Mc_Computer(Mc_Human):
     def __init__(self, board):
         self.table_top = board
-        self.announcer = MuteAnnouncer2()
+        self.ui = MuteAnnouncer2()
 
 class Mc_Error(Mc_Human):
      def __init__(self, board):
         self.table_top = board
-        self.announcer = MuteAnnouncerE()   
+        self.ui = MuteAnnouncerE()   
 
 class EmceeTestCase(unittest.TestCase):
 

@@ -8,7 +8,7 @@ class MuteAnnouncer(Announcer):
 
 class MuteComputer(Computer):
       def __init__(self, marker_code):
-          self.announcer = MuteAnnouncer()
+          self.ui = MuteAnnouncer()
           self.marker_code = marker_code
 
 class ComputerTestCase(unittest.TestCase):
