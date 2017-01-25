@@ -1,6 +1,6 @@
 import unittest
 from BackStage.emcee_podium import *
-from Scenery.announcer_chair import *
+from Scenery.cli_display import *
 from OnStage.game_table import *
 
 class MuteUI_1(Commandline_Interface):

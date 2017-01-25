@@ -2,7 +2,7 @@ import unittest
 from BackStage.stage_manager_booth import *
 from BackStage.referee_chair import *
 from BackStage.emcee_podium import *
-from Scenery.announcer_chair import *
+from Scenery.cli_display import *
 from OnStage.player_chair import *
 from OnStage.game_table import *
 

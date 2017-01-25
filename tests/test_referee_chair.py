@@ -1,7 +1,7 @@
 import unittest
 from BackStage.referee_chair import *
 from BackStage.judge_pit import*
-from Scenery.announcer_chair import *
+from Scenery.cli_display import *
 from OnStage.player_chair import *
 from OnStage.game_table import *
 

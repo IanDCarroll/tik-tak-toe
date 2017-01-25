@@ -1,4 +1,3 @@
-from Scenery.announcer_chair import *
 from judge_pit import Judge
 
 class Referee(object):

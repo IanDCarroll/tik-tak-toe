@@ -1,7 +1,6 @@
 import sys
 from Training.observer_abilities import *
 from Training.cortex_3x3_caddy import *
-from Scenery.announcer_chair import *
 
 class Player(Observer):
 

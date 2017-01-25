@@ -1,7 +1,7 @@
 from emcee_podium import Emcee
 from referee_chair import Referee
 from OnStage.game_table import TableTop
-from Scenery.announcer_chair import Commandline_Interface
+from Scenery.cli_display import Commandline_Interface
 
 class StageManager(object):
 

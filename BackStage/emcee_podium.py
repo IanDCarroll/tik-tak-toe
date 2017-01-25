@@ -1,5 +1,4 @@
 import sys
-from Scenery.announcer_chair import *
 
 class Emcee(object):
 

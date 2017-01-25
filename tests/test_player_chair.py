@@ -1,6 +1,6 @@
 import unittest
 from OnStage.player_chair import *
-from Scenery.announcer_chair import *
+from Scenery.cli_display import *
 
 class MuteUI(Commandline_Interface):
       def show(self, text):
