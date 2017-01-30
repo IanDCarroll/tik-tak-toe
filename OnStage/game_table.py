@@ -10,6 +10,11 @@ class TableTop(object):
         self.player1 = Human(self.crosses, self.ui)
         self.player2 = Computer(self.noughts, self.ui)
         self.whos_turn = self.player1
+        self.start_of_game = True
+        self.tie = False
+        self.win = False
+        self.error = False
+        self.exit = False
 
     def give_computer_the_first_move(self):
         self.player1 = Computer(self.crosses, self.ui)
