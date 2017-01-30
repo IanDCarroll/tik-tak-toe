@@ -6,7 +6,10 @@ class TerminalInterface(Carpenter):
         self.board = board_object
 
     def refresh(self):
-        self.show(self.board)
+        self.show(self.track_changes)
+
+    def display(self):
+        return "a board and message"
 
     def show_computer_choice(self, choice):
         pre = self.pre_choice
