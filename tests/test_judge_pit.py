@@ -5,8 +5,7 @@ from OnStage.game_table import *
 class JudgeTestCase(unittest.TestCase):
 
     def setUp(self):
-        self.ui_stub = "ui"
-        self.table_top = TableTop(self.ui_stub)
+        self.table_top = TableTop()
         self.judge = Judge(self.table_top)
         self.mock_no_win_board = [1,10,1, 0,10,0, 1,0,10]
         self.mock_p1_win_board = [1,10,1, 1,10,0, 1,0,10]

@@ -26,10 +26,9 @@ class ErrorDummy(Human):
 class PlayerTestCase(unittest.TestCase):
 
     def setUp(self):
-        self.ui_stub = MuteUI("fake_board_object")
-        self.player = Player(1, self.ui_stub)
+        self.player = Player(1)
         self.computer = MuteComputer(1)
-        self.human = Dummy(10, self.ui_stub)
+        self.human = Dummy(10)
         self.error = ErrorDummy(10)
         self.mock_board = [1,10,1, 0,10,0, 1,0,10]
         self.computer_turn = [1,10,1, 1,10,0, 1,0,10]
