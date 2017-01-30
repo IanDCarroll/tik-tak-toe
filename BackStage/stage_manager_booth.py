@@ -6,8 +6,8 @@ from Scenery.cli_display import *
 class StageManager(object):
 
     def __init__(self):
-        self.ui = TerminalInterface("fake_board_object")
-        self.table_top = TableTop(self.ui)
+        self.table_top = TableTop()
+        self.ui = TerminalInterface(self.table_top)
         self.mc = Emcee(self.table_top, self.ui)
         self.ref = Referee(self.table_top, self.ui)
 
