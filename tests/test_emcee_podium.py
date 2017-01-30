@@ -3,7 +3,7 @@ from BackStage.emcee_podium import *
 from Scenery.cli_display import *
 from OnStage.game_table import *
 
-class MuteUI_1(Commandline_Interface):
+class MuteUI_1(TerminalInterface):
     def show(self, what_is_said):
         return what_is_said
     def ask_human(self):

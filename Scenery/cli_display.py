@@ -1,6 +1,6 @@
 from carpenter_shop import *
 
-class Commandline_Interface(Carpenter):
+class TerminalInterface(Carpenter):
 
     def show(self, text):
         print text

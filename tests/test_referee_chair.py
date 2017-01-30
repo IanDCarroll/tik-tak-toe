@@ -5,7 +5,7 @@ from Scenery.cli_display import *
 from OnStage.player_chair import *
 from OnStage.game_table import *
 
-class MuteUI(Commandline_Interface):
+class MuteUI(TerminalInterface):
     def show(self, statement):
         return statement
 

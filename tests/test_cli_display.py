@@ -8,12 +8,12 @@ class Helper(object):
 class AnnouncerTestCase(unittest.TestCase):
 
     def setUp(self):
-        self.ui = Commandline_Interface()
+        self.ui = TerminalInterface()
         self.helper = Helper()
         self.methodList = self.helper.get_methods(self.ui)
 
     def test_announcer_is_a_class(self):
-        self.assertIsInstance(self.ui, Commandline_Interface)
+        self.assertIsInstance(self.ui, TerminalInterface)
 
     def test_announcer_has_a_show_method(self):
         self.assertTrue('show' in self.methodList)

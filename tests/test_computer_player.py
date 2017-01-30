@@ -2,7 +2,7 @@ import unittest
 from OnStage.player_chair import Computer
 from Scenery.cli_display import *
 
-class MuteInterface(Commandline_Interface):
+class MuteInterface(TerminalInterface):
       def show(self, text):
           return text
 
