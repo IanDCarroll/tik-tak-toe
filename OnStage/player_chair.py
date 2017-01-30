@@ -75,7 +75,7 @@ class Computer(Player):
     def choose(self, board):
         intel = self.get_intelligence(board)
         choice = self.cortex.direct_move(intel)
-        self.display_choice(choice)
+        self.ui.show_computer_choice(choice)
         return choice
 
     def get_intelligence(self, board):
@@ -84,9 +84,3 @@ class Computer(Player):
                  'analysis': self.scan_board(board),
                  'marker_code': self.marker_code, 
                  'enemy_code': self.get_enemy_code() }
-
-    def display_choice(self, choice):
-        pre = self.ui.pre_choice
-        post = self.ui.post_choice
-        statement = pre + str(choice + 1) + post
-        self.ui.show(statement)
