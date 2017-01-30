@@ -41,7 +41,7 @@ class DummyRef(Referee):
 class RefereeTestCase(unittest.TestCase):
 
     def setUp(self):
-        self.ui = MuteUI()
+        self.ui = MuteUI("fake_board_object")
         self.table_top = DummyTable(self.ui)
         self.ref = DummyRef(self.table_top, self.ui)
         self.first_move_board = [1,0,0, 0,0,0, 0,0,0]

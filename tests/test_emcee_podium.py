@@ -20,24 +20,24 @@ class MuteUI_E(MuteUI_1):
 class Mc_Human(Emcee):
     def __init__(self, board):
         self.table_top = board
-        self.ui = MuteUI_1()
+        self.ui = MuteUI_1("fake_board_object")
 
 class Mc_Computer(Mc_Human):
     def __init__(self, board):
         self.table_top = board
-        self.ui = MuteUI_2()
+        self.ui = MuteUI_2("fake_board_object")
 
 class Mc_Error(Mc_Human):
      def __init__(self, board):
         self.table_top = board
-        self.ui = MuteUI_E()   
+        self.ui = MuteUI_E("fake_board_object")
 
 class EmceeTestCase(unittest.TestCase):
 
     def setUp(self):
-        self.mute1 = MuteUI_1()
-        self.mute2 = MuteUI_2()
-        self.muteE = MuteUI_E()
+        self.mute1 = MuteUI_1("fake_board_object")
+        self.mute2 = MuteUI_2("fake_board_object")
+        self.muteE = MuteUI_E("fake_board_object")
         self.table_top1 = TableTop(self.mute1)
         self.table_top2 = TableTop(self.mute2)
         self.table_topE = TableTop(self.muteE)

@@ -8,7 +8,7 @@ class MuteUI(TerminalInterface):
 
 class MuteComputer(Computer):
       def __init__(self, marker_code):
-          self.ui = MuteUI()
+          self.ui = MuteUI("fake_board_object")
           self.marker_code = marker_code
 
 class Dummy(Human):
@@ -17,7 +17,7 @@ class Dummy(Human):
 
 class ErrorDummy(Human):
       def __init__(self, marker_code):
-          self.ui = MuteUI()
+          self.ui = MuteUI("fake_board_object")
           self.marker_code = marker_code
 
       def get_good_input(self, board):
@@ -26,7 +26,7 @@ class ErrorDummy(Human):
 class PlayerTestCase(unittest.TestCase):
 
     def setUp(self):
-        self.ui_stub = MuteUI()
+        self.ui_stub = MuteUI("fake_board_object")
         self.player = Player(1, self.ui_stub)
         self.computer = MuteComputer(1)
         self.human = Dummy(10, self.ui_stub)

@@ -2,6 +2,12 @@ from carpenter_shop import *
 
 class TerminalInterface(Carpenter):
 
+    def __init__(self, board_object):
+        self.board = board_object
+
+    def refresh(self):
+        self.show(self.board)
+
     def show_computer_choice(self, choice):
         pre = self.pre_choice
         post = self.post_choice

@@ -50,7 +50,7 @@ class DummyMC(Emcee):
 
 class DummySM(StageManager):
     def __init__(self):
-        self.ui = MuteUI()
+        self.ui = MuteUI("fake_board_object")
         self.table_top = DummyTable(self.ui)
         self.mc = DummyMC(self.table_top, self.ui)
         self.ref = DummyRef(self.table_top, self.ui)
@@ -59,7 +59,7 @@ class StageManagerTestCase(unittest.TestCase):
 
     def setUp(self):
         self.stage_manager = DummySM()
-        self.ui = MuteUI()
+        self.ui = MuteUI("fake_board_object")
 
     def test_stage_manager_can_call_the_show(self):
         game_yields = self.stage_manager.play_game()

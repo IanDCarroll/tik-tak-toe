@@ -8,7 +8,7 @@ class MuteInterface(TerminalInterface):
 
 class MuteComputer(Computer):
       def __init__(self, marker_code):
-          self.ui = MuteInterface()
+          self.ui = MuteInterface("fake_board_object")
           self.marker_code = marker_code
 
 class ComputerTestCase(unittest.TestCase):

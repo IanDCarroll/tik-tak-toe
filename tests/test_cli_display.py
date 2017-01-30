@@ -8,7 +8,7 @@ class Helper(object):
 class AnnouncerTestCase(unittest.TestCase):
 
     def setUp(self):
-        self.ui = TerminalInterface()
+        self.ui = TerminalInterface("fake_board_object")
         self.helper = Helper()
         self.methodList = self.helper.get_methods(self.ui)
 
