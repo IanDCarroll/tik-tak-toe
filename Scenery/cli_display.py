@@ -6,7 +6,7 @@ class TerminalInterface(Carpenter):
         self.board = board_object
 
     def refresh(self):
-        self.show(self.track_changes)
+        print self.track_changes
 
     def display(self):
         return "a board and message"
@@ -17,7 +17,7 @@ class TerminalInterface(Carpenter):
         statement = pre + str(choice + 1) + post
         self.show(statement)
 
-    def show(self, text):
+    def show(self, text): # to be deleted
         print text
 
     def ask_human(self):
