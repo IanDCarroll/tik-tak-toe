@@ -44,7 +44,7 @@ class Human(Player):
 
     def get_good_input(self, board):
         try:
-            return int(raw_input("What space? > ")) -1
+            return int(self.ui.ask_human()) -1
         except(ValueError):
             return self.redo_move(board)
 
