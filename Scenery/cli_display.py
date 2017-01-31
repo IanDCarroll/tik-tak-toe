@@ -3,7 +3,7 @@ from carpenter_shop import *
 class TerminalInterface(Carpenter):
 
     def __init__(self, board_object):
-        self.board = board_object
+        self.table_top = board_object
 
     def refresh(self):
         print self.display()
