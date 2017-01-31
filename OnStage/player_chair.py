@@ -5,6 +5,7 @@ from Training.cortex_3x3_caddy import *
 class Player(Observer):
 
     def __init__(self, marker_code):
+        self.ui = None
         self.marker_code = marker_code
 
     def get_enemy_code(self):

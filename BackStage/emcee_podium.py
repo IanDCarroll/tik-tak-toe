@@ -2,8 +2,8 @@ import sys
 
 class Emcee(object):
 
-    def __init__(self, board_object, user_interface):
-        self.table_top = board_object
+    def __init__(self, table_top, user_interface):
+        self.table_top = table_top
         self.ui = user_interface
 
     strikes = 0
@@ -12,8 +12,13 @@ class Emcee(object):
         self.ui.show(self.ui.start)
         self.ui.show(self.ui.select)
         choice = self.get_choice()
-        if choice == '2':
+        if choice == '1':
+           self.table_top.player1.ui = self.ui
+           self.table_top.player2.ui = self.ui
+        elif choice == '2':
            self.table_top.give_computer_the_first_move()
+           self.table_top.player1.ui = self.ui
+           self.table_top.player2.ui = self.ui
 
     def get_choice(self):
         choice = self.ui.ask_human()
