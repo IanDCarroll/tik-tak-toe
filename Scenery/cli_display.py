@@ -6,7 +6,7 @@ class TerminalInterface(Carpenter):
         self.board = board_object
 
     def refresh(self):
-        print self.track_changes
+        print self.display()
 
     def display(self):
         return "a board and message"
