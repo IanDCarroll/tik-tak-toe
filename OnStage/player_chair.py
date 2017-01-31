@@ -4,8 +4,7 @@ from Training.cortex_3x3_caddy import *
 
 class Player(Observer):
 
-    def __init__(self, marker_code, user_interface):
-        self.ui = user_interface
+    def __init__(self, marker_code):
         self.marker_code = marker_code
 
     def get_enemy_code(self):
@@ -44,8 +43,7 @@ class Human(Player):
 
     def get_good_input(self, board):
         try:
-            self.ui.show(self.ui.question)
-            return int(self.ui.ask_human()) -1
+            return int(raw_input("What space? > ")) -1
         except(ValueError):
             return self.redo_move(board)
 
@@ -55,13 +53,13 @@ class Human(Player):
             
     def redo_move(self, board):
         self.add_a_strike()
-        self.ui.show(self.ui.bad_move)
+        # This should happen: TableTop.error = True
         return self.choose(board)
 
     def add_a_strike(self):
         self.strikes += 1
         if self.strikes == 3:
-            self.ui.show(self.ui.strike_3)
+            # this should happen: TableTop.exit = True
             sys.exit()
 
     def reset_strikes(self):
@@ -75,7 +73,6 @@ class Computer(Player):
     def choose(self, board):
         intel = self.get_intelligence(board)
         choice = self.cortex.direct_move(intel)
-        self.display_choice(choice)
         return choice
 
     def get_intelligence(self, board):
@@ -84,9 +81,3 @@ class Computer(Player):
                  'analysis': self.scan_board(board),
                  'marker_code': self.marker_code, 
                  'enemy_code': self.get_enemy_code() }
-
-    def display_choice(self, choice):
-        pre = self.ui.pre_choice
-        post = self.ui.post_choice
-        statement = pre + str(choice + 1) + post
-        self.ui.show(statement)

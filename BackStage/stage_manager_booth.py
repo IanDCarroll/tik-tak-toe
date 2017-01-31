@@ -1,13 +1,13 @@
-from emcee_podium import Emcee
-from referee_chair import Referee
-from OnStage.game_table import TableTop
-from Scenery.cli_display import Commandline_Interface
+from emcee_podium import *
+from referee_chair import *
+from OnStage.game_table import *
+from Scenery.cli_display import *
 
 class StageManager(object):
 
     def __init__(self):
-        self.ui = Commandline_Interface()
-        self.table_top = TableTop(self.ui)
+        self.table_top = TableTop()
+        self.ui = TerminalInterface(self.table_top)
         self.mc = Emcee(self.table_top, self.ui)
         self.ref = Referee(self.table_top, self.ui)
 

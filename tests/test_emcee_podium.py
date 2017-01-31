@@ -3,7 +3,7 @@ from BackStage.emcee_podium import *
 from Scenery.cli_display import *
 from OnStage.game_table import *
 
-class MuteUI_1(Commandline_Interface):
+class MuteUI_1(TerminalInterface):
     def show(self, what_is_said):
         return what_is_said
     def ask_human(self):
@@ -20,34 +20,34 @@ class MuteUI_E(MuteUI_1):
 class Mc_Human(Emcee):
     def __init__(self, board):
         self.table_top = board
-        self.ui = MuteUI_1()
+        self.ui = MuteUI_1("fake_board_object")
 
 class Mc_Computer(Mc_Human):
     def __init__(self, board):
         self.table_top = board
-        self.ui = MuteUI_2()
+        self.ui = MuteUI_2("fake_board_object")
 
 class Mc_Error(Mc_Human):
      def __init__(self, board):
         self.table_top = board
-        self.ui = MuteUI_E()   
+        self.ui = MuteUI_E("fake_board_object")
 
 class EmceeTestCase(unittest.TestCase):
 
     def setUp(self):
-        self.mute1 = MuteUI_1()
-        self.mute2 = MuteUI_2()
-        self.muteE = MuteUI_E()
-        self.table_top1 = TableTop(self.mute1)
-        self.table_top2 = TableTop(self.mute2)
-        self.table_topE = TableTop(self.muteE)
+        self.mute1 = MuteUI_1("fake_board_object")
+        self.mute2 = MuteUI_2("fake_board_object")
+        self.muteE = MuteUI_E("fake_board_object")
+        self.table_top1 = TableTop()
+        self.table_top2 = TableTop()
+        self.table_topE = TableTop()
         self.mc_human = Mc_Human(self.table_top1)
         self.mc_computer = Mc_Computer(self.table_top2)
         self.mc_error = Mc_Error(self.table_topE)
-        self.a_human_p1 = Human(1, self.mute1)
-        self.a_human_p2 = Human(10, self.mute1)
-        self.a_computer_p1 = Computer(1, self.mute1)
-        self.a_computer_p2 = Computer(10, self.mute1)
+        self.a_human_p1 = Human(1)
+        self.a_human_p2 = Human(10)
+        self.a_computer_p1 = Computer(1)
+        self.a_computer_p2 = Computer(10)
         self.human_win = 'human'
         self.computer_win = 'computer'
         self.tied_game = 'tie'

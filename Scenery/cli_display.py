@@ -1,8 +1,23 @@
 from carpenter_shop import *
 
-class Commandline_Interface(Carpenter):
+class TerminalInterface(Carpenter):
 
-    def show(self, text):
+    def __init__(self, board_object):
+        self.board = board_object
+
+    def refresh(self):
+        print self.track_changes
+
+    def display(self):
+        return "a board and message"
+
+    def show_computer_choice(self, choice):
+        pre = self.pre_choice
+        post = self.post_choice
+        statement = pre + str(choice + 1) + post
+        self.show(statement)
+
+    def show(self, text): # to be deleted
         print text
 
     def ask_human(self):

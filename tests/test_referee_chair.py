@@ -5,7 +5,7 @@ from Scenery.cli_display import *
 from OnStage.player_chair import *
 from OnStage.game_table import *
 
-class MuteUI(Commandline_Interface):
+class MuteUI(TerminalInterface):
     def show(self, statement):
         return statement
 
@@ -16,18 +16,17 @@ class DummyComp(Player):
     name = 'computer'
 
 class DummyTable(TableTop):
-    def __init__(self, user_interface):
+    def __init__(self):
         self.board = [0,0,0, 0,0,0, 0,0,0]
         self.noughts = 10
         self.crosses = 1
-        self.ui = user_interface
-        self.player1 = DummyHuman(self.crosses, self.ui)
-        self.player2 = DummyComp(self.noughts, self.ui)
+        self.player1 = DummyHuman(self.crosses)
+        self.player2 = DummyComp(self.noughts)
         self.whos_turn = self.player1
 
     def give_computer_the_first_move(self):
-        self.player1 = DummyComp(self.crosses, self.ui)
-        self.player2 = DummyHuman(self.noughts, self.ui)
+        self.player1 = DummyComp(self.crosses)
+        self.player2 = DummyHuman(self.noughts)
         self.whos_turn = self.player1
 
 class DummyRef(Referee):
@@ -41,8 +40,8 @@ class DummyRef(Referee):
 class RefereeTestCase(unittest.TestCase):
 
     def setUp(self):
-        self.ui = MuteUI()
-        self.table_top = DummyTable(self.ui)
+        self.ui = MuteUI("fake_board_object")
+        self.table_top = DummyTable()
         self.ref = DummyRef(self.table_top, self.ui)
         self.first_move_board = [1,0,0, 0,0,0, 0,0,0]
         self.won_board = [1,10,1, 10,1,10, 1,0,0] 

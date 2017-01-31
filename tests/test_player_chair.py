@@ -2,13 +2,13 @@ import unittest
 from OnStage.player_chair import *
 from Scenery.cli_display import *
 
-class MuteUI(Commandline_Interface):
+class MuteUI(TerminalInterface):
       def show(self, text):
           return text
 
 class MuteComputer(Computer):
       def __init__(self, marker_code):
-          self.ui = MuteUI()
+          self.ui = MuteUI("fake_board_object")
           self.marker_code = marker_code
 
 class Dummy(Human):
@@ -17,7 +17,7 @@ class Dummy(Human):
 
 class ErrorDummy(Human):
       def __init__(self, marker_code):
-          self.ui = MuteUI()
+          self.ui = MuteUI("fake_board_object")
           self.marker_code = marker_code
 
       def get_good_input(self, board):
@@ -26,10 +26,9 @@ class ErrorDummy(Human):
 class PlayerTestCase(unittest.TestCase):
 
     def setUp(self):
-        self.ui_stub = MuteUI()
-        self.player = Player(1, self.ui_stub)
+        self.player = Player(1)
         self.computer = MuteComputer(1)
-        self.human = Dummy(10, self.ui_stub)
+        self.human = Dummy(10)
         self.error = ErrorDummy(10)
         self.mock_board = [1,10,1, 0,10,0, 1,0,10]
         self.computer_turn = [1,10,1, 1,10,0, 1,0,10]
