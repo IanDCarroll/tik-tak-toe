@@ -8,6 +8,8 @@ from OnStage.game_table import *
 class MuteUI(TerminalInterface):
     def show(self, statement):
         return statement
+    def refresh(self):
+        return self.display()
 
 class DummyHuman(Player):
     name = 'human'
@@ -40,8 +42,8 @@ class DummyRef(Referee):
 class RefereeTestCase(unittest.TestCase):
 
     def setUp(self):
-        self.ui = MuteUI("fake_board_object")
-        self.table_top = DummyTable()
+        self.table_top = DummyTable() 
+        self.ui = MuteUI(self.table_top)
         self.ref = DummyRef(self.table_top, self.ui)
         self.first_move_board = [1,0,0, 0,0,0, 0,0,0]
         self.won_board = [1,10,1, 10,1,10, 1,0,0] 
@@ -68,9 +70,3 @@ class RefereeTestCase(unittest.TestCase):
         self.ref.take_a_turn()
         test_yields = self.ref.table_top.board
         self.assertEqual(test_yields, self.first_move_board)
-
-    def test_show_board_shows_the_board(self):
-        board = self.ui.render_board(self.table_top.board)
-        expected = self.ui.show(board)
-        test_yields = self.ref.show_board()
-        self.assertEqual(test_yields, expected)

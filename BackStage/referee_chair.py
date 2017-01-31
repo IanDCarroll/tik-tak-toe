@@ -9,7 +9,7 @@ class Referee(object):
         self.moves_taken = 0
 
     def facilitate_turns(self):
-        self.show_board()
+        self.ui.refresh()
         winner = self.judge.check_for_winner()
         if winner:
            return winner
@@ -23,7 +23,3 @@ class Referee(object):
         self.table_top.whos_turn.move(self.table_top.board)
         self.moves_taken += 1
         self.table_top.give_next_player_a_go()
-
-    def show_board(self):
-        board = self.ui.render_board(self.table_top.board)
-        return self.ui.show(board)

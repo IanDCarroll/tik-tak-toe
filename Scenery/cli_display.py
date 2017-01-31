@@ -9,7 +9,9 @@ class TerminalInterface(Carpenter):
         print self.display()
 
     def display(self):
-        return "a board and message"
+        board = self.render_board(self.table_top.board)
+        message = "message"
+        return board + message
 
     def show_computer_choice(self, choice):
         pre = self.pre_choice

@@ -9,6 +9,8 @@ from OnStage.game_table import *
 class MuteUI(TerminalInterface):
     def show(self, statement):
         return statement
+    def refresh(self):
+        return self.display()
     def ask_human(self):
         return '1'
 
@@ -49,8 +51,8 @@ class DummyMC(Emcee):
 
 class DummySM(StageManager):
     def __init__(self):
-        self.ui = MuteUI("fake_board_object")
         self.table_top = DummyTable()
+        self.ui = MuteUI(self.table_top)
         self.mc = DummyMC(self.table_top, self.ui)
         self.ref = DummyRef(self.table_top, self.ui)
 
