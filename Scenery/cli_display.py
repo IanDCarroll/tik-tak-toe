@@ -18,13 +18,13 @@ class TerminalInterface(Carpenter):
             self.table_top.error = False
             display = self.bad_move
         elif self.table_top.tie == True:
-            display = board + self.tie
+            display = board + self.new_line + self.tie
         elif self.table_top.win == True:
-            display = board + self.show_winner()
+            display = board + self.new_line + self.show_winner()
         elif self.table_top.exit == True:
             display = self.strike_3
         else:
-            display = board + self.report_move()
+            display = board + self.new_line + self.report_move()
         return display
 
     def show_winner(self):
