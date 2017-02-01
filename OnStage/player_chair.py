@@ -35,9 +35,9 @@ class Human(Player):
     strikes = 0
 
     def choose(self, table_top):
-        choice = self.get_good_input(table_top.board)
+        choice = self.get_good_input(table_top)
         if self.check_conscience(choice, table_top.board):
-            return self.redo_move(table_top.board)
+            return self.redo_move(table_top)
         else:
             self.reset_strikes()
             return choice
@@ -52,15 +52,17 @@ class Human(Player):
         if choice not in self.get_legal_moves(board):
             return True
             
-    def redo_move(self, board):
-        self.add_a_strike()
-        # This should happen: TableTop.error = True
-        return self.choose(board)
+    def redo_move(self, table_top):
+        self.add_a_strike(table_top)
+        table_top.error = True
+        self.ui.refresh()
+        return self.choose(table_top)
 
-    def add_a_strike(self):
+    def add_a_strike(self, table_top):
         self.strikes += 1
         if self.strikes == 3:
-            # this should happen: TableTop.exit = True
+            table_top.exit = True
+            self.ui.refresh()
             sys.exit()
 
     def reset_strikes(self):
