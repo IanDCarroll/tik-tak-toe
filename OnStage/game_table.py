@@ -9,7 +9,6 @@ class TableTop(object):
         self.player1 = Human(self.crosses)
         self.player2 = Computer(self.noughts)
         self.whos_turn = self.player1
-        self.last_move = 0
         self.start_of_game = True
         self.tie = False
         self.win = False

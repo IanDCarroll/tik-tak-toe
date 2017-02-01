@@ -40,7 +40,6 @@ class Human(Player):
             return self.redo_move(table_top.board)
         else:
             self.reset_strikes()
-            table_top.last_move = choice
             return choice
 
     def get_good_input(self, board):
@@ -75,7 +74,6 @@ class Computer(Player):
     def choose(self, table_top):
         intel = self.get_intelligence(table_top.board)
         choice = self.cortex.direct_move(intel)
-        table_top.last_move = choice
         return choice
 
     def get_intelligence(self, board):

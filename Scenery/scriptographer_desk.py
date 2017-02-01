@@ -20,8 +20,7 @@ Open an issue at https://github.com/IanDCarroll/xox/issues/new
 so it can be corrected immediately.
 """
     question = "Which square do you choose before your inevitable failure to win?"
-    pre_choice = "The computer chooses square "
-    post_choice = ", a perfect move."
+    computer_move = "The computer makes another perfect move."
     bad_move = "That's not a legal move, human. Try again."
     strike_3 = """Look, if you're not going to take this seriously, I'm out.
 """

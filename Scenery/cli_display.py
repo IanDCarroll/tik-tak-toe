@@ -24,8 +24,7 @@ class TerminalInterface(Carpenter):
         elif self.table_top.exit == True:
             display = self.strike_3
         else:
-            move = self.table_top.last_move
-            display = board + self.report_move(move)
+            display = board + self.report_move()
         return display
 
     def show_winner(self):
@@ -33,9 +32,9 @@ class TerminalInterface(Carpenter):
             return self.computer
         return self.human
 
-    def report_move(self, move):
+    def report_move(self):
         if self.table_top.whos_turn.name == 'computer':
-            return self.pre_choice + str(move + 1) + self.post_choice
+            return self.computer_move
         return self.question
 
     def show_computer_choice(self, choice):

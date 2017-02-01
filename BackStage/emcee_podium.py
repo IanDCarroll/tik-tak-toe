@@ -33,8 +33,8 @@ class Emcee(object):
 
     def end_game(self, winner):
         if winner == 'tie':
-            return self.ui.show(self.ui.tie)
-        elif winner == 'computer':
-            return self.ui.show(self.ui.computer)
-        elif winner == 'human':
-            return self.ui.show(self.ui.human)
+            self.table_top.tie = True
+            return self.ui.refresh()
+        elif winner == 'computer' or winner == 'human':
+            self.table_top.win = True
+            return self.ui.refresh()
