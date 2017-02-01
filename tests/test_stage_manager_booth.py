@@ -28,6 +28,11 @@ class DummyTable(TableTop):
         self.player1 = DummyHuman(self.crosses)
         self.player2 = DummyComp(self.noughts)
         self.whos_turn = self.player1
+        self.start_of_game = True
+        self.tie = False
+        self.win = False
+        self.error = False
+        self.exit = False
 
     def give_computer_the_first_move(self):
         self.player1 = DummyComp(self.crosses)
@@ -64,5 +69,5 @@ class StageManagerTestCase(unittest.TestCase):
 
     def test_stage_manager_can_call_the_show(self):
         game_yields = self.stage_manager.play_game()
-        expected = self.ui.human
+        expected = '\n\x1b[91m X \x1b[0m|\x1b[34m O \x1b[0m|\x1b[91m X \x1b[0m\n---+---+---\n\x1b[34m O \x1b[0m|\x1b[91m X \x1b[0m|\x1b[34m O \x1b[0m\n---+---+---\n\x1b[91m X \x1b[0m|\x1b[90m 8 \x1b[0m|\x1b[90m 9 \x1b[0m\n\nWhat?! You Won? Impossible!\nOpen an issue at https://github.com/IanDCarroll/xox/issues/new \nso it can be corrected immediately.\n'
         self.assertEqual(game_yields, expected)

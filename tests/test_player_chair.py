@@ -1,5 +1,6 @@
 import unittest
 from OnStage.player_chair import *
+from OnStage.game_table import *
 from Scenery.cli_display import *
 
 class MuteUI(TerminalInterface):
@@ -17,7 +18,7 @@ class Dummy(Human):
 
 class ErrorDummy(Human):
       def __init__(self, marker_code):
-          self.ui = MuteUI("fake_board_object")
+          self.ui = None
           self.marker_code = marker_code
 
       def get_good_input(self, board):
@@ -26,6 +27,7 @@ class ErrorDummy(Human):
 class PlayerTestCase(unittest.TestCase):
 
     def setUp(self):
+        self.table_top = TableTop()
         self.player = Player(1)
         self.computer = MuteComputer(1)
         self.human = Dummy(10)
@@ -39,11 +41,13 @@ class PlayerTestCase(unittest.TestCase):
         self.assertEqual(test, [3,5,7])
 
     def test_that_computer_player_can_make_a_move(self):
-        test = self.computer.move(self.mock_board)
+        self.table_top.board = self.mock_board
+        test = self.computer.move(self.table_top)
         self.assertEqual(test, self.computer_turn)
 
     def test_that_human_can_make_a_move(self):
-        test = self.human.move(self.mock_board)
+        self.table_top.board = self.mock_board
+        test = self.human.move(self.table_top)
         self.assertEqual(test, self.human_turn)
 
     def test_that_human_can_only_make_legal_moves(self):
@@ -65,8 +69,10 @@ class PlayerTestCase(unittest.TestCase):
         self.assertEqual(self.human.get_enemy_code(), 1)
 
     def test_player_cant_make_infinite_bad_moves(self):
+        self.table_top.board = self.mock_board
+        self.error.ui = MuteUI(self.table_top)
         with self.assertRaises(SystemExit):
-            self.error.choose(self.mock_board)
+            self.error.choose(self.table_top)
 
 if __name__ == '__main__':
     unittest.main()

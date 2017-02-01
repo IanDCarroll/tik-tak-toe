@@ -6,6 +6,8 @@ from OnStage.game_table import *
 class MuteUI_1(TerminalInterface):
     def show(self, what_is_said):
         return what_is_said
+    def refresh(self):
+        return self.display()
     def ask_human(self):
         return '1'
 
@@ -20,17 +22,17 @@ class MuteUI_E(MuteUI_1):
 class Mc_Human(Emcee):
     def __init__(self, board):
         self.table_top = board
-        self.ui = MuteUI_1("fake_board_object")
+        self.ui = MuteUI_1(self.table_top)
 
 class Mc_Computer(Mc_Human):
     def __init__(self, board):
         self.table_top = board
-        self.ui = MuteUI_2("fake_board_object")
+        self.ui = MuteUI_2(self.table_top)
 
 class Mc_Error(Mc_Human):
      def __init__(self, board):
         self.table_top = board
-        self.ui = MuteUI_E("fake_board_object")
+        self.ui = MuteUI_E(self.table_top)
 
 class EmceeTestCase(unittest.TestCase):
 
@@ -83,21 +85,6 @@ class EmceeTestCase(unittest.TestCase):
     def test_get_choice_human_says_ni(self):
         with self.assertRaises(SystemExit):
             self.mc_error.get_choice()
-
-    def test_end_game_returns_the_tied_game(self):
-        test_yields = self.mc_human.end_game(self.tied_game)
-        whats_expected = self.mute1.show(self.mute1.tie)
-        self.assertEqual(test_yields, whats_expected)
-
-    def test_end_game_returns_the_computer_win(self):
-        test_yields = self.mc_human.end_game(self.computer_win)
-        whats_expected = self.mute1.show(self.mute1.computer)
-        self.assertEqual(test_yields, whats_expected)
-
-    def test_end_game_returns_the_human_win(self):
-        test_yields = self.mc_human.end_game(self.human_win)
-        whats_expected = self.mute1.show(self.mute1.human)
-        self.assertEqual(test_yields, whats_expected)
 
 if __name__ == '__main__':
     unittest.main()
