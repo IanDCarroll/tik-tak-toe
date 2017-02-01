@@ -23,8 +23,6 @@ class TerminalInterface(Carpenter):
             display = board + self.show_winner()
         elif self.table_top.exit == True:
             display = self.strike_3
-        elif self.table_top.board == [0,0,0,0,0,0,0,0,0]:
-            display = board
         else:
             move = self.table_top.last_move
             display = board + self.report_move(move)
