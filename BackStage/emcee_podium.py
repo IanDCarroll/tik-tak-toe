@@ -9,8 +9,7 @@ class Emcee(object):
     strikes = 0
 
     def choose_who_goes_first(self):
-        self.ui.show(self.ui.start)
-        self.ui.show(self.ui.select)
+        self.ui.refresh()
         choice = self.get_choice()
         if choice == '1':
            self.table_top.player1.ui = self.ui

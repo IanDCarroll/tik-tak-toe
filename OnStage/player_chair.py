@@ -13,13 +13,13 @@ class Player(Observer):
             return 1
         return 10
 
-    def move(self, board):
-        choice = self.choose(board)
-        board[choice] = self.marker_code
-        return board
+    def move(self, table_top):
+        choice = self.choose(table_top)
+        table_top.board[choice] = self.marker_code
+        return table_top.board
 
-    def choose(self, board):
-        options = self.get_legal_moves(board)
+    def choose(self, table_top):
+        options = self.get_legal_moves(table_top.board)
         return options[0]
 
     def get_legal_moves(self, board):
@@ -34,12 +34,13 @@ class Human(Player):
     name = 'human'
     strikes = 0
 
-    def choose(self, board):
-        choice = self.get_good_input(board)
-        if self.check_conscience(choice, board):
-            return self.redo_move(board)
+    def choose(self, table_top):
+        choice = self.get_good_input(table_top.board)
+        if self.check_conscience(choice, table_top.board):
+            return self.redo_move(table_top.board)
         else:
             self.reset_strikes()
+            table_top.last_move = choice
             return choice
 
     def get_good_input(self, board):
@@ -71,9 +72,10 @@ class Computer(Player):
     name = 'computer'
     cortex = Cortex_3x3()
 
-    def choose(self, board):
-        intel = self.get_intelligence(board)
+    def choose(self, table_top):
+        intel = self.get_intelligence(table_top.board)
         choice = self.cortex.direct_move(intel)
+        table_top.last_move = choice
         return choice
 
     def get_intelligence(self, board):
