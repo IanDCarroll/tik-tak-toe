@@ -25,5 +25,5 @@ class TerminalInterfaceTestCase(unittest.TestCase):
         self.assertTrue('refresh' in self.methodList)
 
     def test_display_renders_accurate_displays(self):
-        test = self.ui.display()
-        self.assertEqual(test, self.start_message)
+        test_start = self.ui.display()
+        self.assertEqual(test_start, self.start_message)
