@@ -14,6 +14,7 @@ class TerminalInterfaceTestCase(unittest.TestCase):
         self.helper = Helper()
         self.methodList = self.helper.get_methods(self.ui)
         self.start_message = '\nWelcome to XOX, \na Noughts and Crosses Game you can never win \nno matter how hard you try.\n\nType 1 to go first and not win, or \nType 2 to go second and not win.'
+        self.error_message = 'That\'s not a legal move, human. Try again.'
 
     def test_terminalinterface_is_a_class(self):
         self.assertIsInstance(self.ui, TerminalInterface)
@@ -27,3 +28,6 @@ class TerminalInterfaceTestCase(unittest.TestCase):
     def test_display_renders_accurate_displays(self):
         test_start = self.ui.display()
         self.assertEqual(test_start, self.start_message)
+        self.table_top.error = True
+        test_error = self.ui.display()
+        self.assertEqual(test_error, self.error_message)
