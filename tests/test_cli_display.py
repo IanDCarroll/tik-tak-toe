@@ -18,5 +18,5 @@ class TerminalInterfaceTestCase(unittest.TestCase):
     def test_terminalinterface_has_an_ask_human_method(self):
         self.assertTrue('ask_human' in self.methodList)
 
-    def testterminalinterface_has_a_refresh_method(self):
+    def test_terminalinterface_has_a_refresh_method(self):
         self.assertTrue('refresh' in self.methodList)
