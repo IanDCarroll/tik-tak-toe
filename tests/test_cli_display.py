@@ -20,3 +20,6 @@ class TerminalInterfaceTestCase(unittest.TestCase):
 
     def test_terminalinterface_has_a_refresh_method(self):
         self.assertTrue('refresh' in self.methodList)
+
+    def test_display_renders_accurate_displays(self):
+        pass
