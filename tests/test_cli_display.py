@@ -13,6 +13,7 @@ class TerminalInterfaceTestCase(unittest.TestCase):
         self.ui = TerminalInterface(self.table_top)
         self.helper = Helper()
         self.methodList = self.helper.get_methods(self.ui)
+        self.start_message = '\nWelcome to XOX, \na Noughts and Crosses Game you can never win \nno matter how hard you try.\n\nType 1 to go first and not win, or \nType 2 to go second and not win.'
 
     def test_terminalinterface_is_a_class(self):
         self.assertIsInstance(self.ui, TerminalInterface)
@@ -24,4 +25,5 @@ class TerminalInterfaceTestCase(unittest.TestCase):
         self.assertTrue('refresh' in self.methodList)
 
     def test_display_renders_accurate_displays(self):
-        pass
+        test = self.ui.display()
+        self.assertEqual(test, self.start_message)
