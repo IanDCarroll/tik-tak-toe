@@ -15,9 +15,6 @@ class TerminalInterfaceTestCase(unittest.TestCase):
     def test_terminalinterface_is_a_class(self):
         self.assertIsInstance(self.ui, TerminalInterface)
 
-    def test_terminalinterface_has_a_show_method(self):
-        self.assertTrue('show' in self.methodList)
-
     def test_terminalinterface_has_an_ask_human_method(self):
         self.assertTrue('ask_human' in self.methodList)
 
