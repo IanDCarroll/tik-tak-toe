@@ -4,8 +4,8 @@ from OnStage.game_table import *
 from Scenery.cli_display import *
 
 class MuteUI(TerminalInterface):
-      def show(self, text):
-          return text
+      def refresh(self):
+          pass
 
 class MuteComputer(Computer):
       def __init__(self, marker_code):
