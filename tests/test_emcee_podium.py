@@ -5,7 +5,7 @@ from OnStage.game_table import *
 
 class MuteUI_1(TerminalInterface):
     def refresh(self):
-        return self.display()
+        pass
     def ask_human(self):
         return '1'
 
