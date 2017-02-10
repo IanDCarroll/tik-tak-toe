@@ -1,5 +1,6 @@
 import unittest
 from Scenery.cli_display import *
+from OnStage.game_table import *
 
 class Helper(object):
      def get_methods(self, obj):
