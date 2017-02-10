@@ -9,7 +9,8 @@ class Helper(object):
 class TerminalInterfaceTestCase(unittest.TestCase):
 
     def setUp(self):
-        self.ui = TerminalInterface("fake_board_object")
+        self.table_top = TableTop()
+        self.ui = TerminalInterface(self.table_top)
         self.helper = Helper()
         self.methodList = self.helper.get_methods(self.ui)
 
