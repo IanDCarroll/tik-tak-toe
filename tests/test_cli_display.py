@@ -19,6 +19,7 @@ class TerminalInterfaceTestCase(unittest.TestCase):
         self.human_win_message = '\n\x1b[90m 1 \x1b[0m|\x1b[90m 2 \x1b[0m|\x1b[90m 3 \x1b[0m\n---+---+---\n\x1b[90m 4 \x1b[0m|\x1b[90m 5 \x1b[0m|\x1b[90m 6 \x1b[0m\n---+---+---\n\x1b[90m 7 \x1b[0m|\x1b[90m 8 \x1b[0m|\x1b[90m 9 \x1b[0m\n\nWhat?! You Won? Impossible!\nOpen an issue at https://github.com/IanDCarroll/xox/issues/new \nso it can be corrected immediately.\n'
         self.computer_win_message = '\n\x1b[90m 1 \x1b[0m|\x1b[90m 2 \x1b[0m|\x1b[90m 3 \x1b[0m\n---+---+---\n\x1b[90m 4 \x1b[0m|\x1b[90m 5 \x1b[0m|\x1b[90m 6 \x1b[0m\n---+---+---\n\x1b[90m 7 \x1b[0m|\x1b[90m 8 \x1b[0m|\x1b[90m 9 \x1b[0m\n\nThe computer has deftly exploited \nyour pathetic human weaknesses and won the game.\n'
         self.exit_message = 'Look, if you\'re not going to take this seriously, I\'m out.\n'
+        self.human_move_message = '\n\x1b[90m 1 \x1b[0m|\x1b[90m 2 \x1b[0m|\x1b[90m 3 \x1b[0m\n---+---+---\n\x1b[90m 4 \x1b[0m|\x1b[90m 5 \x1b[0m|\x1b[90m 6 \x1b[0m\n---+---+---\n\x1b[90m 7 \x1b[0m|\x1b[90m 8 \x1b[0m|\x1b[90m 9 \x1b[0m\n\nWhich square do you choose before your inevitable failure to win?'
 
     def test_terminalinterface_is_a_class(self):
         self.assertIsInstance(self.ui, TerminalInterface)
@@ -50,8 +51,14 @@ class TerminalInterfaceTestCase(unittest.TestCase):
         self.table_top.give_next_player_a_go()
         test_computer_win = self.ui.display()
         self.assertEqual(test_computer_win, self.computer_win_message)
+        self.table_top.give_next_player_a_go()
         self.table_top.win = False
 
         self.table_top.exit = True
         test_exit = self.ui.display()
         self.assertEqual(test_exit, self.exit_message)
+        self.table_top.exit = False
+
+        self.table_top.start_of_game = False
+        test_human_move = self.ui.display()
+        self.assertEqual(test_human_move, self.human_move_message)
