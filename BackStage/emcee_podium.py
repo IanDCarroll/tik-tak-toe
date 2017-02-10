@@ -24,10 +24,12 @@ class Emcee(object):
         if choice == '1' or choice == '2':
             return choice
         elif self.strikes == 2:
-            self.ui.show(self.ui.strike_3)
+            self.table_top.exit = True
+            self.ui.refresh()
             sys.exit()
         else:
-            self.ui.show(self.ui.bad_move)
+            self.table_top.error = True
+            self.ui.refresh()
             self.strikes += 1
             return self.get_choice()
 

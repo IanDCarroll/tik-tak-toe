@@ -4,8 +4,6 @@ from Scenery.cli_display import *
 from OnStage.game_table import *
 
 class MuteUI_1(TerminalInterface):
-    def show(self, what_is_said):
-        return what_is_said
     def refresh(self):
         return self.display()
     def ask_human(self):
