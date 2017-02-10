@@ -28,6 +28,8 @@ class TerminalInterfaceTestCase(unittest.TestCase):
     def test_display_renders_accurate_displays(self):
         test_start = self.ui.display()
         self.assertEqual(test_start, self.start_message)
+        self.assertEqual(self.table_top.start_of_game, False)
         self.table_top.error = True
         test_error = self.ui.display()
         self.assertEqual(test_error, self.error_message)
+        self.assertEqual(self.table_top.error, False)
