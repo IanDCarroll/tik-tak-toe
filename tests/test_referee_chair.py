@@ -6,10 +6,8 @@ from OnStage.player_chair import *
 from OnStage.game_table import *
 
 class MuteUI(TerminalInterface):
-    def show(self, statement):
-        return statement
     def refresh(self):
-        return self.display()
+        pass
 
 class DummyHuman(Player):
     name = 'human'
