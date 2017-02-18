@@ -11,13 +11,12 @@ class Emcee(object):
     def choose_who_goes_first(self):
         self.ui.refresh()
         choice = self.get_choice()
-        if choice == '1':
-           self.table_top.player1.ui = self.ui
-           self.table_top.player2.ui = self.ui
-        elif choice == '2':
-           self.table_top.give_computer_the_first_move()
-           self.table_top.player1.ui = self.ui
-           self.table_top.player2.ui = self.ui
+        if choice == '2':
+            self.table_top.give_computer_the_first_move()
+            self.table_top.player1.ui = self.ui
+            self.table_top.player2.ui = self.ui
+        self.table_top.player1.ui = self.ui
+        self.table_top.player2.ui = self.ui
 
     def get_choice(self):
         choice = self.ui.ask_human()
